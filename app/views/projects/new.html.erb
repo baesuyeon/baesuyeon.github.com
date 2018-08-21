@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- 합쳐지고 최소화된 최신 CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        
+        <!-- 부가적인 테마 -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+        
+        <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="new.css">
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   <style>
+       @font-face 
+    {
+        font-family: 'MainFont';
+        src: url('/assets/gsc.ttf'); 
+    }
+    
+    body 
+    {
+        
+      font-family:'MainFont' ;
+    }
+        
+    </style>
+    </head>
+<!--최상단바 -->
+<body class="main_logo">
+        
+        <a class="gomain" href = "/projects">
+            <image src="/assets/4_home.png"></image>
+        </a>
+        
+<!--로고바 -->
+    <div class="title">
+        <center><h1>티 므 빌 디 잉</h1></center>
+    </div>
+<!--프로젝트 표시바 -->
+    <!--<div class="menu">-->
+    <!--        <div class="menu1">-->
+    <!--            <button type="button" class="btn btn-success btn-lg" style="text-decoration:none">-->
+    <!--                설계 중인 프로젝트-->
+    <!--            </button>-->
+    <!--        </div>-->
+    <!--        <div class="menu2">-->
+    <!--            <button type="button" class="btn btn-info btn-lg" style="text-decoration:none">-->
+    <!--                참가 중인 프로젝트-->
+    <!--            </button>-->
+    <!--        </div>-->
+    <!--        <div class="menu3">-->
+    <!--            <button type="button" class="btn btn-default btn-lg" style="text-decoration:none">-->
+    <!--                완료 프로젝트-->
+    <!--            </button>    -->
+    <!--        </div>-->
+    <!--</div>-->
+<!--퀘스트 창 -->
+    <div>
+        <div class="mold">
+            <form action = '/projects' method = "POST">
+                <!--프로젝트 이름-->
+                <input type = 'string' name = 'project_name' class="form-control" placeholder="프로젝트 제목" style="width:195px;height:45px; font-size:30x;"></input>
+                <input type = 'hidden', name = 'user_id', value = <%= current_user.id %> > </input>
+                <!--프로젝트 목표-->
+                <input type = 'text' name = 'project_content' class="form-goal" placeholder="프로젝트 목표" style="height:100px; font-size:18x;"></input>
+                <!--프로젝트 총인원수-->
+                <input type = 'integer' name = 'project_numofTotal' class="form-people_total" placeholder="프로젝트 참가 총 인원(숫자로 입력하세요!)" ></input>
+                <!--프로젝트 팀별인원수-->
+                <input type = 'integer' name = 'project_numofateam' class="form-people" placeholder="한 팀 인원(숫자로 입력하세요!)" ></input>
+                <!--프로젝트 마감날짜-->
+                <input type = 'string' name = 'project_deadline' class="form-deadline" placeholder="퀘스트 마감날짜" ></input>
+                
+                <input type = 'integer' name = 'project_numofjob' class="form-role" placeholder="역할 수"></input>
+                <h4>퀘스트에 필요한 역할</h4>
+                <!--즉 매니저가 한팀에 소속된 멤버들의 상세 역할을 정할 수 있습니다.-->
+                <input type = 'string' name = 'job1' class="form-role_detail" placeholder="역할 1"></input>
+                <input type = 'string' name = 'job2' class="form-role_detail" placeholder="역할 2"></input>
+                <input type = 'string' name = 'job3' class="form-role_detail" placeholder="역할 3"></input>
+                <input type = 'string' name = 'job4' class="form-role_detail" placeholder="역할 4"></input>
+                <input type = 'string' name = 'job5' class="form-role_detail" placeholder="역할 5"></input>
+                <input type = 'string' name = 'job6' class="form-role_detail" placeholder="역할 6"></input>
+                <div class="imgUPLOAD">이미지업로드 영역</div>
+                <!--<p>보상</p>-->
+                <!--    <p>-->
+                <!--        <input type = 'string' name = 'reward1' class="form-control" placeholder="예상 경험치" style="height:30px;">-->
+                <!--        </input>-->
+                <!--    </p>-->
+                <!--    <p>-->
+                <!--        <input type = 'string' name = 'reward2' class="form-control" placeholder="퀘스트 평가 평점이상일 시" style="height:30px;">-->
+                <!--        </input>-->
+                <!--    </p>-->
+                <!--    <p>-->
+                <!--        <input type = 'string' name = 'reward3' class="form-control" placeholder="다음 LV(여기 레벨)에 필요한 경험치" style="height:30px;">-->
+                <!--        </input>-->
+                <!--    </p>-->
+        
+        
+                
+                <input type = 'submit' value = '퀘스트 시작' class="btn"></input>
+        
+        
+        
+        
+        
+        </div>
+    </div>
+</body>
+</html>

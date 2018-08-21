@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body class="main_logo su">
+      <div >
+        <div class="su_top">
+          <h2>티므빌디잉의 계정을 입력해주세용</h2>
+        </div>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <br />
+            <div class="em">
+              <%= f.label :email, class: 'e_title'%>&nbsp;
+              
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'e_input'%>
+            </div>
+            <br />
+          
+            <div>
+              <%= f.label :password, class: 'e_title' %>&nbsp;
+              <%= f.password_field :password, autofocus: true, autocomplete: "off", class: 'e_input' %>
+            </div>
+            <br />
+          
+            <% if devise_mapping.rememberable? %>
+              <div>
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+              </div>
+            <% end %>
+            
+            <div>
+              <%= f.submit "로그인", class:"bttn" %>
+              
+              <br><br><br>
+            <p class="main_button">
+              <p>혹시라도 아직 회원이 아니라면?</p>
+            <button type="button" class="bttn_s" onclick="location.href='/users/sign_up'">회원 가입</a></button>
+            </p>
+            </div>
+            
+          <% end %>
+      </div>
+<%#= render "devise/shared/links" %>
+        
+       
+    </body>
+</html>

@@ -1,0 +1,93 @@
+역할 :      　
+<% for i in 0 .. (@numberofjob).to_i-1 do %>
+  　   **<%= @Jobs.find(@job[i]).content %>** 　　　　　　
+<% end %>
+<br>
+
+<% for i in 0..(@numberofgroup)-1 do %>
+    * 팀 <%= i+1 %> *
+    <br>
+    
+    [[
+    <% for j in 0..@numberofjob-1 do %>
+        <% if @results[j][i].present? %>
+            <% if @Users.find(@results[j][i]).present? %>
+                <% username = @Users.find(@results[j][i]).name %>
+                　　<%= username %>
+                
+                <!--<%# for k in 1..@numberofjob do %>-->
+                <!--    <%#= k %>순위 <%#= @Jobs.find(@arrs[@hash[@results[j][i]]][k]).content %> 지망|-->
+                <!--<%# end %>-->
+            
+                
+                <% if j != @arrs[@hash[@results[j][i]]][1] - @job[0] %>
+                    <% for k in 2..@numberofjob do %>
+                        <% if j == @arrs[@hash[@results[j][i]]][k] - @job[0]%>
+                            <% break %>
+                        <% end %>
+    |
+                    <% end %>
+                    
+                    <%= @Jobs.find(@arrs[@hash[@results[j][i]]][k]).content %> <%=k%>지망|
+                <% else %>
+                     <%= @Jobs.find(@arrs[@hash[@results[j][i]]][1]).content %> 1지망|
+                <% end %>
+                　　
+            <% end %>
+        <% end %>
+        
+    <% end %>
+    
+    
+    <% if @resulttemp[i].present? %>
+            <% if @Users.find(@resulttemp[i]).present? %>
+                <% username = @Users.find(@resulttemp[i]).name %>
+                <%= username %>
+                <%= @Jobs.find(@arrs[@hash [@resulttemp[i]] ][1]).content %> 1지망|　　
+            <% end %>
+    <% end %>
+    ]]
+    <br>
+<%end%>
+
+
+
+
+<br> <br> <br>
+
+<%  for i in 0..(@numberofjob.to_i)-1 do %>
+<%        for j in 0..(@numberofjob.to_i)-1 do %>
+              <!--print "wants[",i,"][",j,"] = ", @wants[i][j], "\n"-->
+              <%= @wants[i][j] %> ", " 
+<%        end %>
+        <br>
+<%    end %>
+    
+<br>
+   <% for i in 0..(@arrs.size-1) do %>
+    <%  for j in 0..(@numberofjob.to_i) do %>
+        <!--print "arrs[",i,"][",j,"] = ", @arrs[i][j], "\n"-->
+        <%= @arrs[i][j] %> ", "
+      <%end%>
+      <br>
+<%    end%>
+<br>
+
+<%= @numberofgroup %>
+
+<br>
+헿
+<br>
+
+<% for i in 0..(@numberofjob)-1 %>
+    <% for j in 0..(@numberofgroup.to_i)-1 %>
+         <%= @results[i][j] %>  
+    <% end%>
+    <br>
+<% end %>
+
+<% for i in 0..@total.to_i % @numperson.to_i-1 %>
+    <%= @resulttemp[i] %>
+<% end %>
+
+<br>

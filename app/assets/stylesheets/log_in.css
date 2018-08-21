@@ -1,0 +1,26 @@
+.su h2,p{
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+
+}
+
+.su{
+    text-align: center;
+    color: white;
+}
+
+.su_div{
+    text-align: center;
+}
+
+.su_text{
+    /*color: white;*/
+    color: #100b29;
+    
+    border-color: white;
+}
+
+.su_top{
+    
+    margin-top:10%;
+}
+

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html >
+    <head>
+        <!-- 합쳐지고 최소화된 최신 CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        
+        <!-- 부가적인 테마 -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+        
+        <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="new.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="show.css">   
+   <style>
+       
+     @font-face 
+    {
+        font-family: 'MainFont'; /* 폰트 패밀리 이름 주기*/
+        src: url('/assets/gsc.ttf'); /*폰트 파일 주소*/
+    }
+    
+    body 
+    {
+      color: black;
+      font-family:'MainFont' ;
+    }
+    </style>
+    </head>
+<body class="main_logo">
+    
+        <a class="gomain" href = "/projects">메인으로 가기</a>
+                
+    <div class="center">
+        <div class="img">
+            #프로젝트 이미지
+        </div>
+        <div class="title">
+            # <%= @project.name %>
+        </div>
+        
+            <div class="form1">
+        
+                
+                <p>프로젝트 내용 : <%= @project.content %></p>
+                <p>프로젝트 마감기한 : <%= @project.deadline %></p>
+                
+            </div>
+            
+            
+                
+            <div class="form2">
+        
+                
+                <%# if current_user.is_like?(@project) %>
+                    <%#= link_to "참여 취소", project_like_path(@project), method: "POST" %>
+                <%# else %>
+                    <%#= link_to "참여", project_like_path(@project), method: "POST" %>
+                <%# end %>
+               
+               
+               
+               
+               <% if current_user.is_like?(@project) %>
+                    <%= link_to "참여 취소", project_like_path(@project), method: "POST" %>
+                <% else %>
+                    <% myjob = [] %>
+                           <% index = 0 %>
+                           
+                           <% for i in 1..1000 %>
+                               <% if index == @project.numjob %>
+                                   <% break %>
+                               <% end %>
+                               
+                               <% if @jobs.find(i).project_id == @project.id %>
+                                  <% myjob[index] = @jobs.find(i).id %>  
+                                  <% index= index + 1 %>
+                               <% end %>
+                           <% end %>
+                       
+                           
+                            <!--<form action = '/projects/<%= @project.id%>/like', method = "POST">-->
+                            <!--        <%# for i in 1.. @project.numjob %>-->
+                            <!--             <%#= i %> 지망 <br>-->
+                            <!--                  <%#for j in 1 ..@project.numjob %>-->
+                            <!--                            <%#= @jobs.find(myjob[j-1]).content %>-->
+                            <!--                            <input type="checkbox" name="" value=""/> -->
+                            <!--                  <%# end %>-->
+                            <!--             <br>-->
+                            <!--        <%# end %>-->
+                                        
+                            <!--    <input type = 'submit', value = '참여'>  </input>-->
+                            <!--</form>-->
+                            
+                            
+                            <form action = '/projects/<%= @project.id%>/like', method = "POST">
+                                    <% for i in 1.. @project.numjob %>
+                                         <%= i %> 지망 <br>
+                                              <select name = "value<%=i%>"> 
+                                              <%for j in 1 ..@project.numjob %>
+                                                        <option value= <%=myjob[j-1]%> > <%= @jobs.find(myjob[j-1]).content %> </option> 
+                                              <% end %>
+                                              </select>
+                                         <br>
+                                    <% end %>
+                                        
+                                <input type = 'submit', value = '참여'>  </input>
+                            </form>
+                <% end %>
+               
+               
+               
+               <h3>참여한 사람들 목록 <h3>
+                <% @likes.each do |like| %>
+                        <% if like.project_id == @project.id %>
+                            <td> <%= @users.find(like.user_id).name %></td>
+                            <% @numberofpeople = @numberofpeople + 1 %>
+                        <% end %>
+                <% end %>
+               
+               <h3>참여한 사람들 수 : <%= @numberofpeople %> 명 참여하였다 <h3>
+                
+                <% if current_user.id == @project.user_id %>
+                 <!--<a href = '/teambuilding/<%#=@project.id%>'> 현재 인원으로 팀짜기 </a>-->
+                    <!--<form action = '/teambuilding/<%#=@project.id%>'>-->
+                    <form action = '/teambuilding2/<%=@project.id%>'>
+                        <input type = 'hidden' name = 'total' value = <%= @numberofpeople %>> </input>
+                        <input type = 'submit' value = '현재 인원으로 팀짜기'> </input>
+                    </form>
+               <% end %>
+           </div>
+    </div>   
+</body>
+</html>    

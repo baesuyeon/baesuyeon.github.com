@@ -1,0 +1,259 @@
+<!DOCTYPE html>  
+<html>
+    <head>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   <style>
+    
+    @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+    @font-face { font-family: 'YanoljaYacheR'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/YanoljaYacheR.woff') format('woff'); font-weight: normal; font-style: normal; }
+    div { 
+     font-family: 'YanoljaYacheR', sans-serif;
+    }
+        
+    .btn{
+        background-color: #100b29 ;
+        border:none ;
+    }
+    .box
+    {
+        margin-left: 1%;
+    }
+    .log
+    {
+        
+        margin-left: 2%;
+        margin-top: 1%;
+        width:10%;
+        height:10%;
+        display: inline;
+    }
+    </style>
+        <!-- 합쳐지고 최소화된 최신 CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        
+        <!-- 부가적인 테마 -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+        
+        <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="index.css">
+        
+
+        <script type="text/javascript"> 
+         document.getElementById("c1").style.visibility = "hidden";
+        </script>     
+        
+        <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick.css" />
+
+        <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css" />
+    
+        <script src="http://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+    
+        <script type="text/javascript" src="http://kenwheeler.github.io/slick/slick/slick.min.js"></script>
+
+    </head>
+    
+        <div>
+            <image class="log" src="/assets/logo.png"> </image>
+        </div>
+        
+        
+<body class="main_logo">
+      
+      
+        <div class ="profile">
+          <div class="sticker">
+            프로젝트 스티커 
+          </div>
+           <hr>
+           <p>My Email: <%= current_user.email%></p>
+           <!--<p>My Id: <%#= current_user.id%></p>-->
+           <p>이름 : <%= current_user.name %></p>
+           <p>MBTI : <%= current_user.mbti %></p>
+           <p>특기:</p>
+            <div class="mbti_img">
+               <% obj = current_user.mbti %>
+               <% case obj  %>
+               <% when 'INTJ' %>
+                 <img src="/assets/A-1.png" style="width:120px; height:120px;"></img>
+               <% when "INTP" %>
+                  <img src="/assets/A-2.png" style="width:120px; height:120px;"></img>
+               <% when "ENTJ" %>
+                  <img src="/assets/A-3.png" style="width:120px; height:120px;"></img>
+               <% when "ENTP" %>
+                  <img src="/assets/A-4.png" style="width:120px; height:120px;"></img>
+               <% when "INFJ" %>
+                  <img src="/assets/D-1.png" style="width:120px; height:120px;"></img>
+               <% when "INFP" %>
+                  <img src="/assets/D-2.png" style="width:120px; height:120px;"></img>
+               <% when "ENFJ" %>
+                  <img src="/assets/D-3.png" style="width:120px; height:120px;"></img>
+               <% when "ENFP" %>
+                  <img src="/assets/D-4.png" style="width:120px; height:120px;"></img>
+               <% when "ISTP" %>
+                  <img src="/assets/E-1.png" style="width:120px; height:120px;"></img>
+               <% when "ISFP" %>
+                  <img src="/assets/E-2.png" style="width:120px; height:120px;"></img>
+               <% when "ESTP" %>
+                  <img src="/assets/E-3.png" style="width:120px; height:120px;"></img>
+               <% when "ESFP" %>
+                  <img src="/assets/E-4.png" style="width:120px; height:120px;"></img>
+               <% when "ISTJ" %>
+                  <img src="/assets/S-1.png" style="width:120px; height:120px;"></img>
+               <% when "ISFJ" %>
+                  <img src="/assets/S-2.png" style="width:120px; height:120px;"></img>
+               <% when "ESTJ" %>
+                  <img src="/assets/S-3.png" style="width:120px; height:120px;"></img>
+               <% when "ESFJ" %>
+                  <img src="/assets/S-4.png" style="width:120px; height:120px;"></img>
+               <% else %>
+                 <%= '이미지를 찾을 수 없습니다. ㅠ_ㅠ' %>
+               <% end %>
+            </div>   
+            <hr>
+            <% if user_signed_in? %>
+            <%= link_to '로그아웃', destroy_user_session_path, method: :delete,:class => "btn btn-secondary"  %>
+            <%end%>
+        </div>
+      
+
+        <div class="menu">
+            <div class="menu1">
+                <button type="button" class="btn btn-success btn-lg" style="text-decoration:none">
+                    설계 중인 프로젝트
+                </button>
+            </div>
+            <div class="menu2">
+                <button type="button" class="btn btn-info btn-lg" style="text-decoration:none">
+                    참가 중인 프로젝트
+                </button>
+            </div>
+            <div class="menu3">
+                <button type="button" class="btn btn-default btn-lg" style="text-decoration:none">
+                    완료 프로젝트
+                </button>    
+            </div>
+        </div>
+ 
+        <div class ="project" >
+            <div class="myDIV1">
+                <div class="slick-items">
+                    <div style="background-color: rgba(16, 7, 25, 0.6); border-radius:20px;">
+                        <h1>프로젝트생성</h1>
+                        <a href="/projects/new" method="get">
+                            <image class="plus"src="/assets/plus.png" > 
+                            </image>
+                        </a>
+                    </div>
+                    <% @projects.each do |project| %>
+                        <% if project.user_id == current_user.id %>
+                            <div style="background-color: rgba(56, 11, 97, 0.5); border-radius:20px; width:40px; height:230px; margin:10px;">
+                                내가 만든 프로젝트
+                                <h2><%= project.name %></h2>
+                                <a href="/projects/<%= project.id%>" style="text-decoration:none;">입장</a>
+                            </div>
+                        <%end%>
+                    <% end %>
+                </div>
+            </div>
+            <div class="myDIV2"> 
+                <div class="slick-items">
+                    <% @likes.each do |like| %>
+                        <% if like.user_id == current_user.id %>
+                            <div>
+                                <h2><%= like.project.name %> </h2>
+                                <!--<%= link_to Project.find(like.project_id).name, "/projects/#{like.project_id}"%>-->
+                                 <a href="/projects/#{like.project_id}" style="text-decoration:none;">입장</a>
+                            </div>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>   
+            <div class="myDIV3">         
+                <div class="slick-items">
+                    <!--완료 프로젝트-->
+                    <div>
+                        <h1>프로젝트 평가하기</h1>
+                        <button class="btn btn-default">
+                            평가하기
+                        </button>
+                    </div>
+                    
+                </div>
+            </div>
+            
+                    
+                    
+        
+                <!--모든 프로젝트-->
+                    
+                    <!--<div id="c1">-->
+                    <!--     <% @projects.each do |project| %>-->
+                    <!--          <tr>-->
+                    <!--               <td><%= link_to project.name, "/projects/#{project.id}"%><br></td>-->
+                    <!--          </tr>-->
+                    <!--      <% end %>-->
+                    <!--</div>-->
+        </div>  
+              
+  
+    </body>
+    <script type="text/javascript">
+
+
+
+$(document).ready(function () {
+
+	$('.slick-items').slick({
+
+		autoplay : false,
+
+		dots: true,
+
+		speed : 300 /* 이미지가 슬라이딩시 걸리는 시간 */,
+
+		infinite: true,
+
+		autoplaySpeed: 3000 /* 이미지가 다른 이미지로 넘어 갈때의 텀 */,
+
+		arrows: true,
+
+		slidesToShow: 3,
+
+		slidesToScroll: 3,
+
+		fade: false
+
+	});
+
+});
+
+
+
+</script>
+
+<script type="text/javascript">
+	$(function(){
+		$('.myDIV1').hide();
+		$('.myDIV2').hide();
+		$('.myDIV3').hide();
+		
+	  $('.menu1').click(function(){
+	    $('.myDIV1').show();
+	    $('.myDIV2').hide();
+		$('.myDIV3').hide();
+	      });
+	  $('.menu2').click(function(){
+		    $('.myDIV2').show();
+		    $('.myDIV1').hide();
+		    $('.myDIV3').hide();
+		  });
+	  $('.menu3').click(function(){
+		    $('.myDIV3').show();
+		    $('.myDIV1').hide();
+		    $('.myDIV2').hide();
+		  });
+	});
+	</script>
+</html>
+

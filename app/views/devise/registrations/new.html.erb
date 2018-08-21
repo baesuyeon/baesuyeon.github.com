@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  
+
+
+
+
+      <meta charset="UTF-8">
+    <title>hi</title>
+  
+      
+    </head>
+    <body class="main_logo su">
+      
+        <br />  <br/>
+       <div>
+          <div>
+            <div>
+              <h2 class="su_text">회원가입</h2>
+                <br />
+            </div>
+          </div>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
+            <div>
+            <div>
+             <%= f.label :이름 %><br />
+             <%= f.text_field :name, autofocus: true%>
+            </div>
+          </div>
+          
+            <%= f.hidden_field :experience, :value => 0 %>
+            <%= f.hidden_field :level, :value => 0 %>
+            <div>
+              <%= f.label :이메일 %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
+            <div>
+              <%= f.label :비밀번호 %>
+                <% if @minimum_password_length %>
+                  <em>(최소 <%= @minimum_password_length %>글자!)</em>
+                <% end %><br />
+              <%= f.password_field :password, autocomplete: "off" %>
+            </div>
+            <div>
+              <%= f.label :비밀번호_확인 %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "off" %>
+            </div>
+            <br />
+            <div>
+              
+              <button id="myBtn" class="bttn">내 성향 고르러 슝슝 !</button>
+              <br><br>
+              혹시 아직 내 성향을 모른다면?<br>
+              <button onclick="location.href='https://www.16personalities.com/ko'" target="_blank" class="bttn_s">MBTI 검사하러 슝슝!</button>
+   
+            </div>
+            <br/>
+
+            
+
+            
+          <!--MBTI 라디오버튼 대신 이게 깔끔할 거 같아서... 고쳐주세용>
+          <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+            MBTI
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+          </ul>
+        </div>
+          <-->
+             
+             <%= f.submit "완료 !", class:"bttn"  %>
+             <% end %>
+             <button onclick="location.href='/projects'" class="bttn_s">사실 이미 회원이닷!</button>
+            </div>
+          
+          
+          <div class ="container-all">
+            
+         
+            
+          <!-- Trigger/Open The Modal -->
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+              <!-- Modal content -->
+              <div class="modal-content">
+                                                                         
+                <p>
+                  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                
+                   
+                   <p style="margin-bottom:0;text-align:center;font-size:50px;"><%= f.label :mbti %></p>
+                   
+                  
+                   <!--이미지스 -->
+                   
+                   
+                    <div class ="container">
+                     
+                      <div class ="conA">
+                       <%= image_tag "3_mbti1.png" %>
+                      <div class ="text">
+                         <label class="radio_button active">"용의주도한 전략가"<br>INTJ<br>
+                           <%= f.radio_button :mbti, 'INTJ', checked: true %>
+                          </label>
+                          </div>
+                          </div>
+                     
+                      
+                      <div class ="conA">
+                     <%= image_tag "3_mbti2.png" %>
+                     <div class ="text">
+                      <label class="radio_button">"논리적인 사색가"<br>INTP<br>
+                         <%= f.radio_button :mbti, 'INTP' %>
+                      </label>
+                      </div>
+                      </div>
+
+                      <div class ="conA">
+                       <%= image_tag "3_mbti3.png" %>
+                       <div class ="text">
+                      <label class="radio_button">"대담한 통솔자"<br>ENTJ<br>
+                         <%= f.radio_button :mbti, 'ENTJ', checked: true %>
+                      </label>
+                      </div>
+                      </div>
+                      
+                      
+                      <div class ="conA">
+                      
+                      <%= image_tag "3_mbti4.png" %>
+                      <div class ="text">
+                      <label class="radio_button">"논쟁을 즐기는 변론가"<br>ENTP<br>
+                         <%= f.radio_button :mbti, 'ENTP', checked: true %>
+                      </label>
+                      </div>
+                      </div>
+                      
+                      
+                      <div class ="conA">
+                      <%= image_tag "3_mbti5.png" %>
+                      <div class ="text">
+                      <label class="radio_button">"선의의 옹호자"<br>INFJ<br>
+                         <%= f.radio_button :mbti, 'INFJ', checked: true %>
+                      </label>
+                      </div>
+                      </div>
+                      
+                      
+                      <div class ="conA">
+                      <%= image_tag "3_mbti6.png" %>
+                      <div class ="text">
+                      <label class="radio_button">"열정적인 중재자"<br>INFP<br>
+                         <%= f.radio_button :mbti, 'INFP', checked: true %>
+                      </label>
+                      </div>
+                      </div>
+                      
+                      <div class ="conA">
+                        <%= image_tag "3_mbti7.png" %>
+                        <div class ="text">
+                      <label class="radio_button">"정의로운 사회운동가"<br>ENFJ<br>
+                         <%= f.radio_button :mbti, 'ENFJ', checked: true %>
+                      </label>
+                      </div>
+                      </div>
+                      
+                      
+                      <div class ="conA">
+                      
+                        <%= image_tag "3_mbti8.png" %>
+                        
+                        <div class ="text">
+                      <label class="radio_button">"재기발랄한 활동가"<br>ENFP<br>
+                         <%= f.radio_button :mbti, 'ENFP', checked: true %>
+                      </label>
+                      </div>
+                      </div>
+                      
+                      <div class ="conA">
+                        <%= image_tag "3_mbti9.png" %>
+                        <div class ="text">
+                      <label class="radio_button">"청렴결백한 논리주의자"<br>ISTJ<br>
+                         <%= f.radio_button :mbti, 'ISTJ', checked: true %>
+                      </label>
+                      </div>
+                      </div>
+                      
+                      <div class ="conA">
+                      <%= image_tag "3_mbti10.png" %>
+                      <div class ="text">
+                      <label class="radio_button">"용감한 수호자"<br>ISFJ<br>
+                         <%= f.radio_button :mbti, 'ISFJ', checked: true %>
+                      </label>
+                      </div>
+                      </div>
+                      
+                      <div class ="conA">
+                        <%= image_tag "3_mbti11.png" %>
+                        <div class ="text">
+                      <label class="radio_button">"엄격한 관리자"<br>ESTJ<br>
+                         <%= f.radio_button :mbti, 'ESTJ', checked: true %>
+                      </label>
+                      </div>
+                      </div>
+                      
+                      
+                      
+                      <div class ="conA">
+                        <%= image_tag "3_mbti12.png" %>
+                        <div class ="text">
+                      <label class="radio_button">"사교적인 외교관"<br>ESFJ<br>
+                         <%= f.radio_button :mbti, 'ESFJ', checked: true %>
+                      </label>
+                      </div>
+                      </div>
+                      
+                      
+                      <div class ="conA">
+                        
+                      <%= image_tag "3_mbti13.png" %>
+                      <div class ="text">
+                      <label class="radio_button">"만능 재주꾼"<br>ISTP<br>
+                         <%= f.radio_button :mbti, 'ISTP', checked: true %>
+                      </label>
+                      </div>
+                      </div>
+                      
+                      <div class ="conA">
+                        <%= image_tag "3_mbti14.png" %>
+                        <div class ="text">
+                      <label class="radio_button">"호기심 많은 예술가"<br>ISFP<br>
+                         <%= f.radio_button :mbti, 'ISFP', checked: true %>
+                      </label>
+                      </div>
+                      </div>
+                      
+                      
+                      <div class ="conA">
+                        <%= image_tag "3_mbti15.png" %>
+                        <div class ="text">
+                      <label class="radio_button">"모험을 즐기는 사업가"<br>ESTP<br>
+                         <%= f.radio_button :mbti, 'ESTP', checked: true %>
+                      </label>
+                      </div>
+                      </div>
+                      
+                      
+                      <div class ="conA">
+                        <%= image_tag "3_mbti16.png" %>
+                        <div class ="text">
+                      <label class="radio_button">"자유로운 영혼의 연예인"<br>ESFP<br>
+                         <%= f.radio_button :mbti, 'ESFP', checked: true %>
+                      </label>
+                      </div>
+                      </div>
+                      
+                      
+                      <% end %> 
+                      
+                      
+                      <!--전체 div-->
+                      
+                      </div>
+                      
+                      <div class="modal-footer">
+                       <button type="button" class="close">닫기&times;</button>  
+                 
+                 <!--여기 버튼을 저장하기로 만들어야 함-->
+                  <button type="button" class="bttn" style="border:1px white solid;">이대로 저장하기</button>
+                </div>
+                  
+                  
+                  
+                   
+                      </div>
+                 
+            </div>
+            
+            
+            </div>
+            
+            
+            
+            
+    </body>
+    
+  
+</html>    
+
+ <script>
+  
+     // Get the modal
+        var modal = document.getElementById('myModal');
+ 
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+ 
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];                                          
+ 
+        // When the user clicks on the button, open the modal 
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+ 
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+ 
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "display";
+            }
+        }
+
+  
+</script>
+
+
+
+
+
+
+
+
+
+   

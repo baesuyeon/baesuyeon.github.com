@@ -1,0 +1,9 @@
+@font-face 
+{
+    font-family: 'MainFont'; /* 폰트 패밀리 이름 주기*/
+    src: url('/assets/gsc.ttf'); /*폰트 파일 주소*/
+}
+
+body {
+  font-family:'MainFont' ;
+}
