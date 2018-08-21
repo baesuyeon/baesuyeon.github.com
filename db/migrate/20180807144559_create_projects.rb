@@ -10,6 +10,7 @@ class CreateProjects < ActiveRecord::Migration
       # t.references :user, index: true, foreign_key: true
       # 이렇게 해도 되고.....
       t.integer :state
+      t.integer :aaalll
       
       t.timestamps null: false
     end

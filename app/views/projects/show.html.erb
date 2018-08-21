@@ -28,34 +28,40 @@
     </style>
     </head>
 <body class="main_logo">
-    <div class="show_p">
-        <a class="gomain" href = "/projects">메인으로 가기</a>
+
+    <a class="gomain" href = "/projects">메인으로 가기</a>
                 
     <div class="center">
         <div class="questImage">
             <div class="title">
                 # <%= @project.name %>
             </div>
-            <div class="text">
-                <h1>프로젝트 내용 : <%= @project.content %></h1><br>
-                <h1>프로젝트 마감기한 : <%= @project.deadline %></h1>
+            <div class="text_1">
+                <h1>프로젝트 목표 : <%= @project.content %></h1><br>
+                <h2>프로젝트 일정 : <%= @project.deadline %></h2>
             </div>
-            
-                <% if current_user.is_like?(@project) %>
-                    <%= link_to "참여 취소", project_like_path(@project), method: "POST"  %>
+            <div class="text_2">
+               <h1>참여한 사람들 목록 <h1>
+                <% @likes.each do |like| %>
+                        <% if like.project_id == @project.id %>
+                            <td><h3><%= @users.find(like.user_id).name %></h3></td>
+                            <% @numberofpeople = @numberofpeople + 1 %>
+                        <% end %>
+                <% end %>
+               <!--참여 취소-->
+               <% if current_user.is_like?(@project) %>
+                    <h4><%= link_to "참여 취소", project_like_path(@project), method: "POST"  %></h4>
                 <% else %>
-                    <% myjob = [] %>
-                       <% index = 0 %>
-                       
-                       <% for i in 1..1000 %>
-                           <% if index == @project.numjob %>
-                               <% break %>
-                           <% end %>
-                           
-                           <% if @jobs.find(i).project_id == @project.id %>
-                              <% myjob[index] = @jobs.find(i).id %>  
-                              <% index= index + 1 %>
-                           <% end %>
+                <% myjob = [] %>
+                   <% index = 0 %>
+                   <% for i in 1..1000 %>
+                       <% if index == @project.numjob %>
+                           <% break %>
+                       <% end %>
+                       <% if @jobs.find(i).project_id == @project.id %>
+                          <% myjob[index] = @jobs.find(i).id %>  
+                          <% index= index + 1 %>
+                       <% end %>
                        <% end %>
                         <form action = '/projects/<%= @project.id%>/like', method = "POST">
                             <% for i in 1.. @project.numjob %>
@@ -69,43 +75,33 @@
                             <input type = 'submit', value = '참여'>  </input>
                         </form>
                 <% end %>
-               
-               
-               
-               <h3>참여한 사람들 목록 <h3>
-                <% @likes.each do |like| %>
-                        <% if like.project_id == @project.id %>
-                            <td> <%= @users.find(like.user_id).name %></td>
-                            <% @numberofpeople = @numberofpeople + 1 %>
-                        <% end %>
-                <% end %>
-               
-               <h3>참여한 사람들 수 : <%= @numberofpeople %> 명 <h3>
-                
+                <h3>프로젝트 참여 인원 : <%= @numberofpeople %> 명 <h3><br>
+               <!--팀 짜는 버튼-->
                 <% if current_user.id == @project.user_id %>
-                 <!--<a href = '/teambuilding/<%#=@project.id%>'> 현재 인원으로 팀짜기 </a>-->
-                    <!--<form action = '/teambuilding/<%#=@project.id%>'>-->
                     <form action = '/teambuilding2/<%=@project.id%>'>
                         <input type = 'hidden' name = 'total' value = <%= @numberofpeople %>> </input>
                         <input type = 'submit' value = '현재 인원으로 팀짜기'> </input>
                     </form>
                <% end %>
+            </div>   
+            <div style="font-size:15px; ">
                <a href="<%=@project%>" class="copy_link" onclick="copy_trackback(this.href); return false;" style="text-decoration:none; color:white;">
                링크복사하기!
                </a>
+            </div>   
         </div>
     </div>   
     
-    </div>
+</div>
     
-    </div>
+
     <!--코드의 무덤... 혹시 살리려거든 가져가세요-->
     <%# if current_user.is_like?(@project) %>
                     <%#= link_to "참여 취소", project_like_path(@project), method: "POST" %>
                 <%# else %>
                     <%#= link_to "참여", project_like_path(@project), method: "POST" %>
                 <%# end %>
-     <!--<form action = '/projects/<%= @project.id%>/like', method = "POST">-->
+     <!--<form action = '/projects/<%#= @project.id%>/like', method = "POST">-->
                             <!--        <%# for i in 1.. @project.numjob %>-->
                             <!--             <%#= i %> 지망 <br>-->
                             <!--                  <%#for j in 1 ..@project.numjob %>-->
@@ -117,6 +113,8 @@
                                         
                             <!--    <input type = 'submit', value = '참여'>  </input>-->
                             <!--</form>-->
+    <!--<a href = '/teambuilding/<%#=@project.id%>'> 현재 인원으로 팀짜기 </a>-->
+                    <!--<form action = '/teambuilding/<%#=@project.id%>'>-->
 </body>
 </html>    
 

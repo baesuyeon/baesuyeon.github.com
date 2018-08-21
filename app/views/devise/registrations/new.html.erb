@@ -5,6 +5,13 @@
       <meta charset="UTF-8">
     <title>hi</title>
   
+
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
       
     </head>
     <body class=" su">
@@ -51,7 +58,7 @@
               <%= f.label :비밀번호_확인, class: 'e_title' %>&nbsp;
               <%= f.password_field :password_confirmation, autocomplete: "off", class: 'e_input' %>
             </div>
-            
+            <br>
             
 
             
@@ -68,30 +75,18 @@
             <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
           </ul>
         </div>
-          <-->
-             
-             <%= f.submit "완료", class:"connect_btn"  %>
-             <% end %>
-             
-             
-            </div>
-            
-            
-            <div class = "test">
-           <button id="myBtn" class="connect_btn">성향 선택</button>
-          <br>   
+          <--> <div class = "test">
+           <div id="myBtn" class="connect_btn">성향 선택</div>
+           
+          <br> 
           혹시 아직 내 성향을 모른다면?
           <br>
               <!--<button onclick="location.href='https://www.16personalities.com/ko'" target="_blank" class="bttn_s">MBTI 검사하러 슝슝!</button>-->
-              <a href ="https://www.16personalities.com/ko/%EB%AC%B4%EB%A3%8C-%EC%84%B1%EA%B2%A9-%EC%9C%A0%ED%98%95-%EA%B2%80%EC%82%AC" target="_blank"><button class="btn_mini">성향 검사</button></a>
-           </div>                                            
+              <div class="btn_mini"><a href ="https://www.16personalities.com/ko/%EB%AC%B4%EB%A3%8C-%EC%84%B1%EA%B2%A9-%EC%9C%A0%ED%98%95-%EA%B2%80%EC%82%AC" target="_blank">성향 검사</a></div>
+           </div> 
+             <br>
              
-          
-          
-            
-         
-            
-          <!-- Trigger/Open The Modal -->
+             <!-- Trigger/Open The Modal -->
             <!-- The Modal -->
             <div id="myModal" class="modal">
               <!-- Modal content -->
@@ -99,7 +94,7 @@
                 
                 
                 <p>
-                  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
                   <div class = "m-title">
                    <head> 내 성격이다 싶은 걸 골라골라 </head>
                    </div>
@@ -112,9 +107,14 @@
                     <div class ="container">
                      
                       <div class ="conA">
-                       <%= image_tag "3_mbti1.png" %>
+                       <%= image_tag "a-1.png" %>
+                     
                       <div class ="text">
+                        
+                        
+                      
                          <label class="radio_button active">"용의주도한 전략가"<br>INTJ<br>
+                         <a href="https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-intj" target="_blank"><span class="badge">INTJ 성향은요?</span></a><br>
                            <%= f.radio_button :mbti, 'INTJ', checked: true %>
                           </label>
                           </div>
@@ -125,6 +125,7 @@
                      <%= image_tag "3_mbti2.png" %>
                      <div class ="text">
                       <label class="radio_button">"논리적인 사색가"<br>INTP<br>
+                      <a href="https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-intp" target="_blank"><span class="badge">INTP 성향은요?</span></a><br>
                          <%= f.radio_button :mbti, 'INTP' %>
                       </label>
                       </div>
@@ -134,7 +135,8 @@
                        <%= image_tag "3_mbti3.png" %>
                        <div class ="text">
                       <label class="radio_button">"대담한 통솔자"<br>ENTJ<br>
-                         <%= f.radio_button :mbti, 'ENTJ', checked: true %>
+                       <a href="https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-entp" target="_blank"><span class="badge">ENTJ 성향은요?</span></a><br>
+                         <%= f.radio_button :mbti, 'ENTJ' %>
                       </label>
                       </div>
                       </div>
@@ -145,7 +147,8 @@
                       <%= image_tag "3_mbti4.png" %>
                       <div class ="text">
                       <label class="radio_button">"논쟁을 즐기는 변론가"<br>ENTP<br>
-                         <%= f.radio_button :mbti, 'ENTP', checked: true %>
+                        <a href="https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-entj" target="_blank"><span class="badge">ENTJ 성향은요?</span></a><br>
+                         <%= f.radio_button :mbti, 'ENTP' %>
                       </label>
                       </div>
                       </div>
@@ -155,7 +158,7 @@
                       <%= image_tag "3_mbti5.png" %>
                       <div class ="text">
                       <label class="radio_button">"선의의 옹호자"<br>INFJ<br>
-                         <%= f.radio_button :mbti, 'INFJ', checked: true %>
+                         <%= f.radio_button :mbti, 'INFJ' %>
                       </label>
                       </div>
                       </div>
@@ -165,7 +168,7 @@
                       <%= image_tag "3_mbti6.png" %>
                       <div class ="text">
                       <label class="radio_button">"열정적인 중재자"<br>INFP<br>
-                         <%= f.radio_button :mbti, 'INFP', checked: true %>
+                         <%= f.radio_button :mbti, 'INFP' %>
                       </label>
                       </div>
                       </div>
@@ -174,7 +177,7 @@
                         <%= image_tag "3_mbti7.png" %>
                         <div class ="text">
                       <label class="radio_button">"정의로운 사회운동가"<br>ENFJ<br>
-                         <%= f.radio_button :mbti, 'ENFJ', checked: true %>
+                         <%= f.radio_button :mbti, 'ENFJ' %>
                       </label>
                       </div>
                       </div>
@@ -186,7 +189,7 @@
                         
                         <div class ="text">
                       <label class="radio_button">"재기발랄한 활동가"<br>ENFP<br>
-                         <%= f.radio_button :mbti, 'ENFP', checked: true %>
+                         <%= f.radio_button :mbti, 'ENFP' %>
                       </label>
                       </div>
                       </div>
@@ -195,7 +198,7 @@
                         <%= image_tag "3_mbti9.png" %>
                         <div class ="text">
                       <label class="radio_button">"청렴결백한 논리주의자"<br>ISTJ<br>
-                         <%= f.radio_button :mbti, 'ISTJ', checked: true %>
+                         <%= f.radio_button :mbti, 'ISTJ' %>
                       </label>
                       </div>
                       </div>
@@ -204,7 +207,7 @@
                       <%= image_tag "3_mbti10.png" %>
                       <div class ="text">
                       <label class="radio_button">"용감한 수호자"<br>ISFJ<br>
-                         <%= f.radio_button :mbti, 'ISFJ', checked: true %>
+                         <%= f.radio_button :mbti, 'ISFJ' %>
                       </label>
                       </div>
                       </div>
@@ -213,7 +216,7 @@
                         <%= image_tag "3_mbti11.png" %>
                         <div class ="text">
                       <label class="radio_button">"엄격한 관리자"<br>ESTJ<br>
-                         <%= f.radio_button :mbti, 'ESTJ', checked: true %>
+                         <%= f.radio_button :mbti, 'ESTJ' %>
                       </label>
                       </div>
                       </div>
@@ -224,7 +227,7 @@
                         <%= image_tag "3_mbti12.png" %>
                         <div class ="text">
                       <label class="radio_button">"사교적인 외교관"<br>ESFJ<br>
-                         <%= f.radio_button :mbti, 'ESFJ', checked: true %>
+                         <%= f.radio_button :mbti, 'ESFJ' %>
                       </label>
                       </div>
                       </div>
@@ -235,7 +238,7 @@
                       <%= image_tag "3_mbti13.png" %>
                       <div class ="text">
                       <label class="radio_button">"만능 재주꾼"<br>ISTP<br>
-                         <%= f.radio_button :mbti, 'ISTP', checked: true %>
+                         <%= f.radio_button :mbti, 'ISTP' %>
                       </label>
                       </div>
                       </div>
@@ -244,7 +247,7 @@
                         <%= image_tag "3_mbti14.png" %>
                         <div class ="text">
                       <label class="radio_button">"호기심 많은 예술가"<br>ISFP<br>
-                         <%= f.radio_button :mbti, 'ISFP', checked: true %>
+                         <%= f.radio_button :mbti, 'ISFP' %>
                       </label>
                       </div>
                       </div>
@@ -254,7 +257,7 @@
                         <%= image_tag "3_mbti15.png" %>
                         <div class ="text">
                       <label class="radio_button">"모험을 즐기는 사업가"<br>ESTP<br>
-                         <%= f.radio_button :mbti, 'ESTP', checked: true %>
+                         <%= f.radio_button :mbti, 'ESTP' %>
                       </label>
                       </div>
                       </div>
@@ -264,38 +267,47 @@
                         <%= image_tag "3_mbti16.png" %>
                         <div class ="text">
                       <label class="radio_button">"자유로운 영혼의 연예인"<br>ESFP<br>
-                         <%= f.radio_button :mbti, 'ESFP', checked: true %>
+                         <%= f.radio_button :mbti, 'ESFP' %>
                       </label>
                       </div>
                       </div>
                       
                       
-                      <% end %> 
+                     
                       
                       
                       <!--전체 div-->
                       
                       </div>
-                      
+                       
                       <div class="modal-footer">
-                       <button type="button" class="close">닫기&times;</button>  
+                       <button type="button" class="close">이대로 저장하기&times;</button>  
                  
-                 <!--여기 버튼을 저장하기로 만들어야 함-->
-                  <button type="button" class="bttn" style="border:1px white solid;">이대로 저장하기</button>
+                 
                 </div>
-                  
-                  
                   
                    
                       </div>
                  
             </div>
-            
-            
+             
+             <%= f.submit "완료", class:"connect_btn"  %>
+             
+             
+                              
+             
             </div>
             
             
+                                     
+
+          
             
+            
+            
+             <% end %>
+            
+ 
             
     </body>
     

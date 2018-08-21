@@ -60,7 +60,8 @@
 .a,.gomain{
     text-align: center;
     font-size:20px;
-    margin:20px;
+    margin:10px;
+   
     
 }
 .questImage{
@@ -75,7 +76,11 @@
     background-image: url("/assets/7_quest.png");
     background-size: auto 100%;
 }
-.text{
-    margin-top:20%;
+.text_1{
+    margin-top:15%;
+    
+}
+.text_2{
+    margin-top:5%;
     
 }

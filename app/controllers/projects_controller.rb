@@ -29,13 +29,20 @@ class ProjectsController < ApplicationController
   end
   
   def create
-      project = Project.new
-      project.name = params[:project_name]
-      project.content = params[:project_content]
-      project.deadline = params[:project_deadline]
-      project.numateam = params[:project_numofateam]
+      @project = Project.new
+      @project.name = params[:project_name]
+      @project.content = params[:project_content]
+      @project.deadline = params[:project_deadline]
+      @project.numateam = params[:project_numofateam]
       #project.numjob = params[:project_numofjob]
-      project.user_id = params[:user_id]
+      @project.user_id = params[:user_id]
+      image = params[:image]
+      uploader = ImageUploader.new
+  
+      uploader.store!(image)
+      @project.image = params[:image]
+      
+      @project.state = 0
       
       @numberofjob = 0
       
@@ -63,10 +70,10 @@ class ProjectsController < ApplicationController
         @numberofjob = @numberofjob + 1
       end
       
-      project.numjob = @numberofjob
-      project.save
+      @project.numjob = @numberofjob
+      @project.save
       
-      for i in 1..project.numjob
+      for i in 1..@project.numjob
         job = Job.new
         if i == 1
           job.content = params[:job1]
@@ -81,7 +88,7 @@ class ProjectsController < ApplicationController
         elsif i==6
           job.content = params[:job6]
         end
-        job.project_id = project.id
+        job.project_id = @project.id
         
         job.save
       end
@@ -311,12 +318,9 @@ class ProjectsController < ApplicationController
   
   
   def completebuilding
-    @test11 = params[:test1]
+    @results = params[:results]
     
-    # @test12 = params[:test12]
-    # @test13 = params[:test13]
-    # @test2 = params[:test2]
-    # @test3 = params[:test3]
-    # @test4 = params[:test4]
+    
+    # redirect_to '#'
   end
 end

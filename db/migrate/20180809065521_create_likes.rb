@@ -12,8 +12,6 @@ class CreateLikes < ActiveRecord::Migration
       t.integer :four
       t.integer :five
       t.integer :six
-      t.integer :seven
-      t.integer :eight
 
       t.timestamps null: false
     end

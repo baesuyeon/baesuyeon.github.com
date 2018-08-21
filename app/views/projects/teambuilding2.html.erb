@@ -51,9 +51,9 @@
 <%end%>
 
 <a href = '#'>다른 팀조합 원해요!</a>
-<form action = '/projects/1/completebuilding' method = 'post'>
+<form action = '/projects/1/completebuilding' method = 'POST'>
     <strong>통보하기</strong>
-    <input type = 'hidden', name = 'test1'><%= @results %> </input>
+    <input type = 'text', name = 'results[]' value = "<%=@results %>"> <%= @results %></input>
 
     <input type = 'submit'></input>
 </form>
