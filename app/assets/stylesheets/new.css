@@ -1,0 +1,470 @@
+.html{ 
+    
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    
+}
+
+
+.title{
+    color:#BFBFBF;
+    font-size:50px;
+    text-align:center;
+    padding-left:27%;
+    margin-top:5px;
+    
+}
+.account_center{
+    margin: 0 auto;
+    text-align:center;
+    padding: 30px;
+    
+}
+.account_title{
+    padding: 10px;
+    padding-bottom:40px;
+    
+}
+
+.input {
+    background-color:transparent;
+}
+
+.form1{
+    text-align:center;
+    padding:20px;
+    
+    background-color: lightblue;
+    background-color: rgba( 255, 255, 255, 0.5 );
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    border-radius:15px;
+    float:left;
+    
+}
+.form2{
+    text-align:center;
+    padding:20px;
+    
+    background-color: lightblue;
+    background-color: rgba( 255, 255, 255, 0.5 );
+    width: 350px;
+    height:450px;
+    margin: 20px;
+    border-radius:15px;
+    float:left;
+    
+}
+.mold {
+    margin: 0 auto;
+    
+    /*border:1px solid white;*/
+    width:556px;
+    height:720px;
+    padding:40px;
+    padding-top:10px;
+    margin-top:0;
+    text-align: center;
+    background-image: url("/assets/7_quest.png");
+    background-size: auto 100%;
+    
+    
+    
+    
+}
+
+.form-control {
+    
+    margin-left:30%;
+    margin-top:20%;
+    text-align: center;
+    color:#66472A;
+    font-size:33rem;
+    font-weight:bold;
+    border:0;
+}
+.form-goal{
+    margin-top:15%;
+    /*margin-left:5%;*/
+    width:420px;
+    height:150px;
+    background:url(/assets/3_popup.png);
+    background-size:420px 100px;
+    border:0;
+}
+.form-people_total{
+    margin-top:2%;
+    /*margin-right:50%;*/
+    margin-right:8px;
+    height:40px;
+    width:205px;
+    text-align: center;
+    background:url(/assets/7_hope.png);
+    background-size:cover;
+    background-position: center;
+    border:0;
+
+}
+
+.form-people{
+    /*margin-left:50%;*/
+     width:205px;
+     height:40px;
+     text-align: center;
+     background:url(/assets/7_hope.png);
+     background-size:cover;
+    background-position: center;
+    border:0;
+
+    
+}
+.form-deadline{
+    margin-top:2%;
+    /*margin-right:50%;*/
+    margin-right:10px;
+    height:40px;
+    width:205px;
+    text-align: center;
+    background:url(/assets/7_hope.png);
+    background-size:cover;
+    background-position:center;
+    border:0;
+   
+}
+.form-role{
+    width:205px;
+     height:40px;
+     text-align: center;
+     background:url(/assets/7_hope.png);
+     background-size:cover;
+     background-position:center;
+     border:0;
+    
+}
+.form-role_detail{
+   margin-bottom:5px;
+   margin-right:2px;
+    width:205px;
+     height:30px;
+     text-align: center;
+     background:url(/assets/7_hope.png);
+     background-size:cover;
+     background-position:center;
+     color:#BFBFBF;
+     background-color:transparent;
+     font-size:18px;
+     border:0;
+    
+}
+
+.btn{
+     height:40px;
+     margin-top:5%;
+     font-size:18px;
+     background:url(/assets/7_hope.png);
+     background-size:cover;
+     background-position:center;
+}
+.imgUPLOAD{
+    border:1px solid black;
+    width:400px;
+    height:40px;
+    margin: 0 auto;
+    margin-top:2%;
+   
+}
+
+
+
+
+
+
+ /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.5);/* Black w/ opacity */
+            
+            
+        }
+    
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: auto%; /* Could be more or less, depending on screen size */
+            
+            /*background-image: url('/3_mbtibackground.png') no-repeat center center fixed;*/
+            
+            background-color: #222135;
+            border: 0;
+            min-height: 150%;
+            background-position: center;
+            background-size: cover;
+            
+            
+                    
+            
+            
+        }
+        /* The Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+
+
+       
+
+
+
+.bttn{
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: left;
+    color: #BFBFBF;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    background-color: #100b29;
+    border: 1px solid transparent;
+    }
+    
+.bttn:hover{
+    background-color:gray;
+}
+
+
+
+.container{
+    
+        display: grid;
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);
+        grid-gap: 20px;
+
+}
+ 
+ 
+ .container-all{
+     padding-top: 30px
+     
+ }
+ 
+ .conA{
+     flex: 1 1;
+    
+     
+     
+ }
+ 
+ .conA .text{
+    
+     font-size: 20px;
+ }
+ 
+ 
+
+.test{
+    
+    
+}
+
+
+.m-title{
+    font-size: 50px;
+    margin-bottom: 50px;
+    
+}
+ 
+ 
+.btn btn-default btn-lg{
+    
+}
+ 
+ 
+
+
+
+        
+         /* 스마트폰 가로+세로 */
+/*        @media only screen and (min-device-width : 320px) and (max-device-width : 480px){*/
+/*            .conA{*/
+/*            display: flex;*/
+/*            max-width: 1000px;*/
+/*            max-width: var(--large-width);*/
+/*            margin-left: auto;*/
+/*            margin-right: auto;*/
+/*            }*/
+           
+            
+/*        }*/
+        
+         /* 스마트폰 가로 */
+/*        @media only screen and (min-width : 321px) {*/
+/*             .conA{*/
+/*            display: flex;*/
+/*            max-width: 1000px;*/
+/*            max-width: var(--large-width);*/
+/*            margin-left: auto;*/
+/*            margin-right: auto;*/
+/*            }*/
+/*        }*/
+        
+         /* 스마트폰 세로 */
+/*        @media only screen and (max-width : 320px) {*/
+/*             .conA{*/
+/*            display: flex;*/
+/*            max-width: 1000px;*/
+/*            max-width: var(--large-width);*/
+/*            margin-left: auto;*/
+/*            margin-right: auto;*/
+/*            }*/
+/*        }*/
+        
+        /* iPhone4와 같은 높은 크기 세로 */
+/*        @media*/
+/*        only screen and (-webkit-min-device-pixel-ratio : 1.5),  */
+/*        only screen and (min-device-pixel-ratio : 1.5) {  */
+/*              .conA{*/
+/*            display: flex;*/
+/*            max-width: 1000px;*/
+/*            max-width: var(--large-width);*/
+/*            margin-left: auto;*/
+/*            margin-right: auto;*/
+/*            }*/
+/*        }*/
+        
+        /* iPhone4와 같은 높은 해상도 가로 */
+/*        @media only screen and (min-width : 640px) {*/
+/*             .conA{*/
+/*            display: flex;*/
+/*            max-width: 1000px;*/
+/*            max-width: var(--large-width);*/
+/*            margin-left: auto;*/
+/*            margin-right: auto;*/
+/*            }*/
+/*        }*/
+        
+        /* iPad 가로+세로 */
+/*        @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {*/
+/*              .conA{*/
+/*            display: flex;*/
+/*            max-width: 1000px;*/
+/*            max-width: var(--large-width);*/
+/*            margin-left: auto;*/
+/*            margin-right: auto;*/
+/*            }*/
+/*        }*/
+        
+        /* iPad 가로 */
+/*        @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {*/
+/*              .conA{*/
+/*            display: flex;*/
+/*            max-width: 1000px;*/
+/*            max-width: var(--large-width);*/
+/*            margin-left: auto;*/
+/*            margin-right: auto;*/
+/*            }*/
+/*        }*/
+        
+        /* iPad 세로 */
+/*        @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {*/
+/*             .conA{*/
+/*            display: flex;*/
+/*            max-width: 1000px;*/
+/*            max-width: var(--large-width);*/
+/*            margin-left: auto;*/
+/*            margin-right: auto;*/
+/*            }*/
+/*        }*/
+        
+        /* 데스크탑 브라우저 가로 */
+/*        @media only screen and (min-width : 1224px) {*/
+/*             .container{*/
+    
+/*        display: grid;*/
+/*        grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);*/
+/*        grid-gap: 20px;*/
+
+/*}*/
+ 
+ 
+/* .container-all{*/
+/*     padding-top: 30px*/
+     
+/* }*/
+ 
+/* .conA{*/
+/*     flex: 1 1 250px;*/
+    
+     
+     
+/* }*/
+ 
+/* .conA .text{*/
+     
+/*    margin-top: 10px;*/
+     
+/* }*/
+            
+            
+            
+/*        }*/
+        
+        /* 큰 모니터 */
+/*        @media only screen and (min-width : 1824px) {*/
+/*             .container{*/
+    
+/*            display: grid;*/
+/*            grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);*/
+/*            grid-gap: 20px;*/
+        
+/*            }*/
+             
+             
+/*             .container-all{*/
+/*                 padding-top: 30px*/
+                 
+/*             }*/
+             
+/*             .conA{*/
+/*                 flex: 1 1 250px;*/
+                
+                 
+                 
+/*             }*/
+             
+/*             .conA .text{*/
+                 
+/*                margin-top: 10px;*/
+                 
+/*             }*/
+/*        }*/
+        

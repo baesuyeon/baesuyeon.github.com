@@ -36,12 +36,11 @@ class ProjectsController < ApplicationController
       @project.numateam = params[:project_numofateam]
       #project.numjob = params[:project_numofjob]
       @project.user_id = params[:user_id]
-      image = params[:image]
+
       uploader = ImageUploader.new
   
-      uploader.store!(image)
-      @project.image = params[:image]
-      
+      uploader.store!(params[:image])
+      @project.image = uploader.url
       @project.state = 0
       
       @numberofjob = 0
@@ -115,8 +114,8 @@ class ProjectsController < ApplicationController
     @Users = User.all
     @Jobs = Job.all
     
-    current_project_id = params[:id]
-    current_project_id = current_project_id.to_i
+    @current_project_id = params[:id]
+    @current_project_id = @current_project_id.to_i
     
     @numperson = Project.find(params[:id]).numateam # 한팀당 몇명이 속하는지 
     @total = params[:total] # 총 인원
@@ -139,7 +138,7 @@ class ProjectsController < ApplicationController
     @likes.each do |like| 
       like.project_id = like.project_id.to_i
       
-      if like.project_id== current_project_id
+      if like.project_id== @current_project_id
         @arrs[index][0] =  like.user_id.to_i
         @hash[like.user_id.to_i] = index
          
@@ -318,9 +317,38 @@ class ProjectsController < ApplicationController
   
   
   def completebuilding
+    @likes = Like.all
+    @Users = User.all
+    @Jobs = Job.all
+    
     @results = params[:results]
+    @numberofgroup = params[:numberofgroup]
+    @numberofjob = params[:numberofjob]
+    
+    @current_project_id = params[:id]
+    
     
     
     # redirect_to '#'
   end
+  
+  
+  
+  private
+  def project_params
+    params.require(:project).permit(:name, :content, :deadline, :numateam, :numjob, :user_id, :state, :image)
+  end
+  
+  
+  #만족도 평가 페이지
+
+  def evaluation
+    
+  end
+  
+  
+  def check
+  end
+  
+
 end

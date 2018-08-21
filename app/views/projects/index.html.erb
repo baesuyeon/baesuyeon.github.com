@@ -112,7 +112,9 @@
             </div>   
             <hr>
             <% if user_signed_in? %>
-            <%= link_to '로그아웃', destroy_user_session_path, method: :delete,:class => "btn btn-secondary"  %>
+            <!--<button class="all_btn">-->
+            <%= link_to '로그아웃', destroy_user_session_path, method: :delete, class: 'copy_link'%>
+            <!--</button>-->
             <%end%>
         </div>
       
@@ -171,7 +173,7 @@
                                     <%= like.project.name %> 
                                 </h1>
                                 <!--<%= link_to Project.find(like.project_id).name, "/projects/#{like.project_id}"%>-->
-                                 <a href="/projects/#{like.project_id}" style="text-decoration:none; color:white; background-color:rgba(138, 8, 75, 0.2); padding:3%;  border-radius:10px;">
+                                 <a href="/projects/<%=like.project_id%>" style="text-decoration:none; color:white; background-color:rgba(138, 8, 75, 0.2); padding:3%;  border-radius:10px;">
                                     입장
                                  </a>
                             </div>
@@ -220,11 +222,11 @@
                 <!--모든 프로젝트-->
                     
                     <!--<div id="c1">-->
-                    <!--     <% @projects.each do |project| %>-->
+                    <!--     <%# @projects.each do |project| %>-->
                     <!--          <tr>-->
-                    <!--               <td><%= link_to project.name, "/projects/#{project.id}"%><br></td>-->
+                    <!--               <td><%#= link_to project.name, "/projects/#{project.id}"%><br></td>-->
                     <!--          </tr>-->
-                    <!--      <% end %>-->
+                    <!--      <%# end %>-->
                     <!--</div>-->
         </div>  
               

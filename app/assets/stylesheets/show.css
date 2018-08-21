@@ -37,6 +37,24 @@
     border-radius:15px;
     
 }
+
+.copy_link{
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    /*appearance: button;*/
+
+    background: url(/assets/2_email_title.png);
+    background-size: 100px 40px;
+    border: none;
+    width: 100px;
+    height: 40px;
+    /*z-index: 1;*/
+    padding-top: 5px;
+    color: white;
+    margin: 0 auto;
+    margin-top: 5px
+}
+
 .img{
     background-color: lightblue;
     background-color: rgba( 255, 255, 255, 0.5 );
@@ -66,7 +84,7 @@
 }
 .questImage{
     margin: 0 auto;
-    
+    position:relative;
     width:556px;
     height:720px;
     padding:40px;

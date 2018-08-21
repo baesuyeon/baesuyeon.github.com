@@ -27,36 +27,29 @@
     </style>
     </head>
     
-    <section class="banner">
-    <!--최상단바 -->
-        <a class="gomain" href = "/projects">
-            <image src="/assets/4_home.png"></image>
-        </a>
-        
+    <!-- <section class="banner">
+        <a class="gomain" href="/projects"><image src="/assets/4_home.png"></image></a>
     <!--로고바 -->
-        <div class="title">
-        <title>티 므 빌 디 잉</title>
-        </div>
-    </section>
-<body class="main_logo">
-        
-    <div>
-        <div class="mold">
+    </section>-->
+    
+<body>
+    <div class="main_logo"></div>
+    <div class="mold">
             <form action = '/projects' method = "POST">
                 <!--프로젝트 이름-->
-                <input type = 'string' name = 'project_name' class="form-control" placeholder="퀘스트 제목" style="width:195px;height:45px;font-size:44px;color:#66472A;background-color:transparent;border:opx;"></input>
+                <input type = 'string' name = 'project_name' class="form-control" placeholder="퀘스트 제목" style="width:195px;height:45px;font-size:26px;color:#66472A;background-color:transparent;border:opx;"></input>
                 <input type = 'hidden', name = 'user_id', value = <%= current_user.id %> > </input>
                 <!--프로젝트 목표-->
-                <input type = 'text' name = 'project_content' class="form-goal" placeholder="프로젝트 목표" style="width:420px;height:100px; font-size:24px;"></input>
+                <input type = 'text' name = 'project_content' class="form-goal" placeholder="프로젝트 목표" style="width:420px;height:100px; font-size:18px;"></input>
                 <!--프로젝트 총인원수-->
                 <input type = 'integer' name = 'project_numofTotal' class="form-people_total" placeholder="프로젝트 참가 총 인원(숫자로)" style="font-size:18px;background-color:transparent;color:#BFBFBF;" ></input>
                 <!--프로젝트 팀별인원수-->
-                <input type = 'integer' name = 'project_numofateam' class="form-people" placeholder="한 팀 인원(숫자로)" style="font-size:18px;background-color:transparent;color:#white;"></input>
+                <input type = 'integer' name = 'project_numofateam' class="form-people" placeholder="한 팀 인원(숫자로)" style="font-size:18px;background-color:transparent;color:#BFBFBF;"></input>
                 <!--프로젝트 마감날짜-->
                 <input type = 'string' name = 'project_deadline' class="form-deadline" placeholder="퀘스트 마감날짜" style="font-size:18px;background-color:transparent;color:#BFBFBF;" ></input>
                 
                 <input type = 'integer' name = 'project_numofjob' class="form-role" placeholder="역할 수" style="font-size:18px;background-color:transparent;color:#BFBFBF;"></input>
-                <h4>필요역할</h4>
+                <h4 style="color:white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;" >필요역할</h4>
                 <!--즉 매니저가 한팀에 소속된 멤버들의 상세 역할을 정할 수 있습니다.-->
                 <input type = 'string' name = 'job1' class="form-role_detail" placeholder="역할 1" value=""></input>
                 <input type = 'string' name = 'job2' class="form-role_detail" placeholder="역할 2" value=""></input>
@@ -64,11 +57,12 @@
                 <input type = 'string' name = 'job4' class="form-role_detail" placeholder="역할 4" value=""></input>
                 <input type = 'string' name = 'job5' class="form-role_detail" placeholder="역할 5" value=""></input>
                 <input type = 'string' name = 'job6' class="form-role_detail" placeholder="역할 6" value=""></input>
-                <div class="imgUPLOAD">이미지업로드 영역</div>
-                <input type="file" name="image" id="image">
-        
+                <div class="imgUPLOAD">이미지업로드 영역
+                <input type="file" name="image" id="image" enctype="multipart/form-data">
+                </div>
                 
-                <input type = 'submit' value = '퀘스트 시작' class="btn"></input>
+                <br><br>
+                <input type = 'submit' value = '퀘스트 시작' class="connect_btn" style="font-size:18px"></input>
         
         
         

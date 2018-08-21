@@ -16,6 +16,10 @@ Rails.application.routes.draw do
   # delete '/projects/:id' => 'projects#destroy'
   post '/projects/:id/completebuilding' => 'projects#completebuilding'
   # get '/projects/:id/completebuilding' => 'projects#completebuilding'
+  
+  get '/evaluation/'=> 'projects#evaluation' #만족도 평가 페이지
+  get '/check' => 'projects#check'
+
 
   
   devise_for :users

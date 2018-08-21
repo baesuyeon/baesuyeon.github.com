@@ -39,7 +39,7 @@ span{
     padding: 0;
     color: white;
     margin: 0 auto;
-    /*margin-top: 5px;*/
+    margin-top: 5px;
 }
 
 .btn_mini:hover
@@ -49,6 +49,25 @@ span{
 }
 
 .connect_btn:hover
+{
+    color: gray;
+    cursor: pointer;
+}
+
+.all_btn{
+    background: url(/assets/2_email_title.png);
+    background-size: 100px 40px;
+    border: none;
+    width: 100px;
+    height: 40px;
+    /*z-index: 1;*/
+    padding-top: 5px;
+    color: white;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+.all_btn:hover
 {
     color: gray;
     cursor: pointer;
