@@ -53,7 +53,7 @@
 
     </head>
     
-        <div>
+        <div class>
             <image class="log" src="/assets/logo.png"> </image>
         </div>
         
@@ -138,7 +138,7 @@
         <div class ="project" >
             <div class="myDIV1">
                 <div class="slick-items">
-                    <div style="background-color: rgba(16, 7, 25, 0.6); border-radius:20px;">
+                    <div style="background-color: rgba(16, 7, 25, 0.6); border-radius:20px; box-shadow: 0px 0px 5px 1px #E6E6E6; margin-top:1px; border:3px solid #140718;">
                         <h1>프로젝트생성</h1>
                         <a href="/projects/new" method="get">
                             <image class="plus"src="/assets/plus.png" > 
@@ -147,10 +147,16 @@
                     </div>
                     <% @projects.each do |project| %>
                         <% if project.user_id == current_user.id %>
-                            <div style="background-color: rgba(56, 11, 97, 0.5); border-radius:20px; width:40px; height:230px; margin:10px;">
-                                내가 만든 프로젝트
-                                <h2><%= project.name %></h2>
-                                <a href="/projects/<%= project.id%>" style="text-decoration:none;">입장</a>
+                            <div style="background-color: rgba(47, 11, 58, 0.6); border-radius:20px;height:210px; margin:10px; margin-top:1px; box-shadow: 0px 0px 5px 1px #E6E6E6; border:3px solid #140718;">
+                                <h3 style="background-color:rgba(138, 8, 75, 0.2); margin:3%; padding:5%; border-radius:10px;">
+                                    내가 만든 프로젝트
+                                </h3>
+                                <h1 style="background-color:rgba(138, 8, 75, 0.2); margin:3%; padding:10%; border-radius:10px;">
+                                    <%= project.name %>
+                                </h1>
+                                <a href="/projects/<%= project.id%>" style="text-decoration:none; color:white; background-color:rgba(138, 8, 75, 0.2); padding:3%;  border-radius:10px;">
+                                    입장
+                                </a>
                             </div>
                         <%end%>
                     <% end %>
@@ -160,10 +166,14 @@
                 <div class="slick-items">
                     <% @likes.each do |like| %>
                         <% if like.user_id == current_user.id %>
-                            <div>
-                                <h2><%= like.project.name %> </h2>
+                            <div style="background-color: rgba(47, 11, 58, 0.6); border-radius:20px;height:210px; box-shadow: 0px 0px 5px 1px #E6E6E6; margin:10px; border:3px solid #140718;">
+                                <h1 style="background-color:rgba(138, 8, 75, 0.2); margin:5%; padding:20%; border-radius:10px;">
+                                    <%= like.project.name %> 
+                                </h1>
                                 <!--<%= link_to Project.find(like.project_id).name, "/projects/#{like.project_id}"%>-->
-                                 <a href="/projects/#{like.project_id}" style="text-decoration:none;">입장</a>
+                                 <a href="/projects/#{like.project_id}" style="text-decoration:none; color:white; background-color:rgba(138, 8, 75, 0.2); padding:3%;  border-radius:10px;">
+                                    입장
+                                 </a>
                             </div>
                         <% end %>
                     <% end %>
@@ -172,8 +182,10 @@
             <div class="myDIV3">         
                 <div class="slick-items">
                     <!--완료 프로젝트-->
-                    <div>
-                        <h1>프로젝트 평가하기</h1>
+                    <div style="background-color: rgba(47, 11, 58, 0.6); border-radius:20px;height:210px; box-shadow: 0px 0px 5px 1px #E6E6E6; margin:10px; border:3px solid #140718;">
+                        <h1 style="background-color:rgba(138, 8, 75, 0.2); margin:5%; padding:5%; border-radius:10px;">
+                            프로젝트 평가하기
+                        </h1>
                         <button class="btn btn-default">
                             평가하기
                         </button>

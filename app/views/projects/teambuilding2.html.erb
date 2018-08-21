@@ -50,9 +50,17 @@
     <br>
 <%end%>
 
+<a href = '#'>다른 팀조합 원해요!</a>
+<form action = '/projects/1/completebuilding' method = 'post'>
+    <strong>통보하기</strong>
+    <input type = 'hidden', name = 'test1'><%= @results %> </input>
 
-
-
+    <input type = 'submit'></input>
+</form>
+results : <%= @results %><br>
+resulttemp : <%= @resulttemp %><br>
+total : <%= @total.to_i %><br>
+numperson : <%= @numperson %><br>
 <br> <br> <br>
 
 <%  for i in 0..(@numberofjob.to_i)-1 do %>
@@ -91,3 +99,7 @@
 <% end %>
 
 <br>
+
+
+
+

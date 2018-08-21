@@ -2,62 +2,56 @@
 <html>
     <head>
   
-
-
-
-
       <meta charset="UTF-8">
     <title>hi</title>
   
       
     </head>
-    <body class="main_logo su">
+    <body class=" su">
+      
+      <div class="main_logo"> 
+      </div>
       
         <br />  <br/>
        <div>
           <div>
-            <div>
-              <h2 class="su_text">회원가입</h2>
+            <div class="su_top">
+              <span class="bigbig">회원가입</span>
                 <br />
             </div>
           </div>
+          <br>
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <%= devise_error_messages! %>
             <div>
             <div>
-             <%= f.label :이름 %><br />
-             <%= f.text_field :name, autofocus: true%>
+
+             <%= f.label :이름, class: 'e_title' %>&nbsp;
+             <%= f.text_field :name, autofocus: true, class: 'e_input'%>
             </div>
           </div>
+          <br>
           
             <%= f.hidden_field :experience, :value => 0 %>
             <%= f.hidden_field :level, :value => 0 %>
             <div>
-              <%= f.label :이메일 %><br />
-              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+              <%= f.label :이메일, class: 'e_title' %>&nbsp;
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'e_input' %>
             </div>
+            <br>
             <div>
-              <%= f.label :비밀번호 %>
+              <%= f.label :비밀번호, class: 'e_title' %>
                 <% if @minimum_password_length %>
-                  <em>(최소 <%= @minimum_password_length %>글자!)</em>
-                <% end %><br />
-              <%= f.password_field :password, autocomplete: "off" %>
-            </div>
-            <div>
-              <%= f.label :비밀번호_확인 %><br />
-              <%= f.password_field :password_confirmation, autocomplete: "off" %>
-            </div>
-            <br />
-            <div>
-              
-              <button id="myBtn" class="bttn">내 성향 고르러 슝슝 !</button>
-              <br><br>
-              혹시 아직 내 성향을 모른다면?<br>
-              <button onclick="location.href='https://www.16personalities.com/ko'" target="_blank" class="bttn_s">MBTI 검사하러 슝슝!</button>
-   
-            </div>
-            <br/>
 
+                <% end %>&nbsp;
+              <%= f.password_field :password, autocomplete: "off" , placeholder: '(최소 6글자 ! )',class: 'e_input'%>
+            </div>
+                              
+            <br>
+            <div>
+              <%= f.label :비밀번호_확인, class: 'e_title' %>&nbsp;
+              <%= f.password_field :password_confirmation, autocomplete: "off", class: 'e_input' %>
+            </div>
+            
             
 
             
@@ -76,13 +70,24 @@
         </div>
           <-->
              
-             <%= f.submit "완료 !", class:"bttn"  %>
+             <%= f.submit "완료", class:"connect_btn"  %>
              <% end %>
-             <button onclick="location.href='/projects'" class="bttn_s">사실 이미 회원이닷!</button>
+             
+             
             </div>
+            
+            
+            <div class = "test">
+           <button id="myBtn" class="connect_btn">성향 선택</button>
+          <br>   
+          혹시 아직 내 성향을 모른다면?
+          <br>
+              <!--<button onclick="location.href='https://www.16personalities.com/ko'" target="_blank" class="bttn_s">MBTI 검사하러 슝슝!</button>-->
+              <a href ="https://www.16personalities.com/ko/%EB%AC%B4%EB%A3%8C-%EC%84%B1%EA%B2%A9-%EC%9C%A0%ED%98%95-%EA%B2%80%EC%82%AC" target="_blank"><button class="btn_mini">성향 검사</button></a>
+           </div>                                            
+             
           
           
-          <div class ="container-all">
             
          
             
@@ -91,12 +96,14 @@
             <div id="myModal" class="modal">
               <!-- Modal content -->
               <div class="modal-content">
-                                                                         
+                
+                
                 <p>
                   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-                
-                   
-                   <p style="margin-bottom:0;text-align:center;font-size:50px;"><%= f.label :mbti %></p>
+                  <div class = "m-title">
+                   <head> 내 성격이다 싶은 걸 골라골라 </head>
+                   </div>
+                   <p style="margin-bottom:0;text-align:center;display:none;"><%= f.label :mbti %></p>
                    
                   
                    <!--이미지스 -->

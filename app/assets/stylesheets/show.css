@@ -49,15 +49,33 @@
     
 }
 .title{
-    font-size:55px;
-    text-align:left;
-    margin-left:20px;
+    font-size:38px;
+    text-align:center;
+    margin-top:17%;
+    margin-left:2%;
     width: 70%;
+    color:#2A1B0A;
 }
 
 .a,.gomain{
     text-align: center;
     font-size:20px;
     margin:20px;
+    
+}
+.questImage{
+    margin: 0 auto;
+    
+    width:556px;
+    height:720px;
+    padding:40px;
+    padding-top:10px;
+    margin-top:0;
+    text-align: center;
+    background-image: url("/assets/7_quest.png");
+    background-size: auto 100%;
+}
+.text{
+    margin-top:20%;
     
 }

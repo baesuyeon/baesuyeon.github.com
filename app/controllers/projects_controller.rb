@@ -63,14 +63,6 @@ class ProjectsController < ApplicationController
         @numberofjob = @numberofjob + 1
       end
       
-      if params[:job7] != ""
-        @numberofjob = @numberofjob + 1
-      end
-      
-      if params[:job8] != ""
-        @numberofjob = @numberofjob + 1
-      end
-      
       project.numjob = @numberofjob
       project.save
       
@@ -88,10 +80,6 @@ class ProjectsController < ApplicationController
           job.content = params[:job5]
         elsif i==6
           job.content = params[:job6]
-        elsif i==7
-          job.content = params[:job7]
-        elsif i==8
-          job.content = params[:job8]
         end
         job.project_id = project.id
         
@@ -124,11 +112,11 @@ class ProjectsController < ApplicationController
     current_project_id = current_project_id.to_i
     
     @numperson = Project.find(params[:id]).numateam # 한팀당 몇명이 속하는지 
-    total = params[:total] # 총 인원
-    @numberofgroup = (total.to_i)/@numperson # 그룹의 갯수
+    @total = params[:total] # 총 인원
+    @numberofgroup = (@total.to_i)/@numperson # 그룹의 갯수
     @numberofjob = Project.find(params[:id]).numjob # 역할의 갯수
     
-    @arrs = Array.new(total.to_i) { Array.new((@numberofjob).to_i + 1) }
+    @arrs = Array.new(@total.to_i) { Array.new((@numberofjob).to_i + 1) }
     @wants = Array.new(@numberofjob.to_i, 0) { Array.new(@numberofjob.to_i, 0) }
     temp = Array.new(8, 0) { Array.new(1000, 0) }
     @job = Array.new(9, 1000) # 1부터 시작
@@ -297,8 +285,8 @@ class ProjectsController < ApplicationController
     
     #나머지 배정
     last = 0
-    for i in 0..total.to_i-1 do
-      if last == total.to_i % @numperson.to_i
+    for i in 0..@total.to_i-1 do
+      if last == @total.to_i % @numperson.to_i
          break
       end
       
@@ -318,5 +306,17 @@ class ProjectsController < ApplicationController
     @resulttemp.shuffle
     
 
+  end
+  
+  
+  
+  def completebuilding
+    @test11 = params[:test1]
+    
+    # @test12 = params[:test12]
+    # @test13 = params[:test13]
+    # @test2 = params[:test2]
+    # @test3 = params[:test3]
+    # @test4 = params[:test4]
   end
 end

@@ -4,6 +4,8 @@ class CreateLikes < ActiveRecord::Migration
       t.belongs_to :user
       t.belongs_to :project
       
+      t.string :team
+      t.string :role
       t.integer :one
       t.integer :two
       t.integer :three

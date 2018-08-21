@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   # post '/projects' => 'projects#create'
   # get '/projects/:id' => 'projects#show'
   # delete '/projects/:id' => 'projects#destroy'
+  post '/projects/:id/completebuilding' => 'projects#completebuilding'
+  get '/projects/:id/completebuilding' => 'projects#completebuilding'
 
   
   devise_for :users

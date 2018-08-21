@@ -2,10 +2,12 @@
 <html>
     <head>
     </head>
-    <body class="main_logo su">
+    <body class=" su">
+      <div class="main_logo"> 
+      </div>
       <div >
-        <div class="su_top">
-          <h2>티므빌디잉의 계정을 입력해주세용</h2>
+        <div class="su_top su_margin">
+          <span class="bigbig">티므빌디잉의 계정을 입력해주세용</span>
         </div>
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <br />
@@ -30,12 +32,12 @@
             <% end %>
             
             <div>
-              <%= f.submit "로그인", class:"bttn" %>
+              <%= f.submit "접 속", class:"connect_btn" %>
               
               <br><br><br>
             <p class="main_button">
               <p>혹시라도 아직 회원이 아니라면?</p>
-            <button type="button" class="bttn_s" onclick="location.href='/users/sign_up'">회원 가입</a></button>
+            <button type="button" class="btn_mini" onclick="location.href='/users/sign_up'">회원 가입</a></button>
             </p>
             </div>
             
