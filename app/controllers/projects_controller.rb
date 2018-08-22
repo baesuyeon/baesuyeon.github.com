@@ -36,11 +36,7 @@ class ProjectsController < ApplicationController
       @project.numateam = params[:project_numofateam]
       #project.numjob = params[:project_numofjob]
       @project.user_id = params[:user_id]
-
-      uploader = ImageUploader.new
-  
-      uploader.store!(params[:image])
-      @project.image = uploader.url
+      @project.image = params[:image]
       @project.state = 0
       
       @numberofjob = 0
@@ -185,20 +181,20 @@ class ProjectsController < ApplicationController
           
             @arrs[index][j] = like.six.to_i
             temp[5][like.six.to_i] = temp[5][like.six.to_i] + 1
-          elsif j == 7
-            if index == 0
-                @job[j] = like.seven.to_i
-            end
+          # elsif j == 7
+          #   if index == 0
+          #       @job[j] = like.seven.to_i
+          #   end
             
-            @arrs[index][j] = like.seven.to_i
-            temp[6][like.seven.to_i] = temp[6][like.seven.to_i] + 1
-          elsif j == 8
-            if index == 0
-                @job[j] = like.eight.to_i
-            end
+          #   @arrs[index][j] = like.seven.to_i
+          #   temp[6][like.seven.to_i] = temp[6][like.seven.to_i] + 1
+          # elsif j == 8
+          #   if index == 0
+          #       @job[j] = like.eight.to_i
+          #   end
           
-            @arrs[index][j] = like.eight.to_i
-            temp[7][like.eight.to_i] = temp[7][like.eight.to_i] + 1
+          #   @arrs[index][j] = like.eight.to_i
+          #   temp[7][like.eight.to_i] = temp[7][like.eight.to_i] + 1
           end
         end
         
@@ -213,7 +209,16 @@ class ProjectsController < ApplicationController
               @wants[i][j] = temp[j][@job[i]];
         end
     end
-
+    
+    # arrs 출력해보기
+    # for i in 0..(@arrs.size-1) do 
+    #   for j in 0..(@numberofjob.to_i) do
+    #     print @arrs[i][j]
+    #   end
+    #   puts
+    # end
+    
+    
     x = 0
     y = 0
 
@@ -226,6 +231,18 @@ class ProjectsController < ApplicationController
               y = i
             end
         end
+        
+        #임시
+        puts "wants"
+        for p in 0..2 do
+          for u in 0..2 do
+            puts @wants[p][u] 
+          end
+          
+        end
+        
+        puts "x" , x
+        puts "y" , y
         
         assign = 0
         
@@ -244,6 +261,7 @@ class ProjectsController < ApplicationController
               assign = assign + 1
               userid[@arrs[j][0]] = 1
               @wants[x][0] = @wants[x][0] - 1
+              puts "가로줄은 ", x 
               puts @arrs[j][0] , "들어가뮤"
             end
           end
@@ -266,8 +284,7 @@ class ProjectsController < ApplicationController
                     if userid[@arrs[j][0]] == 0 and @arrs[j][k] == @job[x]
                          mytemp.push(@arrs[j][0]) 
                          myhash[@arrs[j][0]] = @arrs[j][k]
-                         puts @arrs[j][0] , "들어가뮤우"
-    
+                         puts @arrs[j][0] , "my temp에 들어가뮤우"
                     end
                 end
             end  # temp에 user_id 다 뽑아놨고
@@ -276,13 +293,21 @@ class ProjectsController < ApplicationController
             mytemp = mytemp.sample(@numberofgroup.to_i - assign).sort
             puts "selected_mytemp: ", mytemp
     
-            
+            puts "chi: ", chi
             for a in 0..chi-1 do
                   @results[x].push(mytemp[a])
                   assign = assign + 1
                   userid[mytemp[a]] = 1
                   puts "temp값 넣는다."
                   puts mytemp[a] , "들어감"
+                  
+                  puts "확인해보기"
+                  puts "a", a
+                  puts "mytemp[a]", mytemp[a]
+                  puts "@hash[mytemp[a]]", @hash[mytemp[a]]
+                  puts "@arrs[@hash[mytemp[a]]][1]", @arrs[@hash[mytemp[a]]][1]
+                  
+                  @wants[ @arrs[@hash[mytemp[a]]][1] - @job[0] ] [0] = @wants[ @arrs[@hash[mytemp[a]]][1] - @job[0] ] [0] - 1
             end
         end
     end
@@ -317,17 +342,22 @@ class ProjectsController < ApplicationController
   
   
   def completebuilding
+    @current_project_id = params[:id]
+    
     @likes = Like.all
     @Users = User.all
     @Jobs = Job.all
     
     @results = params[:results]
+    
+    
     @numberofgroup = params[:numberofgroup]
     @numberofjob = params[:numberofjob]
     
-    @current_project_id = params[:id]
-    
-    
+    @results = @results.gsub('[', '')
+    @results = @results.gsub(']', '')
+    @results = @results.gsub(' ', '')
+    @results = @results.split(',')
     
     # redirect_to '#'
   end

@@ -38,22 +38,73 @@
     
 }
 
-.copy_link{
-    -webkit-appearance: button;
-    -moz-appearance: button;
+/*.copy_link{*/
+/*    -webkit-appearance: button;*/
+/*    -moz-appearance: button;*/
     /*appearance: button;*/
 
-    background: url(/assets/2_email_title.png);
-    background-size: 100px 40px;
+/*    background: url(/assets/2_email_title.png);*/
+/*    background-size: 100px 40px;*/
+/*    border: none;*/
+/*    width: 100px;*/
+/*    height: 40px;*/
+    /*z-index: 1;*/
+/*    padding-top: 5px;*/
+/*    color: white;*/
+/*    margin: 0 auto;*/
+/*    margin-top: 5px;*/
+/*}*/
+
+
+
+.banner_1{
+    background: url(/assets/4_banner_1.png);
+    background-size: 200px 50px;
     border: none;
-    width: 100px;
-    height: 40px;
+    width: 200px;
+    height: 50px;
     /*z-index: 1;*/
     padding-top: 5px;
     color: white;
     margin: 0 auto;
-    margin-top: 5px
+    margin-top: 5px;
+    font-size: 20px;
 }
+
+.banner_2{
+    background: url(/assets/4_banner_2.png);
+    background-size: 200px 50px;
+    border: none;
+    width: 200px;
+    height: 50px;
+    /*z-index: 1;*/
+    padding-top: 5px;
+    color: white;
+    margin: 0 auto;
+    margin-top: 5px;
+    font-size: 20px;
+}
+
+.menu_div{
+    /*width:100%;*/
+    /*height: 50px;*/
+    /*background-color: white;*/
+}
+
+.banner_3{
+    background: url(/assets/4_banner_3.png);
+    background-size: 200px 50px;
+    border: none;
+    width: 200px;
+    height: 50px;
+    /*z-index: 1;*/
+    padding-top: 5px;
+    color: white;
+    margin: 0 auto;
+    margin-top: 5px;
+    font-size: 20px;
+}
+
 
 .img{
     background-color: lightblue;

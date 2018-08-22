@@ -76,14 +76,14 @@
           </ul>
         </div>
           <--> <div class = "test">
-           <div id="myBtn" class="all_btn">성향 선택</div>
+           <div id="myBtn" class="all_btn">꼭! 성향 선택</div>
            
           <br> 
-          혹시 아직 내 성향을 모른다면?
+          &nbsp;&nbsp;혹시 아직 내 성향을 모른다면?
           <br>
               <!--<button onclick="location.href='https://www.16personalities.com/ko'" target="_blank" class="bttn_s">MBTI 검사하러 슝슝!</button>-->
-              <div class="btn_mini"><a href ="https://www.16personalities.com/ko/%EB%AC%B4%EB%A3%8C-%EC%84%B1%EA%B2%A9-%EC%9C%A0%ED%98%95-%EA%B2%80%EC%82%AC" target="_blank">성향 검사</a></div>
-           </div> 
+              <a href ="https://www.16personalities.com/ko/%EB%AC%B4%EB%A3%8C-%EC%84%B1%EA%B2%A9-%EC%9C%A0%ED%98%95-%EA%B2%80%EC%82%AC" target="_blank">성향 검사하러 가기 !</a>
+              </div>
              <br>
              
              <!-- Trigger/Open The Modal -->
@@ -96,7 +96,7 @@
                 <p>
 
                   <div class = "m-title">
-                   <head> 내 성격이다 싶은 걸 골라골라 </head>
+                   <head> 내 성격이다 싶은 걸 누르고 맨 아래 저장! </head>
                    </div>
                    <p style="margin-bottom:0;text-align:center;display:none;"><%= f.label :mbti %></p>
                    
@@ -112,9 +112,9 @@
                       <div class ="text">
                         
                         
-                      
+                       <a href="https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-intj" target="_blank"><span class="badge">INTJ 성향은요?</span></a><br>
                          <label class="radio_button active">"용의주도한 전략가"<br>INTJ<br>
-                         <a href="https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-intj" target="_blank"><span class="badge">INTJ 성향은요?</span></a><br>
+                        
                            <%= f.radio_button :mbti, 'INTJ', checked: true %>
                           </label>
                           </div>
@@ -122,20 +122,22 @@
                      
                       
                       <div class ="conA">
-                     <%= image_tag "3_mbti2.png" %>
+                     <%= image_tag "a-2.png" %>
                      <div class ="text">
+                       <a href="https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-intp" target="_blank"><span class="badge">INTP 성향은요?</span></a><br>
                       <label class="radio_button">"논리적인 사색가"<br>INTP<br>
-                      <a href="https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-intp" target="_blank"><span class="badge">INTP 성향은요?</span></a><br>
+                      
                          <%= f.radio_button :mbti, 'INTP' %>
                       </label>
                       </div>
                       </div>
 
                       <div class ="conA">
-                       <%= image_tag "3_mbti3.png" %>
+                       <%= image_tag "a-3.png" %>
                        <div class ="text">
+                         <a href="https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-entp" target="_blank"><span class="badge">ENTJ 성향은요?</span></a><br>
                       <label class="radio_button">"대담한 통솔자"<br>ENTJ<br>
-                       <a href="https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-entp" target="_blank"><span class="badge">ENTJ 성향은요?</span></a><br>
+                       
                          <%= f.radio_button :mbti, 'ENTJ' %>
                       </label>
                       </div>
@@ -144,10 +146,11 @@
                       
                       <div class ="conA">
                       
-                      <%= image_tag "3_mbti4.png" %>
+                      <%= image_tag "a-4.png" %>
                       <div class ="text">
+                          <a href="https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-entp" target="_blank"><span class="badge">ENTP 성향은요?</span></a><br>
                       <label class="radio_button">"논쟁을 즐기는 변론가"<br>ENTP<br>
-                        <a href="https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-entj" target="_blank"><span class="badge">ENTJ 성향은요?</span></a><br>
+                      
                          <%= f.radio_button :mbti, 'ENTP' %>
                       </label>
                       </div>
@@ -155,8 +158,9 @@
                       
                       
                       <div class ="conA">
-                      <%= image_tag "3_mbti5.png" %>
+                      <%= image_tag "b-1.png" %>
                       <div class ="text">
+                        <a href="https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-infj" target="_blank"><span class="badge">INFJ 성향은요?</span></a><br>
                       <label class="radio_button">"선의의 옹호자"<br>INFJ<br>
                          <%= f.radio_button :mbti, 'INFJ' %>
                       </label>
@@ -165,8 +169,9 @@
                       
                       
                       <div class ="conA">
-                      <%= image_tag "3_mbti6.png" %>
+                      <%= image_tag "b-2.png" %>
                       <div class ="text">
+                        <a href="https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-infp" target="_blank"><span class="badge">INFP 성향은요?</span></a><br>
                       <label class="radio_button">"열정적인 중재자"<br>INFP<br>
                          <%= f.radio_button :mbti, 'INFP' %>
                       </label>
@@ -174,8 +179,9 @@
                       </div>
                       
                       <div class ="conA">
-                        <%= image_tag "3_mbti7.png" %>
+                        <%= image_tag "b-3.png" %>
                         <div class ="text">
+                          <a href="https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-enfj" target="_blank"><span class="badge">ENFJ 성향은요?</span></a><br>
                       <label class="radio_button">"정의로운 사회운동가"<br>ENFJ<br>
                          <%= f.radio_button :mbti, 'ENFJ' %>
                       </label>
@@ -185,9 +191,10 @@
                       
                       <div class ="conA">
                       
-                        <%= image_tag "3_mbti8.png" %>
+                        <%= image_tag "b-4.png" %>
                         
                         <div class ="text">
+                          <a href="https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-enfp" target="_blank"><span class="badge">ENFP 성향은요?</span></a><br>
                       <label class="radio_button">"재기발랄한 활동가"<br>ENFP<br>
                          <%= f.radio_button :mbti, 'ENFP' %>
                       </label>
@@ -195,8 +202,9 @@
                       </div>
                       
                       <div class ="conA">
-                        <%= image_tag "3_mbti9.png" %>
+                        <%= image_tag "c-1.png" %>
                         <div class ="text">
+                          <a href="https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-istj" target="_blank"><span class="badge">ISTJ 성향은요?</span></a><br>
                       <label class="radio_button">"청렴결백한 논리주의자"<br>ISTJ<br>
                          <%= f.radio_button :mbti, 'ISTJ' %>
                       </label>
@@ -204,8 +212,9 @@
                       </div>
                       
                       <div class ="conA">
-                      <%= image_tag "3_mbti10.png" %>
+                      <%= image_tag "c-2.png" %>
                       <div class ="text">
+                        <a href="https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-isfj" target="_blank"><span class="badge">ISFJ 성향은요?</span></a><br>
                       <label class="radio_button">"용감한 수호자"<br>ISFJ<br>
                          <%= f.radio_button :mbti, 'ISFJ' %>
                       </label>
@@ -213,8 +222,9 @@
                       </div>
                       
                       <div class ="conA">
-                        <%= image_tag "3_mbti11.png" %>
+                        <%= image_tag "c-3.png" %>
                         <div class ="text">
+                          <a href="https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-estj" target="_blank"><span class="badge">ESTJ 성향은요?</span></a><br>
                       <label class="radio_button">"엄격한 관리자"<br>ESTJ<br>
                          <%= f.radio_button :mbti, 'ESTJ' %>
                       </label>
@@ -224,8 +234,9 @@
                       
                       
                       <div class ="conA">
-                        <%= image_tag "3_mbti12.png" %>
+                        <%= image_tag "c-4.png" %>
                         <div class ="text">
+                          <a href="https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-esfj" target="_blank"><span class="badge">ESFJ 성향은요?</span></a><br>
                       <label class="radio_button">"사교적인 외교관"<br>ESFJ<br>
                          <%= f.radio_button :mbti, 'ESFJ' %>
                       </label>
@@ -235,8 +246,9 @@
                       
                       <div class ="conA">
                         
-                      <%= image_tag "3_mbti13.png" %>
+                      <%= image_tag "d-1.png" %>
                       <div class ="text">
+                        <a href="https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-istp" target="_blank"><span class="badge">ISTP 성향은요?</span></a><br>
                       <label class="radio_button">"만능 재주꾼"<br>ISTP<br>
                          <%= f.radio_button :mbti, 'ISTP' %>
                       </label>
@@ -244,8 +256,9 @@
                       </div>
                       
                       <div class ="conA">
-                        <%= image_tag "3_mbti14.png" %>
+                        <%= image_tag "d-2.png" %>
                         <div class ="text">
+                          <a href="https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-isfp" target="_blank"><span class="badge">ISFP 성향은요?</span></a><br>
                       <label class="radio_button">"호기심 많은 예술가"<br>ISFP<br>
                          <%= f.radio_button :mbti, 'ISFP' %>
                       </label>
@@ -254,8 +267,9 @@
                       
                       
                       <div class ="conA">
-                        <%= image_tag "3_mbti15.png" %>
+                        <%= image_tag "d-3.png" %>
                         <div class ="text">
+                          <a href="https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-estp" target="_blank"><span class="badge">ESTP 성향은요?</span></a><br>
                       <label class="radio_button">"모험을 즐기는 사업가"<br>ESTP<br>
                          <%= f.radio_button :mbti, 'ESTP' %>
                       </label>
@@ -264,8 +278,9 @@
                       
                       
                       <div class ="conA">
-                        <%= image_tag "3_mbti16.png" %>
+                        <%= image_tag "d-4.png" %>
                         <div class ="text">
+                          <a href="https://www.16personalities.com/ko/%EC%84%B1%EA%B2%A9%EC%9C%A0%ED%98%95-esfp" target="_blank"><span class="badge">ESFP 성향은요?</span></a><br>
                       <label class="radio_button">"자유로운 영혼의 연예인"<br>ESFP<br>
                          <%= f.radio_button :mbti, 'ESFP' %>
                       </label>

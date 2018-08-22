@@ -30,16 +30,44 @@
 
         
     </head>
-    <body class="main_logo">
-      
-      
-              
-    
-    
-    
-    
-    
-     
-       
-    </body>
+<body>
+    <div class="main_logo"></div>
+    <div class="mold">
+                <!--프로젝트 이름-->
+                <input type = 'string' name = 'ongoing_project_name' class="ongoing_project-name" style="width:195px;height:45px;font-size:26px;color:#66472A;background-color:transparent;border:opx;"><%=@project_name %></input>
+                <input type = 'hidden', name = 'user_id', value = <%= current_user.id %> > </input>
+                <!--프로젝트 목표-->
+                <input type = 'text' name = 'ongoing_project_content' class="ongoing_form-goal"  style="width:420px;height:100px; font-size:18px;"><%= @project_content %></input>
+                <!--프로젝트 총인원수-
+                <input type = 'integer' name = 'ongoing_project_numofTotal' class="ongoing_form-people_total" style="font-size:18px;background-color:transparent;color:#BFBFBF;" ><project_numofTotal %></input>-->
+                <!--프로젝트 팀별인원수-->
+                <input type = 'integer' name = 'ongoing_project_numofateam' class="ongoing_form-people"  style="font-size:18px;background-color:transparent;color:#BFBFBF;"><%= @project_numofateam %></input>
+                <!--프로젝트 마감날짜-->
+                <input type = 'string' name = 'ongoing_project_deadline' class="ongoing_form-deadline"  style="font-size:18px;background-color:transparent;color:#BFBFBF;" ><%= @project_deadline %></input>
+                
+            
+                <h4 style="color:white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;" >역할</h4>
+                <!--한팀에 소속된 멤버들의 상세 역할을 확인할 수 있습니다.-->
+            <!--수정해야합니다
+                <input type = 'string' name = 'job1' class="form-role_detail" placeholder="역할 1" value=""></input>
+                <input type = 'string' name = 'job2' class="form-role_detail" placeholder="역할 2" value=""></input>
+                <input type = 'string' name = 'job3' class="form-role_detail" placeholder="역할 3" value=""></input>
+                <input type = 'string' name = 'job4' class="form-role_detail" placeholder="역할 4" value=""></input>
+                <input type = 'string' name = 'job5' class="form-role_detail" placeholder="역할 5" value=""></input>
+                <input type = 'string' name = 'job6' class="form-role_detail" placeholder="역할 6" value=""></input>
+                <div class="imgUPLOAD">이미지업로드 영역
+                <input type="file" name="image" id="image"> -->
+                </div>
+                
+                <br><br>
+                <input type = 'button' value = '시간표 등록하기' class="timeschedule-registration" style="font-size:18px"></input>
+                <input type = 'button' value = '충고듣기' class="advise" style="font-size:18px"></input>
+        
+        
+        
+        
+        
+        </div>
+    </div>
+</body>
 </html>

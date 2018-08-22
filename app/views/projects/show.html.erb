@@ -84,10 +84,9 @@
                     </form>
                <% end %>
             </div>   
-            <div style="font-size:15px; ">
-               <a href="<%=@project%>" class="copy_link" onclick="copy_trackback(this.href); return false;" style="text-decoration:none; color:white;">
-               링크복사하기!
-               </a>
+            <div>
+                 <button type="button" class="connect_btn" onclick="copy_trackback(this.href); return false;" >링크 복사하기 !</button>
+              
             </div>   
         </div>
     </div>   
@@ -124,11 +123,13 @@
 <script>
 function copy_trackback(address) {
 	var IE=(document.all)?true:false;
+	var link = document.location.href;
+
 	if (IE) {
 		if(confirm("이 글의 주소를 클립보드에 복사하시겠습니까?"))
-			window.clipboardData.setData("Text", address);
+			window.clipboardData.setData("Text", link);
 	} else {
-		temp = prompt("이 글의 주소입니다. Ctrl+C를 눌러 클립보드로 복사하세요", address);
+		temp = prompt("이 글의 주소입니다. Ctrl+C를 눌러 클립보드로 복사하세요", link);
 	}
 }
 </script>

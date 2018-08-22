@@ -4,6 +4,7 @@
 <% end %>
 <br>
 
+
 <% for i in 0..(@numberofgroup)-1 do %>
     * 팀 <%= i+1 %> *
     <br>
@@ -53,9 +54,10 @@
 <a href = '#'>다른 팀조합 원해요!</a>
 <form action = '/projects/<%=@current_project_id%>/completebuilding' method = 'POST'>
     <strong>통보하기</strong>
-    <input type = 'text', name = 'results[]' value = "<%=@results %>"> <%= @results %></input>
+    <input type = 'text', name = 'results' value ="<%=@results %>"></input> <%=@results %>
+    <input type = 'text', name = 'resulttemp' value ="<%=@resulttemp %>"></input> <%=@resulttemp %>
     <input type = 'hidden', name = 'numberofgroup' value = "<%=@numberofgroup %>"> <%= @numberofgroup %></input>
-    <input type = 'hidden', name = 'numberofgroup' value = "<%=@numberofjob %>"> <%= @numberofjob %></input>
+    <input type = 'hidden', name = 'numberofjob' value = "<%=@numberofjob %>"> <%= @numberofjob %></input>
 
     <input type = 'submit'></input>
 </form>

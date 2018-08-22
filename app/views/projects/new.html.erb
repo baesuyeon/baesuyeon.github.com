@@ -35,7 +35,7 @@
 <body>
     <div class="main_logo"></div>
     <div class="mold">
-            <form action = '/projects' method = "POST">
+            <form action = '/projects' method = "POST" enctype="multipart/form-data">
                 <!--프로젝트 이름-->
                 <input type = 'string' name = 'project_name' class="form-control" placeholder="퀘스트 제목" style="width:195px;height:45px;font-size:26px;color:#66472A;background-color:transparent;border:opx;"></input>
                 <input type = 'hidden', name = 'user_id', value = <%= current_user.id %> > </input>
