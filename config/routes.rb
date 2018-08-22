@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/teambuilding2/:id' => 'projects#teambuilding2'
   # get '/projects/new' => 'projects#new'
   # post '/projects' => 'projects#create'
-  # get '/projects/:id' => 'projects#show'
+  get '/projects/:id/:userid' => 'projects#show'
   # delete '/projects/:id' => 'projects#destroy'
   post '/projects/:id/completebuilding' => 'projects#completebuilding'
   # get '/projects/:id/completebuilding' => 'projects#completebuilding'

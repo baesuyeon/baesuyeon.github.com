@@ -113,6 +113,10 @@ class ProjectsController < ApplicationController
     @current_project_id = params[:id]
     @current_project_id = @current_project_id.to_i
     
+    @project = Project.find(@current_project_id)
+    @project.state = 1
+    @project.save
+    
     @numperson = Project.find(params[:id]).numateam # 한팀당 몇명이 속하는지 
     @total = params[:total] # 총 인원
     @numberofgroup = (@total.to_i)/@numperson # 그룹의 갯수
@@ -344,22 +348,77 @@ class ProjectsController < ApplicationController
   def completebuilding
     @current_project_id = params[:id]
     
+    @project = Project.find(@current_project_id)
+    @project.state = 2
+    @project.save
+    
     @likes = Like.all
     @Users = User.all
     @Jobs = Job.all
     
     @results = params[:results]
-    
+    @resulttemp = params[:resulttemp]
     
     @numberofgroup = params[:numberofgroup]
     @numberofjob = params[:numberofjob]
+    @job = params[:job]
     
     @results = @results.gsub('[', '')
     @results = @results.gsub(']', '')
     @results = @results.gsub(' ', '')
     @results = @results.split(',')
     
-    # redirect_to '#'
+    @job = @job.gsub('[', '')
+    @job = @job.gsub(']', '')
+    @job = @job.gsub(' ', '')
+    @job = @job.split(',')
+    
+    @resulttemp = @resulttemp.gsub('[', '')
+    @resulttemp = @resulttemp.gsub(']', '')
+    @resulttemp = @resulttemp.gsub(' ', '')
+    @resulttemp = @resulttemp.split(',')
+    
+    resultarray = Array.new(@numberofjob.to_i) { Array.new(500, 3) }
+    
+    
+    index = 0
+    for i in 0..(@numberofjob.to_i)-1 do
+      for j in 0..(@numberofgroup.to_i)-1 do
+         resultarray[i][j] = @results[index].to_i
+         index = index + 1
+      end
+    end
+    
+    # @likes.each do |like| 
+    #   like.project_id = like.project_id.to_i
+      
+    #   if like.project_id== @current_project_id
+         
+    #     for j in 1..(@numberofjob).to_i do
+    #     end
+    #   end
+    # end
+    
+    team = 0
+    
+    for i in 0..(@numberofgroup.to_i)-1 do 
+       team = i+1
+       for j in 0..(@numberofjob.to_i)-1 do
+         @member = Like.find_by(user: resultarray[j][i]) 
+         @member.team = team
+         @member.role = @job[j]
+         @member.save
+       end
+       
+       if @resulttemp[i].present?
+         @member = Like.find_by(user: @resulttemp[i])
+         @member.team = team.to_s
+         @member.role = @member.one
+         @member.save
+       end
+    end
+    
+    redirect_to "/projects/#{@current_project_id}/#{current_user.id}"
   end
   
   

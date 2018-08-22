@@ -1,0 +1,39 @@
+.html{ 
+    
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    
+.center{
+    margin: 0 auto;
+    margin-top:50px;
+    margin-left: 10px;
+    /*border:1px solid white;*/
+    width:1250px;
+    height:500px;
+    padding:20px;
+    padding-top:30px;
+    text-align: center;
+    
+}
+.questImage{
+    margin: 0 auto;
+    position:relative;
+    width:556px;
+    height:720px;
+    padding:40px;
+    padding-top:10px;
+    margin-top:0;
+    text-align: center;
+    background-image: url("/assets/9_quest.png");
+    background-size: auto 100%;
+}
+.title{
+    font-size:38px;
+    text-align:center;
+    margin-top:17%;
+    margin-left:2%;
+    width: 70%;
+    color:#66472A;
+}

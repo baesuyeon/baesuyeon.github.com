@@ -51,6 +51,8 @@
     <br>
 <%end%>
 
+
+
 <a href = '#'>다른 팀조합 원해요!</a>
 <form action = '/projects/<%=@current_project_id%>/completebuilding' method = 'POST'>
     <strong>통보하기</strong>
@@ -58,6 +60,7 @@
     <input type = 'text', name = 'resulttemp' value ="<%=@resulttemp %>"></input> <%=@resulttemp %>
     <input type = 'hidden', name = 'numberofgroup' value = "<%=@numberofgroup %>"> <%= @numberofgroup %></input>
     <input type = 'hidden', name = 'numberofjob' value = "<%=@numberofjob %>"> <%= @numberofjob %></input>
+    <input type = 'hidden', name = 'job' value = "<%=@job %>"> <%= @job %></input>
 
     <input type = 'submit'></input>
 </form>
