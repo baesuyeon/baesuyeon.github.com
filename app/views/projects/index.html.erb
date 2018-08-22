@@ -112,17 +112,17 @@
 
         <div class= "banner_menu">
             <div class="menu1">
-                <button type="button" class="banner_1" style="text-decoration:none">
+                <button type="button" class="banner_1">
                     설계 중인 프로젝트
                 </button>
             </div>
             <div class="menu2">
-                <button type="button" class="banner_2" style="text-decoration:none">
+                <button type="button" class="banner_2">
                     참여 중인 프로젝트
                 </button>
             </div>
             <div class="menu3">
-                <button type="button" class="banner_3" style="text-decoration:none">
+                <button type="button" class="banner_3">
                     완료 프로젝트
                 </button>    
             </div>
@@ -147,7 +147,7 @@
                                 <h1>
                                     <%= project.name %>
                                 </h1>
-                                <a href="/projects/<%= project.id%>/<%=current_user.id%>" style="text-decoration:none; color:white; background-color:rgba(138, 8, 75, 0.2); padding:3%;  border-radius:10px;">
+                                <a href="/projects/<%= project.id%>" style="text-decoration:none; color:white; background-color:rgba(138, 8, 75, 0.2); padding:3%;  border-radius:10px;">
                                     입장
                                 </a>
                             </div>
@@ -159,12 +159,12 @@
                 <!--<div class="slick-items">-->
                     <% @likes.each do |like| %>
                         <% if like.user_id == current_user.id %>
-                            <div style="background-color: rgba(47, 11, 58, 0.6); border-radius:20px;height:210px; box-shadow: 0px 0px 5px 1px #E6E6E6; margin:10px; border:3px solid #140718;">
-                                <h1 style="background-color:rgba(138, 8, 75, 0.2); margin:5%; padding:20%; border-radius:10px;">
+                            <div>
+                                <h1>
                                     <%= like.project.name %> 
                                 </h1>
                                 <!--<%= link_to Project.find(like.project_id).name, "/projects/#{like.project_id}"%>-->
-                                 <a href="/projects/<%=like.project_id%>" style="text-decoration:none; color:white; background-color:rgba(138, 8, 75, 0.2); padding:3%;  border-radius:10px;">
+                                 <a href="/projects/<%=like.project_id%>" >
                                     입장
                                  </a>
                             </div>
@@ -175,7 +175,7 @@
             <div class="myDIV3">    
                 <!--완료 프로젝트-->
                 <div class="create">
-                    <h1 style="background-color:rgba(138, 8, 75, 0.2); margin:5%; padding:5%; border-radius:10px;">
+                    <h1>
                         프로젝트 평가하기
                     </h1>
                     <button class="btn btn-default">
@@ -183,23 +183,23 @@
                     </button>
                 </div>
                 <!--<div class="slick-items">-->
-                    <div style="background-color: rgba(47, 11, 58, 0.6); border-radius:20px;height:210px; box-shadow: 0px 0px 5px 1px #E6E6E6; margin:10px; border:3px solid #140718;">
-                        <h1 style="background-color:rgba(138, 8, 75, 0.2); margin:5%; padding:5%; border-radius:10px;">
+                    <div>
+                        <h1>
                             완료 프로젝트 11111
                         </h1>
                     </div>
-                    <div style="background-color: rgba(47, 11, 58, 0.6); border-radius:20px;height:210px; box-shadow: 0px 0px 5px 1px #E6E6E6; margin:10px; border:3px solid #140718;">
-                        <h1 style="background-color:rgba(138, 8, 75, 0.2); margin:5%; padding:5%; border-radius:10px;">
+                    <div>
+                        <h1>
                             완료 프로젝트 22222
                         </h1>
                     </div>
-                    <div style="background-color: rgba(47, 11, 58, 0.6); border-radius:20px;height:210px; box-shadow: 0px 0px 5px 1px #E6E6E6; margin:10px; border:3px solid #140718;">
-                        <h1 style="background-color:rgba(138, 8, 75, 0.2); margin:5%; padding:5%; border-radius:10px;">
+                    <div>
+                        <h1>
                             완료 프로젝트 33333
                         </h1>
                     </div>
-                    <div style="background-color: rgba(47, 11, 58, 0.6); border-radius:20px;height:210px; box-shadow: 0px 0px 5px 1px #E6E6E6; margin:10px; border:3px solid #140718;">
-                        <h1 style="background-color:rgba(138, 8, 75, 0.2); margin:5%; padding:5%; border-radius:10px;">
+                    <div>
+                        <h1>
                             완료 프로젝트 33333
                         </h1>
                     </div>

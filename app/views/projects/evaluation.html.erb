@@ -28,17 +28,103 @@
     </head>
 <body class="main_logo">
     <div class="center">
-        <div class="questImage">
-            <div class="team_evaluation"> 1팀 평가하기</div>
+        
+        <div class="questImage_e1">
+           
             <div class="title">
-                # 제목
+               프로젝트 이름
+               
+               </div>
+               
+               
+               
+               
             <div class="text">
                 
+                
+                
+                <div class ="character">
+             
+             
+             
+             <%= image_tag "a-1.png" %>
+             <!--여기는 캐릭터를 만드는 div-->
+             <!--설계자 mbti 캐릭터-->
+             
+              </div>
+              
+              <div class="nickname">
+             설계자 : 김범기 
+             <!--팀원 이름과 역할-->
+             </div>
+                
+             
+                        
+                <!--여기는 평점 클릭 -->
+                <div class="starRev">
+              <span class="starR on">별1</span>
+              <span class="starR">별2</span>
+              <span class="starR">별3</span>
+              <span class="starR">별4</span>
+              <span class="starR">별5</span>
+              
             </div>
+            
+                <div class ="input">
+                    
+                    
+                    <!--여기는 서술 입력창-->
+                    
+                </div>
+            
+                
+                
             </div>
+
         </div>
-        <div class="
         
+        
+           <div class="questImage_e2">
+       
+            <div class="title">
+               팀원 평가하기
+               
+               </div>
+               
+               
+               
+               
+               
+            <div class="text">
+             <div class ="team">
+             <div class ="character">
+              <%= image_tag "a-1.png" %>
+             <!--여기는 캐릭터를 만드는 div-->
+             <!--팀원 mbti 캐릭터-->
+             
+              </div>
+             <div class="nickname">
+             팀원 : 김범기 ( 프론트 )
+             <!--팀원 이름과 역할-->
+             </div>
+            
+             <div class="starRev">
+              <span class="starR on">별1</span>
+              <span class="starR">별2</span>
+              <span class="starR">별3</span>
+              <span class="starR">별4</span>
+              <span class="starR">별5</span>
+              
+            </div>
+             
+             
+             </div>
+             
+            </div>
+        
+        </div>
+        
+    
         
     </div>
     </body>
@@ -47,3 +133,13 @@
 
 </html>
 
+<script>
+    
+    
+    
+    $('.starRev span').click(function(){
+  $(this).parent().children('span').removeClass('on');
+  $(this).addClass('on').prevAll('span').addClass('on');
+  return false;
+});
+</script>

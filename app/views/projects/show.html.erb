@@ -30,36 +30,28 @@
 <!--수정-->
 <% if @project.state == 0 %>      
 <body class="main_logo">
-
-    <a class="gomain" href = "/projects">메인으로 가기</a>
-    
+    <div class="opc_back">
     <div class="center">
         <div class="questImage">
-            <div class="title">
+                <div class="title">
                 # <%= @project.name %>
-            </div>
+                <a class="return" href = "/projects"><image src="/assets/4_home.png" style="width:40px;height:40px;"></image></a>
+                </div>
             <!-- 프로젝트 목표, 마감일자 제시-->
             <div class="text_1">
                 <div class="form_goal">프로젝트 목표 : <%= @project.content %></div><br>
                 <div class="form_deadline">프로젝트 마감날짜 : <%= @project.deadline %></div>
             </div>
             <div class="text_2">
-               <h1>참여한 사람들 목록 <h1>
+               참여한 사람들 목록
                 <% @likes.each do |like| %>
                         <% if like.project_id == @project.id %>
                             <td><h3><%= @users.find(like.user_id).name %></h3></td>
                             <% @numberofpeople = @numberofpeople + 1 %>
                         <% end %>
                 <% end %>
-                <!--잠깐 버튼 올림-->
-                 <% if current_user.id == @project.user_id %>
-                    <form action = '/teambuilding2/<%=@project.id%>'>
-                        <input type = 'hidden' name = 'total' value = <%= @numberofpeople %>> </input>
-                        <input type = 'submit' value = '현재 인원으로 팀짜기'> </input>
-                    </form>
-               <% end %>
-                
-               <!--참여 취소-->
+                        
+                        <!--참여 취소-->
                <% if current_user.is_like?(@project) %>
                     <h4><%= link_to "참여 취소", project_like_path(@project), method: "POST"  %></h4>
                 <% else %>
@@ -86,24 +78,31 @@
                             <input type = 'submit', value = '참여'>  </input>
                         </form>
                 <% end %>
+                
+            </div>
+            <div class="text_3">
                 <h3>프로젝트 참여 인원 : <%= @numberofpeople %> 명 <h3><br>
-               <!--팀 짜는 버튼-->
+            </div>
+            <div class="connect_building">
+                <!--팀 짜는 버튼-->
                 <% if current_user.id == @project.user_id %>
                     <form action = '/teambuilding2/<%=@project.id%>'>
-                        <input type = 'hidden' name = 'total' value = <%= @numberofpeople %>> </input>
-                        <input type = 'submit' value = '현재 인원으로 팀짜기'> </input>
+                        <input type = 'hidden' name = 'total' value = <%= @numberofpeople %> style="background-color:transparent; font-size:18px;color:#BFBFBF;"> </input>
+                        <input type = 'submit' value = '현재 인원으로 팀짜기' style="background-color:transparent;font-size:18px;color:#BFBFBF;"> </input>
                     </form>
                <% end %>
             </div>   
             <div>
                  <button type="button" class="connect_btn" onclick="copy_trackback(this.href); return false;" >링크 복사하기 !</button>
               
-            </div>   
+            </div> 
+                
         </div>
     </div>   
 
 </div>
     
+
 
     <!--코드의 무덤... 혹시 살리려거든 가져가세요-->
     <%# if current_user.is_like?(@project) %>
@@ -125,16 +124,17 @@
                             <!--</form>-->
     <!--<a href = '/teambuilding/<%#=@project.id%>'> 현재 인원으로 팀짜기 </a>-->
                     <!--<form action = '/teambuilding/<%#=@project.id%>'>-->
+    
 </body>
 
 <% elsif @project.state == 1 %>
-    현재 팀장이 열심히 ! 팀빌딩 중입니다!!!!
-    
-    
+    <body class="main_logo">
+        현재 팀장이 열심히 ! 팀빌딩 중입니다!!!!
+    </body>
 <% elsif @project.state == 2 %>    
-    팁빌딩 완료!
-    <% if current_user.id == @project.user_id %>
-        난 방장!
+    팀빌딩 완료!
+    <%# if current_user.id == @project.user_id %>
+       
         <br>
         <% @like = Like.find_by(project: @project.id) %>
         <% @job = [1000, 1000, 1000, 1000, 1000, 1000] %>
@@ -156,15 +156,36 @@
             <%# @like = Like.find_by(project: @project.id) %>
             <%#= @like.user_id %>
             
-             <% @likes.each do |like| %>
+            <% @likes.each do |like| %>
                         <% if like.project_id == @project.id %>
                                 <% @member = Like.find_by(user: like.user_id) %>
                                 <%# @final[like.team.to_i - 1].push(like.user_id) %>
-                                <% @final[like.team.to_i - 1][like.role.to_i - @job[0]] = like.user_id %>
+                                
+                                <% if  @final[like.team.to_i - 1][like.role.to_i - @job[0]] == 0 %>
+                                    <% @final[like.team.to_i - 1][like.role.to_i - @job[0]] = like.user_id %>
+                                <% else %>
+                                    <% @final[like.team.to_i - 1][@project.numateam.to_i] = like.user_id %>
+                                <% end %>
                         <%end%>
             <% end %>
             
-    <% end %>
+            <!--출력문-->
+            <% i = 0 %>
+            <% j = 0 %>
+            <% while @final[i][j] != 0 do %>
+                팀 <%= i + 1 %> : 
+                <% while @final[i][j] !=0 do %>
+                    <%#= @final[i][j] %> 
+                    　　　<%= User.find(@final[i][j].to_i).name %> 　　　　　
+                    <% j = j + 1 %>
+                <% end %>
+                <% i = i + 1 %>
+                <% j = 0 %>
+                <br>
+            <% end %>
+
+            
+    <%# end %>
 <% end %>
 </html>    
 

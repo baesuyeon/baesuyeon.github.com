@@ -123,7 +123,8 @@
     margin-top:17%;
     margin-left:2%;
     width: 70%;
-    color:#2A1B0A;
+    color:#66472A;
+    font-weight:bold;
 }
 
 .a,.gomain{
@@ -145,11 +146,147 @@
     background-image: url("/assets/7_quest.png");
     background-size: auto 100%;
 }
-.text_1{
+.form_goal {
     margin-top:15%;
+    margin-left:8%;
+    width:400px;
+    height:30px;
+    background:url(/assets/show_1.png);
+    background-size:420px 30px;
+    background-position:center;
+    color:#BFBFBF;
+    font-size:18px;
+    text-align:center;
     
 }
+.form_deadline {
+    margin-top:0;
+    margin-left:8%;
+    width:400px;
+    height:30px;
+    background:url(/assets/show_1.png);
+    background-size:420px 30px;
+    background-position: center;
+    color:#BFBFBF;
+    font-size:18px;
+    text-align:center;
+    
+}
+
 .text_2{
-    margin-top:5%;
+    margin-left:8%;
+    width:400px;
+    height:200px;
+    background:url(/assets/show_2.png);
+    background-size:420px 200px;
+    background-position: center;
+    color:#BFBFBF;
+    font-size:18px;
+    text-align:center;
+    
+}
+
+.text_3{
+    margin-top:0;
+    margin-left:8%;
+    width:400px;
+    height:30px;
+    background:url(/assets/show_1.png);
+    background-size:420px 30px;
+    background-position: center;
+    color:#BFBFBF;
+    font-size:18px;
+    text-align:center;
+}
+.connect_building{
+     height:40px;
+     width:150px;
+     margin-left:35%;
+     font-size:18px;
+     background:url(/assets/7_hope.png);
+     background-size:cover;
+     background-position:center;
+     border:0;
+}
+
+
+/*프로젝트 평가*/
+.questImage_e1{
+    margin: 0 auto;
+    position: absolute;
+    width:556px;
+    height:720px;
+    padding:40px;
+    padding-top:10px;
+    margin-top:0;
+    text-align: center;
+    background-image: url("/assets/7_quest.png");
+    background-size: auto 100%;
+}
+
+/*팀원평가*/
+.questImage_e2{
+    margin: 600px;
+    position: relative;
+    width:556px;
+    height:720px;
+    padding:40px;
+    
+    padding-top:10px;
+    margin-top:0;
+    text-align: center;
+    background-image: url("/assets/7_quest.png");
+    background-size: auto 100%;
+    background-position: right;
+}
+
+
+
+/*별점 기능*/
+.starR{
+  background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat right 0;
+  background-size: auto 100%;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  text-indent: -9999px;
+  cursor: pointer;
+  
+}
+.starR.on{background-position:0 0;}
+
+
+
+
+.input{
+    
+    
+}
+
+
+
+.text{
+    
+    margin:20px;
+    display:block;
+    margin-top: 200px;
+    
+    
+}
+
+.team{
+    
+   
+    
+}
+
+
+.nickname{
+    
+}
+
+.character{
+    
+    margin-bottom: 50px;
     
 }

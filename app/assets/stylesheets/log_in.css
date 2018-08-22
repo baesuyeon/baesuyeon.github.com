@@ -12,6 +12,18 @@ span{
     color: white;
 }
 
+.gotest{
+    width: 220px;
+    height: 70px;
+    background-color: rgba(0, 0, 0, 0.3);
+    margin-top: 30px;
+    border-radius: 5px;
+    text-align:center;
+    padding-top: 10px;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
 .su_margin
 {
     margin-top:5%;
