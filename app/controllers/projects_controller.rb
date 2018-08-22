@@ -100,6 +100,9 @@ class ProjectsController < ApplicationController
      @users = User.all
      
      @numberofpeople = 0
+     
+    # @final = Array.new(100) { Array.new }
+     @final = Array.new(300) {Array.new(10, 0) }
   end
   
   def destroy

@@ -5,7 +5,7 @@
     -o-background-size: cover;
     background-size: cover;
     width: 100%;
-    height: auto;
+    height: 130%;
     position: absolute;
     /*여기 fixed 로 하면 방창에서 배경 안깨지는데 대신에 스크롤이 안되므 */
     z-index: -1;

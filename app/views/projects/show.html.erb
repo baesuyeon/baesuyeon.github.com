@@ -134,16 +134,39 @@
 <% elsif @project.state == 2 %>    
     팁빌딩 완료!
     <% if current_user.id == @project.user_id %>
-        난 방장임
+        난 방장!
+        <br>
         <% @like = Like.find_by(project: @project.id) %>
+        <% @job = [1000, 1000, 1000, 1000, 1000, 1000] %>
+    
+        <% @job[0] = @like.one.to_i%>
+        <% @job[1] = @like.two.to_i%>
+        <% @job[2] = @like.three.to_i%>
+        <% @job[3] = @like.four.to_i%>
+        <% @job[4] = @like.five.to_i%>
+        <% @job[5] = @like.six.to_i%>
+        
+        <% @job.sort %>
+        
          역할 :      　
-            <% for i in 0 .. (@project.numberofjob).to_i-1 do %>
-  　               **<%= @Jobs.find(@job[i]).content %>** 　　　　　　
+            <% for i in 0 .. (@project.numjob).to_i-1 do %>
+  　           <%= @jobs.find(@job[i]).content %>** 　　　　　　
+            <% end %> 
+        <br>    
+            <%# @like = Like.find_by(project: @project.id) %>
+            <%#= @like.user_id %>
+            
+             <% @likes.each do |like| %>
+                        <% if like.project_id == @project.id %>
+                                <% @member = Like.find_by(user: like.user_id) %>
+                                <%# @final[like.team.to_i - 1].push(like.user_id) %>
+                                <% @final[like.team.to_i - 1][like.role.to_i - @job[0]] = like.user_id %>
+                        <%end%>
             <% end %>
+            
     <% end %>
 <% end %>
 </html>    
-
 
 
 
