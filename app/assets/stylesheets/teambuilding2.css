@@ -1,17 +1,39 @@
 .board{
     background: url('/assets/makingBoard.png') no-repeat;
-    background-size: auto 100%;
+    background-size: 800px;
     margin: 4% 25%;
     color:white;
     
    
 }
-.role{
-    margin:10px;
-    color:#2A1B0A;
-    border:4px solid #2A1B0A;
-}
+
 .nothing{
     color:red;
     
 }
+.table_{
+    margin:8% auto;
+    margin-bottom:0;
+    color:white;
+    width:700px;
+    height:400px;
+    border:4px solid white;
+    text-align:center;
+    padding:50px;
+    padding-top:5px;
+    border:3px solid #2A1B0A;
+    background-color:#CB9A52;
+    border-radius:15px;
+}
+.table_1 th td{
+    border-bottom: 1px solid black;
+	border-right: 1px solid black;
+    
+}
+.table_1{
+    border-collapse: collapse;
+	border-top: 1px solid black;
+	border-left: 1px solid black;
+	
+}
+

@@ -417,14 +417,14 @@ class ProjectsController < ApplicationController
     for i in 0..(@numberofgroup.to_i)-1 do 
        team = i+1
        for j in 0..(@numberofjob.to_i)-1 do
-         @member = Like.find_by(user: resultarray[j][i]) 
-         @member.team = team
+         @member = Like.find_by(user: resultarray[j][i], project: @current_project_id) 
+         @member.team = team.to_s
          @member.role = @job[j]
          @member.save
        end
        
        if @resulttemp[i].present?
-         @member = Like.find_by(user: @resulttemp[i])
+         @member = Like.find_by(user: @resulttemp[i], project: @current_project_id)
          @member.team = team.to_s
          @member.role = @member.one
          @member.save
@@ -441,6 +441,28 @@ class ProjectsController < ApplicationController
     @project = Project.find_by(id: params[:project_id])
     @pm = User.find_by(id: @project.user_id)
     @teams = Like.where(project_id: @project.id)
+  end
+  
+  def evaluate
+    @project = Project.find_by(id: params[:project_id])
+    @pm = User.find_by(id: @project.user_id)
+    @teams = Like.where(project_id: @project.id)
+    @itr = 1
+    @teams.each do |team|
+      if team.team == Like.find_by(user_id: current_user.id).team
+        @rating = Rating.new
+        @rating.project_id = @project.id
+        @rating.user_id = team.user_id
+        @rating.rating = params[:"projectrating#{@itr}"]
+        @itr = @itr + 1
+        team.rating = (team.rating + @rating.rating) / 2
+        @rating.save
+      end
+    end
+    
+    
+    
+    redirect_to '/'
   end
   
   private

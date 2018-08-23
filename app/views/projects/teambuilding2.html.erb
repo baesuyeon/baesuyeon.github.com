@@ -17,6 +17,7 @@
         
       font-family:'MainFont' ;
     }
+    
     </style>
         <!-- 합쳐지고 최소화된 최신 CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -32,63 +33,86 @@
         
     </head>
 <body class="main_logo">
-    <div class="board">
-        <table class="role" >
-            <thead>
-                <th>
-                역할 :      　
-                <% for i in 0 .. (@numberofjob).to_i-1 do %>
-                  　   **<%= @Jobs.find(@job[i]).content %>** 　　　　　　
-                <% end %>
-                </th>
-                <tbody>
-                <% for i in 0..(@numberofgroup)-1 do %>
-                * 팀 <%= i+1 %> *
-                <br>
+<div class="table_">  
+  <table class="table_1">
+    <thead >
+      <th>역할</th>
+        <% for i in 0 .. (@numberofjob).to_i-1 do %>
+      <th ><%= @Jobs.find(@job[i]).content %></th>　   　　　　　　
+        <% end %>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+        <% for i in 0..(@numberofgroup)-1 do %>
+        팀 <%= i+1 %>
+        </td>
+        
+        <% for j in 0..@numberofjob-1 do %>
+          <% if @results[j][i].present? %>
+              <% if @Users.find(@results[j][i]).present? %>
+                  <% username = @Users.find(@results[j][i]).name %>
+        <td>  
+                    　<%= username %>
+                　　<% if j != @arrs[@hash[@results[j][i]]][1] - @job[0] %>
+                        <% for k in 2..@numberofjob do %>
+                            <% if j == @arrs[@hash[@results[j][i]]][k] - @job[0]%>
+                                <% break %>
+                            <% end %>
+                        <% end %>
+                        <%= @Jobs.find(@arrs[@hash[@results[j][i]]][k]).content %> <%=k%>지망
+                    
+                    <% else %>
+                        <%= @Jobs.find(@arrs[@hash[@results[j][i]]][1]).content %> 1지망
+                    <% end %>
+        </td>
+              <% end %>
+          <% end %>
+        <% end %>
+        <% if @resulttemp[i].present? %>
+            <% if @Users.find(@resulttemp[i]).present? %>
+                <% username = @Users.find(@resulttemp[i]).name %>
+                <%= username %>
+                <%= @Jobs.find(@arrs[@hash [@resulttemp[i]] ][1]).content %> 1지망|　　
+            <% end %>
+        <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div> 
+
+    
+        <div class="role" >
+            
+                   
                 
-                [[
-                <% for j in 0..@numberofjob-1 do %>
-                    <% if @results[j][i].present? %>
-                        <% if @Users.find(@results[j][i]).present? %>
-                            <% username = @Users.find(@results[j][i]).name %>
-                            　　<%= username %>
+              
                             
-                            <!--<%# for k in 1..@numberofjob do %>-->
-                            <!--    <%#= k %>순위 <%#= @Jobs.find(@arrs[@hash[@results[j][i]]][k]).content %> 지망|-->
-                            <!--<%# end %>-->
+                            
                         
                             
-                            <% if j != @arrs[@hash[@results[j][i]]][1] - @job[0] %>
-                                <% for k in 2..@numberofjob do %>
-                                    <% if j == @arrs[@hash[@results[j][i]]][k] - @job[0]%>
-                                        <% break %>
-                                    <% end %>
-                |
-                                <% end %>
-                                
-                                <%= @Jobs.find(@arrs[@hash[@results[j][i]]][k]).content %> <%=k%>지망|
-                            <% else %>
-                                 <%= @Jobs.find(@arrs[@hash[@results[j][i]]][1]).content %> 1지망|
-                            <% end %>
-                            　　
-                        <% end %>
-                    <% end %>
-                    
-                <% end %>
+                            
                 
                 
-                <% if @resulttemp[i].present? %>
-                        <% if @Users.find(@resulttemp[i]).present? %>
-                            <% username = @Users.find(@resulttemp[i]).name %>
-                            <%= username %>
-                            <%= @Jobs.find(@arrs[@hash [@resulttemp[i]] ][1]).content %> 1지망|　　
-                        <% end %>
-                <% end %>
+                
                 ]]
                 <br>
-            <%end%>
-            </tbody>
-            </thead>
+            </tr>
+                <%end%>
+           <a href = '#'>
+                다른 팀조합 원해요!
+            </a>
+            
+            <form action = '/projects/<%=@current_project_id%>/completebuilding' method = 'POST'>
+                <input type = 'text', name = 'results' value ="<%=@results %>"></input> <%=@results %>
+                <input type = 'text', name = 'resulttemp' value ="<%=@resulttemp %>"></input> <%=@resulttemp %>
+                <input type = 'hidden', name = 'numberofgroup' value = "<%=@numberofgroup %>"> <%= @numberofgroup %></input>
+                <input type = 'hidden', name = 'numberofjob' value = "<%=@numberofjob %>"> <%= @numberofjob %></input>
+                <input type = 'hidden', name = 'job' value = "<%=@job %>"> <%= @job %></input>
+            
+                <input type = 'submit' value ="통보하기"></input>
+            </form>
         </div>    
             <div class="nothing">
             
@@ -135,22 +159,13 @@
             
             <br>
             </div>
-            <a href = '#'>
-                다른 팀조합 원해요!
-            </a>
             
-            <form action = '/projects/<%=@current_project_id%>/completebuilding' method = 'POST'>
-                <input type = 'text', name = 'results' value ="<%=@results %>"></input> <%=@results %>
-                <input type = 'text', name = 'resulttemp' value ="<%=@resulttemp %>"></input> <%=@resulttemp %>
-                <input type = 'hidden', name = 'numberofgroup' value = "<%=@numberofgroup %>"> <%= @numberofgroup %></input>
-                <input type = 'hidden', name = 'numberofjob' value = "<%=@numberofjob %>"> <%= @numberofjob %></input>
-                <input type = 'hidden', name = 'job' value = "<%=@job %>"> <%= @job %></input>
-            
-                <input type = 'submit' value ="통보하기"></input>
-            </form>
     </div>
 
-
+<!--코드의 무덤...-->
+<!--<%# for k in 1..@numberofjob do %>-->
+<!--    <%#= k %>순위 <%#= @Jobs.find(@arrs[@hash[@results[j][i]]][k]).content %> 지망|-->
+<!--<%# end %>-->
 
 
 

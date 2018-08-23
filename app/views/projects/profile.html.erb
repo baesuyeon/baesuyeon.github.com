@@ -28,9 +28,61 @@
     </head>
 <body class="main_logo">
     <div class="center">
-       
+         <div class ="profilepage">
+          <div class="profile_sticker">
+            프로젝트 스티커 
+          </div>
+           <div class="profilecontent">
+           <p>My Email: <%= current_user.email%></p>
+           <!--<p>My Id: <%#= current_user.id%></p>-->
+           <p>이름 : <%= current_user.name %></p>
+           <p>MBTI : <%= current_user.mbti %></p>
+           <!--<p>특기:</p>-->
+            <div class="mbti_img_profile">
+               <% obj = current_user.mbti %>
+               <% case obj  %>
+               <% when 'INTJ' %>
+                 <img src="/assets/A-1.png" style="width:120px; height:120px; margin-top:120px;"></img>
+               <% when "INTP" %>
+                  <img src="/assets/A-2.png" style="width:120px; height:120px; margin-top:120px;"></img>
+               <% when "ENTJ" %>
+                  <img src="/assets/A-3.png" style="width:120px; height:120px; margin-top:120px;"></img>
+               <% when "ENTP" %>
+                  <img src="/assets/A-4.png" style="width:120px; height:120px; margin-top:120px;"></img>
+               <% when "INFJ" %>
+                  <img src="/assets/D-1.png" style="width:120px; height:120px; margin-top:120px;"></img>
+               <% when "INFP" %>
+                  <img src="/assets/D-2.png" style="width:120px; height:120px; margin-top:120px;"></img>
+               <% when "ENFJ" %>
+                  <img src="/assets/D-3.png" style="width:120px; height:120px; margin-top:120px;"></img>
+               <% when "ENFP" %>
+                  <img src="/assets/D-4.png" style="width:120px; height:120px; margin-top:120px;"></img>
+               <% when "ISTP" %>
+                  <img src="/assets/E-1.png" style="width:120px; height:120px; margin-top:120px;"></img>
+               <% when "ISFP" %>
+                  <img src="/assets/E-2.png" style="width:120px; height:120px; margin-top:120px;"></img>
+               <% when "ESTP" %>
+                  <img src="/assets/E-3.png" style="width:120px; height:120px; margin-top:120px;"></img>
+               <% when "ESFP" %>
+                  <img src="/assets/E-4.png" style="width:120px; height:120px; margin-top:120px;"></img>
+               <% when "ISTJ" %>
+                  <img src="/assets/S-1.png" style="width:120px; height:120px; margin-top:120px;"></img>
+               <% when "ISFJ" %>
+                  <img src="/assets/S-2.png" style="width:120px; height:120px; margin-top:120px;"></img>
+               <% when "ESTJ" %>
+                  <img src="/assets/S-3.png" style="width:120px; height:120px; margin-top:120px;"></img>
+               <% when "ESFJ" %>
+                  <img src="/assets/S-4.png" style="width:120px; height:120px; margin-top:120px;"></img>
+               <% else %>
+                 <%= '이미지를 찾을 수 없습니다. ㅠ_ㅠ' %>
+               <% end %>
+            </div>
+            </div>
+            
+        </div>
+    </div>  
 
-        <div class="questImage_e2">
+        <div class="questImage_p">
                 
             
           
@@ -41,7 +93,7 @@
              
             <div class ="p-container">
              <!--<img src="/INTJ 1 (2).jpg">-->
-             <iframe src="/성격유형 _ “용의주도한 전략가” (INTJ-A _ INTJ-T) _ 16Personalities.html" frameborder="0" width="480" height="540" marginwidth="0" marginheight="50px" scrolling="yes" margin="10px" margin-right="10px" margin-top="50px">
+             <iframe src="/INTJ.htm" frameborder="0" width="480" height="540" marginwidth="0" marginheight="50px" scrolling="yes" margin="10px" margin-right="10px" margin-top="50px">
              <!--/public/성격유형 _ “논리적인 사색가” (INTP-A _ INTP-T) _ 16Personalities.html-->
            </iframe>
            

@@ -38,17 +38,19 @@
                 <!--프로젝트 이름-->
                 <input type = 'string' name = 'project_name' class="new_form_control" placeholder="퀘스트 제목"></input>
                 <input type = 'hidden', name = 'user_id', value = <%= current_user.id %> > </input>
+                
                 <!--프로젝트 목표-->
-                <input type = 'text' name = 'project_content' class="new_form_goal" placeholder="프로젝트 목표"></input>
+                <input type = 'text' name = 'project_content' class="new_form_goal" placeholder="퀘스트 목표"></input>
                 <!--프로젝트 총인원수-->
-                <input type = 'integer' name = 'project_numofTotal' class="form-people_total" placeholder="프로젝트 참가 총 인원(숫자로)" style="font-size:18px;background-color:transparent;color:#BFBFBF;" ></input>
+                <input type = 'integer' name = 'project_numofTotal' class="form-people_total" placeholder="퀘스트 총 참가 인원(숫자만!)" style="font-size:18px;background-color:transparent;color:#BFBFBF;" ></input>
                 <!--프로젝트 팀별인원수-->
-                <input type = 'integer' name = 'project_numofateam' class="form-people" placeholder="한 팀 인원(숫자로)" style="font-size:18px;background-color:transparent;color:#BFBFBF;"></input>
+                <input type = 'integer' name = 'project_numofateam' class="form-people" placeholder="한 팀당 인원(숫자만!)" style="font-size:18px;background-color:transparent;color:#BFBFBF;"></input>
                 <!--프로젝트 마감날짜-->
                 <input type = 'string' name = 'project_deadline' class="form-deadline" placeholder="퀘스트 마감날짜" style="font-size:18px;background-color:transparent;color:#BFBFBF;" ></input>
                 
                 <input type = 'integer' name = 'project_numofjob' class="form-role" placeholder="역할 수" style="font-size:18px;background-color:transparent;color:#BFBFBF;"></input>
-                <h4 style="color:white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;" >필요역할</h4>
+                
+                <h3>>>> 필요한 역할을 입력해 주세요 <<<</h3>
                 <!--즉 매니저가 한팀에 소속된 멤버들의 상세 역할을 정할 수 있습니다.-->
                 <input type = 'string' name = 'job1' class="form-role_detail" placeholder="역할 1" value=""></input>
                 <input type = 'string' name = 'job2' class="form-role_detail" placeholder="역할 2" value=""></input>
@@ -56,11 +58,11 @@
                 <input type = 'string' name = 'job4' class="form-role_detail" placeholder="역할 4" value=""></input>
                 <input type = 'string' name = 'job5' class="form-role_detail" placeholder="역할 5" value=""></input>
                 <input type = 'string' name = 'job6' class="form-role_detail" placeholder="역할 6" value=""></input>
-                <div class="imgUPLOAD">이미지업로드 영역
+                <div class="imgUPLOAD"><h4>퀘스트의 대표 이미지를 등록해주세요! </h4>
                 <input type="file" name="image" id="image" enctype="multipart/form-data">
                 </div>
                 
-                <br><br>
+                <br>
                 <input type = 'submit' value = '퀘스트 시작' class="connect_btn" style="font-size:18px"></input>
         </form>
         

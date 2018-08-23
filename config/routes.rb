@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   # get '/projects/:id/completebuilding' => 'projects#completebuilding'
   
   get '/evaluation/:project_id'=> 'projects#evaluation' #만족도 평가 페이지
+  post '/evaluate/:project_id'=> 'projects#evaluate'
   get '/check' => 'projects#check'
   
   # 여기 수정좀

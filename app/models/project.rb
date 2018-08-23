@@ -2,7 +2,7 @@ class Project < ActiveRecord::Base
   belongs_to :user
   has_many :jobs
   has_many :likes
-  
+  has_many :ratings
   mount_uploader :image, ImageUploader
   
   #특정글에 좋아요 한 users를 알 수 있다.

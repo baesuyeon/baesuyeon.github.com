@@ -39,53 +39,53 @@
 }
 
 
-.banner_1{
-    background: url(/assets/4_banner_1.png);
-    background-size: 200px 50px;
-    border: none;
-    width: 200px;
-    height: 50px;
+/*.banner_1{*/
+/*    background: url(/assets/4_banner_1.png);*/
+/*    background-size: 200px 50px;*/
+/*    border: none;*/
+/*    width: 200px;*/
+/*    height: 50px;*/
     /*z-index: 1;*/
-    padding-top: 5px;
-    color: white;
-    margin: 0 auto;
-    margin-top: 5px;
-    font-size: 20px;
-}
+/*    padding-top: 5px;*/
+/*    color: white;*/
+/*    margin: 0 auto;*/
+/*    margin-top: 5px;*/
+/*    font-size: 20px;*/
+/*}*/
 
-.banner_2{
-    background: url(/assets/4_banner_2.png);
-    background-size: 200px 50px;
-    border: none;
-    width: 200px;
-    height: 50px;
+/*.banner_2{*/
+/*    background: url(/assets/4_banner_2.png);*/
+/*    background-size: 200px 50px;*/
+/*    border: none;*/
+/*    width: 200px;*/
+/*    height: 50px;*/
     /*z-index: 1;*/
-    padding-top: 5px;
-    color: white;
-    margin: 0 auto;
-    margin-top: 5px;
-    font-size: 20px;
-}
+/*    padding-top: 5px;*/
+/*    color: white;*/
+/*    margin: 0 auto;*/
+/*    margin-top: 5px;*/
+/*    font-size: 20px;*/
+/*}*/
 
-.menu_div{
+/*.menu_div{*/
     /*width:100%;*/
     /*height: 50px;*/
     /*background-color: white;*/
-}
+/*}*/
 
-.banner_3{
-    background: url(/assets/4_banner_3.png);
-    background-size: 200px 50px;
-    border: none;
-    width: 200px;
-    height: 50px;
+/*.banner_3{*/
+/*    background: url(/assets/4_banner_3.png);*/
+/*    background-size: 200px 50px;*/
+/*    border: none;*/
+/*    width: 200px;*/
+/*    height: 50px;*/
     /*z-index: 1;*/
-    padding-top: 5px;
-    color: white;
-    margin: 0 auto;
-    margin-top: 5px;
-    font-size: 20px;
-}
+/*    padding-top: 5px;*/
+/*    color: white;*/
+/*    margin: 0 auto;*/
+/*    margin-top: 5px;*/
+/*    font-size: 20px;*/
+/*}*/
 
 
 .img{
@@ -100,9 +100,9 @@
     
 }
 .title{
-    font-size:38px;
+    font-size:26px;
     text-align:center;
-    margin-top:17%;
+    margin-top:20%;
     margin-left:2%;
     width: 70%;
     color:#66472A;
@@ -160,9 +160,9 @@
 .text_2{
     margin-left:8%;
     width:400px;
-    height:200px;
+    height:250px;
     background:url(/assets/show_2.png);
-    background-size:400px 200px;
+    background-size:400px 250px;
     background-position: center;
     color:#BFBFBF;
     font-size:18px;
@@ -171,6 +171,17 @@
     
 }
 
+.text_2 .all_btn{
+    padding-top:0;
+    margin-top: 55px;
+}
+
+.text_2 h1{
+    
+    color:black;
+    text-shadow: -2px 0 #bfbfbf, 0 2px #bfbfbf, 2px 0 #bfbfbf, 0 -2px #bfbfbf;
+
+}
 
 .text_3{
     margin-top:0;
@@ -193,6 +204,25 @@
      background-size:cover;
      background-position:center;
      border:0;
+}
+
+.go_right{
+    overflow:auto;
+    margin-top:5px;
+    float:right;
+    margin-left: 70px;
+    margin-right: 20px;
+}
+
+.go_right .all_btn{
+    float:left;
+}
+
+.go_right h4{
+    margin-top: 25px;
+    float:left;
+     color:white;
+     text-shadow: -2px 0 #66472A, 0 2px #66472A, 2px 0 #66472A, 0 -2px #66472A;
 }
 
 
@@ -252,7 +282,11 @@
     padding-top:25px;
 }
 
-
+.go_back{
+    margin-top:5px;
+    width:40px;
+    height: 50px;
+}
 
 /*팀원평가*/
 .questImage_e2{
@@ -286,9 +320,15 @@
 }
 .character_e2{
     margin-right:60%;
+    width:30%;
+    float:left;
+    
 }
 .starRev_individual{
-
+    margin-left:23%;
+    margin-bottom: 25%;
+    width:70%;
+    float:left;
 }
 
 /*별점 기능*/
@@ -349,12 +389,24 @@
 }
 .ongoing_title ,.q_start_title{
     font-size:38px;
-    text-align:center;
+    text-align:left;
     color:#222034;
     text-shadow: -2px 0 #E37C3B, 0 2px #E37C3B, 2px 0 #E37C3B, 0 -2px #E37C3B;
     font-weight:bold;
     padding-top:8%;
-    padding-left:30%;
-    width: 70%;
+    padding-left: 175px;
+    width: 100%;
+    
+    
+    
+    
+    /* font-size:38px;*/
+    /*text-align:center;*/
+    /*color:#222034;*/
+    /*text-shadow: -2px 0 #E37C3B, 0 2px #E37C3B, 2px 0 #E37C3B, 0 -2px #E37C3B;*/
+    /*font-weight:bold;*/
+    /*padding-top:8%;*/
+    /*padding-left:30%;*/
+    /*width: 70%;*/
     
 }

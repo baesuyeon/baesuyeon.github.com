@@ -9,6 +9,7 @@
         
         <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <script src="/assets/javascripts/evaluation.js"></script>
         <link rel="stylesheet" type="text/css" href="new.css">
          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <style>
@@ -32,6 +33,8 @@
     }
     </style>
     </head>
+
+<form action="/evaluate/<%= @project.id %>" method="post">
 <body class="main_logo">
     <div class="center">
         <div class="questImage_e1">
@@ -53,11 +56,11 @@
                 
             <!--여기는 평점 클릭 -->
             <div class="starRev">
-                <img src="/blankstar.png" class="test1">
-                <img src="/blankstar.png" class="test2">
-                <img src="/blankstar.png" class="test3">
-                <img src="/blankstar.png" class="test4">
-                <img src="/blankstar.png" class="test5">
+                <img src="/blankstar.png" class="rating1">
+                <img src="/blankstar.png" class="rating2">
+                <img src="/blankstar.png" class="rating3">
+                <img src="/blankstar.png" class="rating4">
+                <img src="/blankstar.png" class="rating5">
               
             </div>
             </div>
@@ -72,150 +75,50 @@
                 <div class="evaluation_title">
                팀원 평가하기
                 </div>
-            
-            <% @teams.each do |team| %>
-            <div class="text_e2">
-             <div class ="team">
-             <div class ="character_e2">
-                <!--팀원 mbti 캐릭터☆-->
-              <%= image_tag "a-1.png"%>
-             <!--여기는 캐릭터를 만드는 div-->
-             
-              
-             <div class="nickname">
-                <!--팀원 이름과 역할☆-->
-             <%= Job.find_by(team.role).content %>의 <%= User.find(team.user_id).name %>
-
-             </div>
-             </div>
-            
-             <div class="starRev">
-                <img src="/blankstar.png" class="test6">
-                <img src="/blankstar.png" class="test7">
-                <img src="/blankstar.png" class="test8">
-                <img src="/blankstar.png" class="test9">
-                <img src="/blankstar.png" class="test10">
-             
-            
-            </div>
-             <input type="hidden" name="projectrating" class="projectrating">
-             
-             </div>
-             
-            </div>
+            <% @itr = 1 %>
+            <% if current_user.id != @pm.id %>
+                <% @teams.each do |team| %>
+                <% if team.team == Like.find_by(user_id: current_user.id).team %>
+                <div class="text_e23"> <!-- 여기 css 고쳐주세요 -->
+                 <div class ="team">
+                 <div class ="character_e2">
+                    <!--팀원 mbti 캐릭터☆-->
+                  <%= image_tag "a-1.png"%>
+                 <!--여기는 캐릭터를 만드는 div-->
+                 
+                  
+                 <div class="nickname">
+                    <!--팀원 이름과 역할☆-->
+                 <%= Job.find_by(id: team.role).content %>의 <%= User.find(team.user_id).name %>
+    
+                 </div>
+                 </div>
+                 <div class="starRev_individual">
+                    <img src="/blankstar.png" class="rating1<%= @itr %>" style="width:30px;height:30px;">
+                    <img src="/blankstar.png" class="rating2<%= @itr %>" style="width:30px;height:30px;">
+                    <img src="/blankstar.png" class="rating3<%= @itr %>" style="width:30px;height:30px;">
+                    <img src="/blankstar.png" class="rating4<%= @itr %>" style="width:30px;height:30px;">
+                    <img src="/blankstar.png" class="rating5<%= @itr %>" style="width:30px;height:30px;">
+                 
+                
+                </div>
+                 <input type="hidden" name="projectrating<%= @itr %>" class="projectrating<%= @itr %>">
+                 
+                 </div>
+                 
+                </div>
+                <% @itr = @itr + 1 %>
+                <% end %>
+                <% end %>
+                <input type = 'submit' value = '제출하기' class="connect_btn" style="font-size:18px;margin-top:100%;">
             <% end %>
-            <input type = 'submit' value = '제출하기' class="connect_btn" style="font-size:18px;margin-top:100%;"></input>
         </div>
         
     
-        
+</form>        
     </div>
     </body>
     
 
 
 </html>
-
-<script>
-  $( document ).ready( function() {
-    $(".test1")
-      .click( function() { 
-        $(this).attr( 'src', '/enteredstar.png' );
-        $(".test2").attr( 'src', '/blankstar.png' );
-        $(".test3").attr( 'src', '/blankstar.png' );
-        $(".test4").attr( 'src', '/blankstar.png' );
-        $(".test5").attr( 'src', '/blankstar.png' );
-        $(".projectrating").val("1");
-      } )
-
-      $(".test2")
-      .click( function() { 
-        $(this).attr( 'src', '/enteredstar.png' );
-        $(".test1").attr( 'src', '/enteredstar.png' );
-        $(".test3").attr( 'src', '/blankstar.png' );
-        $(".test4").attr( 'src', '/blankstar.png' );
-        $(".test5").attr( 'src', '/blankstar.png' );
-        $(".projectrating").val("2");
-      } )
-
-      $(".test3")
-      .click( function() { 
-        $(this).attr( 'src', '/enteredstar.png' );
-        $(".test1").attr( 'src', '/enteredstar.png' );
-        $(".test2").attr( 'src', '/enteredstar.png' );
-        $(".test4").attr( 'src', '/blankstar.png' );
-        $(".test5").attr( 'src', '/blankstar.png' );
-        $(".projectrating").val("3");
-      } )
-      
-      $(".test4")
-      .click( function() { 
-        $(this).attr( 'src', '/enteredstar.png' );
-        $(".test1").attr( 'src', '/enteredstar.png' );
-        $(".test2").attr( 'src', '/enteredstar.png' );
-        $(".test3").attr( 'src', '/enteredstar.png' );
-        $(".test5").attr( 'src', '/blankstar.png' );
-        $(".projectrating").val("4");
-      } )
-
-      $(".test5")
-      .click( function() { 
-        $(this).attr( 'src', '/enteredstar.png' );
-        $(".test1").attr( 'src', '/enteredstar.png' );
-        $(".test2").attr( 'src', '/enteredstar.png' );
-        $(".test3").attr( 'src', '/enteredstar.png' );
-        $(".test4").attr( 'src', '/enteredstar.png' );
-        $(".projectrating").val("5");
-      } )
-
-    $(".test6")
-      .click( function() { 
-        $(this).attr( 'src', '/enteredstar.png' );
-        $(".test7").attr( 'src', '/blankstar.png' );
-        $(".test8").attr( 'src', '/blankstar.png' );
-        $(".test9").attr( 'src', '/blankstar.png' );
-        $(".test10").attr( 'src', '/blankstar.png' );
-        $(".rating").val("1");
-      } )
-
-      $(".test7")
-      .click( function() { 
-        $(this).attr( 'src', '/enteredstar.png' );
-        $(".test6").attr( 'src', '/enteredstar.png' );
-        $(".test8").attr( 'src', '/blankstar.png' );
-        $(".test9").attr( 'src', '/blankstar.png' );
-        $(".test10").attr( 'src', '/blankstar.png' );
-        $(".rating").val("2");
-      } )
-
-      $(".test8")
-      .click( function() { 
-        $(this).attr( 'src', '/enteredstar.png' );
-        $(".test6").attr( 'src', '/enteredstar.png' );
-        $(".test7").attr( 'src', '/enteredstar.png' );
-        $(".test9").attr( 'src', '/blankstar.png' );
-        $(".test10").attr( 'src', '/blankstar.png' );
-        $(".rating").val("3");
-      } )
-      
-      $(".test9")
-      .click( function() { 
-        $(this).attr( 'src', '/enteredstar.png' );
-        $(".test6").attr( 'src', '/enteredstar.png' );
-        $(".test7").attr( 'src', '/enteredstar.png' );
-        $(".test8").attr( 'src', '/enteredstar.png' );
-        $(".test10").attr( 'src', '/blankstar.png' );
-        $(".rating").val("4");
-      } )
-
-      $(".test10")
-      .click( function() { 
-        $(this).attr( 'src', '/enteredstar.png' );
-        $(".test6").attr( 'src', '/enteredstar.png' );
-        $(".test7").attr( 'src', '/enteredstar.png' );
-        $(".test8").attr( 'src', '/enteredstar.png' );
-        $(".test9").attr( 'src', '/enteredstar.png' );
-        $(".rating").val("5");
-      } )
-  } );
-</script>
