@@ -435,7 +435,7 @@ class ProjectsController < ApplicationController
   #만족도 평가 페이지
 
   def evaluation
-    
+    @project = Project.find(params[:project_id])
   end
   
   

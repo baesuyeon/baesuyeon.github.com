@@ -35,12 +35,6 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="index.css">
         
-
-        <script type="text/javascript"> 
-         document.getElementById("c1").style.visibility = "hidden";
-        </script>     
-  
-
     </head>
     
         <div>
@@ -65,37 +59,37 @@
                <% obj = current_user.mbti %>
                <% case obj  %>
                <% when 'INTJ' %>
-                 <img src="/assets/A-1.png" style="width:120px; height:120px;"></img>
+                 <img src="/assets/A-1.png" style="width:120px; height:120px; margin-top:120px;"></img>
                <% when "INTP" %>
-                  <img src="/assets/A-2.png" style="width:120px; height:120px;"></img>
+                  <img src="/assets/A-2.png" style="width:120px; height:120px; margin-top:120px;"></img>
                <% when "ENTJ" %>
-                  <img src="/assets/A-3.png" style="width:120px; height:120px;"></img>
+                  <img src="/assets/A-3.png" style="width:120px; height:120px; margin-top:120px;"></img>
                <% when "ENTP" %>
-                  <img src="/assets/A-4.png" style="width:120px; height:120px;"></img>
+                  <img src="/assets/A-4.png" style="width:120px; height:120px; margin-top:120px;"></img>
                <% when "INFJ" %>
-                  <img src="/assets/D-1.png" style="width:120px; height:120px;"></img>
+                  <img src="/assets/D-1.png" style="width:120px; height:120px; margin-top:120px;"></img>
                <% when "INFP" %>
-                  <img src="/assets/D-2.png" style="width:120px; height:120px;"></img>
+                  <img src="/assets/D-2.png" style="width:120px; height:120px; margin-top:120px;"></img>
                <% when "ENFJ" %>
-                  <img src="/assets/D-3.png" style="width:120px; height:120px;"></img>
+                  <img src="/assets/D-3.png" style="width:120px; height:120px; margin-top:120px;"></img>
                <% when "ENFP" %>
-                  <img src="/assets/D-4.png" style="width:120px; height:120px;"></img>
+                  <img src="/assets/D-4.png" style="width:120px; height:120px; margin-top:120px;"></img>
                <% when "ISTP" %>
-                  <img src="/assets/E-1.png" style="width:120px; height:120px;"></img>
+                  <img src="/assets/E-1.png" style="width:120px; height:120px; margin-top:120px;"></img>
                <% when "ISFP" %>
-                  <img src="/assets/E-2.png" style="width:120px; height:120px;"></img>
+                  <img src="/assets/E-2.png" style="width:120px; height:120px; margin-top:120px;"></img>
                <% when "ESTP" %>
-                  <img src="/assets/E-3.png" style="width:120px; height:120px;"></img>
+                  <img src="/assets/E-3.png" style="width:120px; height:120px; margin-top:120px;"></img>
                <% when "ESFP" %>
-                  <img src="/assets/E-4.png" style="width:120px; height:120px;"></img>
+                  <img src="/assets/E-4.png" style="width:120px; height:120px; margin-top:120px;"></img>
                <% when "ISTJ" %>
-                  <img src="/assets/S-1.png" style="width:120px; height:120px;"></img>
+                  <img src="/assets/S-1.png" style="width:120px; height:120px; margin-top:120px;"></img>
                <% when "ISFJ" %>
-                  <img src="/assets/S-2.png" style="width:120px; height:120px;"></img>
+                  <img src="/assets/S-2.png" style="width:120px; height:120px; margin-top:120px;"></img>
                <% when "ESTJ" %>
-                  <img src="/assets/S-3.png" style="width:120px; height:120px;"></img>
+                  <img src="/assets/S-3.png" style="width:120px; height:120px; margin-top:120px;"></img>
                <% when "ESFJ" %>
-                  <img src="/assets/S-4.png" style="width:120px; height:120px;"></img>
+                  <img src="/assets/S-4.png" style="width:120px; height:120px; margin-top:120px;"></img>
                <% else %>
                  <%= '이미지를 찾을 수 없습니다. ㅠ_ㅠ' %>
                <% end %>
@@ -110,19 +104,19 @@
         </div>
       
 
-        <div class= "banner_menu">
+        <div class= "banner_menu" style="padding-top:30px">
             <div class="menu1">
-                <button type="button" class="banner_1">
+                <button type="button" class="banner_1" style="text-decoration:none">
                     설계 중인 프로젝트
                 </button>
             </div>
             <div class="menu2">
-                <button type="button" class="banner_2">
+                <button type="button" class="banner_2" style="text-decoration:none">
                     참여 중인 프로젝트
                 </button>
             </div>
             <div class="menu3">
-                <button type="button" class="banner_3">
+                <button type="button" class="banner_3" style="text-decoration:none">
                     완료 프로젝트
                 </button>    
             </div>
@@ -137,7 +131,7 @@
                         </image>
                     </a>
                 </div>
-                <!--<div class="slick-items">-->
+                <div style="overflow:auto; white-space:nowrap;  height:300px; width:600px; " >
                     <% @projects.each do |project| %>
                         <% if project.user_id == current_user.id %>
                             <div class="create">
@@ -147,24 +141,24 @@
                                 <h1>
                                     <%= project.name %>
                                 </h1>
-                                <a href="/projects/<%= project.id%>" style="text-decoration:none; color:white; background-color:rgba(138, 8, 75, 0.2); padding:3%;  border-radius:10px;">
+                                <a href="/projects/<%= project.id%>" class="all_btn">
                                     입장
                                 </a>
                             </div>
                         <%end%>
                     <% end %>
-                <!--</div>-->
+                </div>
             </div>
             <div class="myDIV2"> 
                 <!--<div class="slick-items">-->
                     <% @likes.each do |like| %>
                         <% if like.user_id == current_user.id %>
-                            <div>
-                                <h1>
+                            <div style="background-color: rgba(47, 11, 58, 0.6); border-radius:20px;height:210px; box-shadow: 0px 0px 5px 1px #E6E6E6; margin:10px; border:3px solid #140718;">
+                                <h1 style="background-color:rgba(138, 8, 75, 0.2); margin:5%; padding:20%; border-radius:10px;">
                                     <%= like.project.name %> 
                                 </h1>
                                 <!--<%= link_to Project.find(like.project_id).name, "/projects/#{like.project_id}"%>-->
-                                 <a href="/projects/<%=like.project_id%>" >
+                                 <a href="/projects/<%=like.project_id%>" style="text-decoration:none; color:white; background-color:rgba(138, 8, 75, 0.2); padding:3%;  border-radius:10px;">
                                     입장
                                  </a>
                             </div>
@@ -175,36 +169,35 @@
             <div class="myDIV3">    
                 <!--완료 프로젝트-->
                 <div class="create">
-                    <h1>
+                    <h1 >
                         프로젝트 평가하기
                     </h1>
-                    <button class="btn btn-default">
-                        평가하기
+                    <button class="all_btn">
+                        <% @projects.each do |project| %>
+                            <% if (project.user_id == current_user.id) && project.state = 4 %>
+                                <a href="/evaluation/<%= project.id %>">평가하기</a>
+                            <% end %>
+                        <% end %>
                     </button>
                 </div>
-                <!--<div class="slick-items">-->
-                    <div>
-                        <h1>
-                            완료 프로젝트 11111
-                        </h1>
+                                    <div style="overflow:auto; white-space:nowrap;  height:300px; width:600px; " >
+                        <% @projects.each do |project| %>
+                            <% if project.user_id == current_user.id && project.state == 4 %>
+                                <div class="create">
+                                    <h3>
+                                        완성된 프로젝트
+                                    </h3>
+                                    <h1>
+                                        <%= project.name %>
+                                    </h1>
+                                    <a href="/evaluation/<%= project.id%>" style="text-decoration:none; color:white; background-color:rgba(138, 8, 75, 0.2); padding:3%;  border-radius:10px;">
+                                        입장
+                                    </a>
+                                </div>
+                            <%end%>
+                        <% end %>
                     </div>
-                    <div>
-                        <h1>
-                            완료 프로젝트 22222
-                        </h1>
-                    </div>
-                    <div>
-                        <h1>
-                            완료 프로젝트 33333
-                        </h1>
-                    </div>
-                    <div>
-                        <h1>
-                            완료 프로젝트 33333
-                        </h1>
-                    </div>
-                    
-                <!--</div>-->
+                
             </div>
             
                     
@@ -220,6 +213,7 @@
                     <!--      <%# end %>-->
                     <!--</div>-->
         </div>  
+        
               
   
     </body>

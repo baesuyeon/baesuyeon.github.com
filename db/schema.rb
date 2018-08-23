@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20180821125246) do
     t.integer  "four"
     t.integer  "five"
     t.integer  "six"
+    t.float    "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -52,6 +53,8 @@ ActiveRecord::Schema.define(version: 20180821125246) do
     t.integer  "numjob"
     t.integer  "user_id"
     t.integer  "state"
+    t.integer  "aaalll"
+    t.float    "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "image"

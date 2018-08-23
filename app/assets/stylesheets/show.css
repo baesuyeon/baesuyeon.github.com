@@ -1,12 +1,12 @@
 .center{
     margin: 0 auto;
-    margin-top:50px;
+    /*margin-top:50px;*/
     margin-left: 10px;
     /*border:1px solid white;*/
     width:1250px;
     height:500px;
     padding:20px;
-    padding-top:30px;
+    /*padding-top:30px;*/
     text-align: center;
     
     
@@ -37,24 +37,6 @@
     border-radius:15px;
     
 }
-
-/*.copy_link{*/
-/*    -webkit-appearance: button;*/
-/*    -moz-appearance: button;*/
-    /*appearance: button;*/
-
-/*    background: url(/assets/2_email_title.png);*/
-/*    background-size: 100px 40px;*/
-/*    border: none;*/
-/*    width: 100px;*/
-/*    height: 40px;*/
-    /*z-index: 1;*/
-/*    padding-top: 5px;*/
-/*    color: white;*/
-/*    margin: 0 auto;*/
-/*    margin-top: 5px;*/
-/*}*/
-
 
 
 .banner_1{
@@ -150,9 +132,9 @@
     margin-top:15%;
     margin-left:8%;
     width:400px;
-    height:30px;
-    background:url(/assets/show_1.png);
-    background-size:420px 30px;
+    height:px;
+    background:url(/assets/45show_1.png);
+    background-size:400px px;
     background-position:center;
     color:#BFBFBF;
     font-size:18px;
@@ -163,9 +145,9 @@
     margin-top:0;
     margin-left:8%;
     width:400px;
-    height:30px;
+    height:454px;
     background:url(/assets/show_1.png);
-    background-size:420px 30px;
+    background-size:4500px px;
     background-position: center;
     color:#BFBFBF;
     font-size:18px;
@@ -178,11 +160,12 @@
     width:400px;
     height:200px;
     background:url(/assets/show_2.png);
-    background-size:420px 200px;
+    background-size:44500px 200px;
     background-position: center;
     color:#BFBFBF;
     font-size:18px;
     text-align:center;
+    padding: 20px;
     
 }
 
@@ -223,6 +206,7 @@
     background-image: url("/assets/7_quest.png");
     background-size: auto 100%;
 }
+
 
 /*팀원평가*/
 .questImage_e2{
@@ -290,3 +274,8 @@
     margin-bottom: 50px;
     
 }
+
+
+/*.b-select{*/
+    
+/*}*/

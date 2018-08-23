@@ -23,100 +23,84 @@
         
       font-family:'MainFont' ;
     }
-        
+    .starR{
+      background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat right 0;
+      background-size: auto 100%;
+      width: 30px;
+      height: 30px;
+      display: inline-block;
+      text-indent: -9999px;
+      cursor: pointer;
+    }
+    .starR.on{background-position:0 0;}
     </style>
     </head>
 <body class="main_logo">
     <div class="center">
-        
         <div class="questImage_e1">
-           
-            <div class="title">
-               프로젝트 이름
-               
-               </div>
-               
-               
-               
-               
-            <div class="text">
-                
-                
-                
-                <div class ="character">
-             
-             
-             
-             <%= image_tag "a-1.png" %>
+            <div class="evaluation_title">
+               프로젝트 평가하기
+            </div>
+            <div class="text_e1">
+                프로젝트 : 뉴비톤☆
+                <div class ="character_e1">
+                    <!--설계자 mbti 캐릭터☆-->
+                    <%= image_tag "a-1.png" %>
              <!--여기는 캐릭터를 만드는 div-->
-             <!--설계자 mbti 캐릭터-->
              
-              </div>
-              
-              <div class="nickname">
-             설계자 : 김범기 
-             <!--팀원 이름과 역할-->
-             </div>
+            </div>
+            <!--매니저이름☆-->
+            <div class="nickname">
+             설계자 : 김범기
+            </div>
                 
-             
-                        
-                <!--여기는 평점 클릭 -->
-                <div class="starRev">
-              <span class="starR on">별1</span>
-              <span class="starR">별2</span>
-              <span class="starR">별3</span>
-              <span class="starR">별4</span>
-              <span class="starR">별5</span>
+            <!--여기는 평점 클릭 -->
+            <div class="starRev">
+              <span class="starR on" name="test1">별1</span>
+              <span class="starR" name="test2">별2</span>
+              <span class="starR" name="test3">별3</span>
+              <span class="starR" name="test4">별4</span>
+              <span class="starR" name="test5">별5</span>
               
             </div>
-            
+            </div>
+            <!--여기는 서술 입력창-->
                 <div class ="input">
-                    
-                    
-                    <!--여기는 서술 입력창-->
-                    
+                    <input type = 'text' name = 'detail-evaluation' class="detail_e1" placeholder="이번 프로젝트에 대해서 느낀 점을 아무거나 말해주세요."></input>
                 </div>
             
-                
-                
-            </div>
-
         </div>
         
         
-           <div class="questImage_e2">
-       
-            <div class="title">
+        <div class="questImage_e2">
+                <div class="evaluation_title">
                팀원 평가하기
+                </div>
                
-               </div>
-               
-               
-               
-               
-               
-            <div class="text">
+            <div class="text_e2">
              <div class ="team">
-             <div class ="character">
-              <%= image_tag "a-1.png" %>
+             <div class ="character_e2">
+                <!--팀원 mbti 캐릭터☆-->
+              <%= image_tag "a-1.png"%>
              <!--여기는 캐릭터를 만드는 div-->
-             <!--팀원 mbti 캐릭터-->
              
               </div>
              <div class="nickname">
-             팀원 : 김범기 ( 프론트 )
-             <!--팀원 이름과 역할-->
+                <!--팀원 이름과 역할☆-->
+             백엔드(역할)의 배수연 (닉네임)
+
+             
              </div>
             
-             <div class="starRev">
-              <span class="starR on">별1</span>
-              <span class="starR">별2</span>
-              <span class="starR">별3</span>
-              <span class="starR">별4</span>
-              <span class="starR">별5</span>
+             <div class="starRev_individual">
+              <span class="starR on" name="test6">별1</span>
+              <span class="starR" name="test7">별2</span>
+              <span class="starR" name="test8">별3</span>
+              <span class="starR" name="test9">별4</span>
+              <span class="starR" name="test10">별5</span>
               
             </div>
-             
+             <input type="text" name="rating">
              
              </div>
              
@@ -134,12 +118,105 @@
 </html>
 
 <script>
-    
-    
-    
-    $('.starRev span').click(function(){
-  $(this).parent().children('span').removeClass('on');
-  $(this).addClass('on').prevAll('span').addClass('on');
-  return false;
-});
+  $( document ).ready( function() {
+    $(".test1")
+      .click( function() { 
+        $(this).attr( 'src', '/enteredstar.png' );
+        $(".test2").attr( 'src', '/blankstar.png' );
+        $(".test3").attr( 'src', '/blankstar.png' );
+        $(".test4").attr( 'src', '/blankstar.png' );
+        $(".test5").attr( 'src', '/blankstar.png' );
+        $(".rating").val("1");
+      } )
+
+      $(".test2")
+      .click( function() { 
+        $(this).attr( 'src', '/enteredstar.png' );
+        $(".test1").attr( 'src', '/enteredstar.png' );
+        $(".test3").attr( 'src', '/blankstar.png' );
+        $(".test4").attr( 'src', '/blankstar.png' );
+        $(".test5").attr( 'src', '/blankstar.png' );
+        $(".rating").val("2");
+      } )
+
+      $(".test3")
+      .click( function() { 
+        $(this).attr( 'src', '/enteredstar.png' );
+        $(".test1").attr( 'src', '/enteredstar.png' );
+        $(".test2").attr( 'src', '/enteredstar.png' );
+        $(".test4").attr( 'src', '/blankstar.png' );
+        $(".test5").attr( 'src', '/blankstar.png' );
+        $(".rating").val("3");
+      } )
+      
+      $(".test4")
+      .click( function() { 
+        $(this).attr( 'src', '/enteredstar.png' );
+        $(".test1").attr( 'src', '/enteredstar.png' );
+        $(".test2").attr( 'src', '/enteredstar.png' );
+        $(".test3").attr( 'src', '/enteredstar.png' );
+        $(".test5").attr( 'src', '/blankstar.png' );
+        $(".rating").val("4");
+      } )
+
+      $(".test5")
+      .click( function() { 
+        $(this).attr( 'src', '/enteredstar.png' );
+        $(".test1").attr( 'src', '/enteredstar.png' );
+        $(".test2").attr( 'src', '/enteredstar.png' );
+        $(".test3").attr( 'src', '/enteredstar.png' );
+        $(".test4").attr( 'src', '/enteredstar.png' );
+        $(".rating").val("5");
+      } )
+
+    $(".test6")
+      .click( function() { 
+        $(this).attr( 'src', '/enteredstar.png' );
+        $(".test2").attr( 'src', '/blankstar.png' );
+        $(".test3").attr( 'src', '/blankstar.png' );
+        $(".test4").attr( 'src', '/blankstar.png' );
+        $(".test5").attr( 'src', '/blankstar.png' );
+        $(".rating").val("1");
+      } )
+
+      $(".test7")
+      .click( function() { 
+        $(this).attr( 'src', '/enteredstar.png' );
+        $(".test1").attr( 'src', '/enteredstar.png' );
+        $(".test3").attr( 'src', '/blankstar.png' );
+        $(".test4").attr( 'src', '/blankstar.png' );
+        $(".test5").attr( 'src', '/blankstar.png' );
+        $(".rating").val("2");
+      } )
+
+      $(".test8")
+      .click( function() { 
+        $(this).attr( 'src', '/enteredstar.png' );
+        $(".test1").attr( 'src', '/enteredstar.png' );
+        $(".test2").attr( 'src', '/enteredstar.png' );
+        $(".test4").attr( 'src', '/blankstar.png' );
+        $(".test5").attr( 'src', '/blankstar.png' );
+        $(".rating").val("3");
+      } )
+      
+      $(".test9")
+      .click( function() { 
+        $(this).attr( 'src', '/enteredstar.png' );
+        $(".test1").attr( 'src', '/enteredstar.png' );
+        $(".test2").attr( 'src', '/enteredstar.png' );
+        $(".test3").attr( 'src', '/enteredstar.png' );
+        $(".test5").attr( 'src', '/blankstar.png' );
+        $(".rating").val("4");
+      } )
+
+      $(".test10")
+      .click( function() { 
+        $(this).attr( 'src', '/enteredstar.png' );
+        $(".test1").attr( 'src', '/enteredstar.png' );
+        $(".test2").attr( 'src', '/enteredstar.png' );
+        $(".test3").attr( 'src', '/enteredstar.png' );
+        $(".test4").attr( 'src', '/enteredstar.png' );
+        $(".rating").val("5");
+      } )
+  } );
 </script>

@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   post '/projects/:id/completebuilding' => 'projects#completebuilding'
   # get '/projects/:id/completebuilding' => 'projects#completebuilding'
   
-  get '/evaluation/'=> 'projects#evaluation' #만족도 평가 페이지
+  get '/evaluation/:project_id'=> 'projects#evaluation' #만족도 평가 페이지
   get '/check' => 'projects#check'
 
 

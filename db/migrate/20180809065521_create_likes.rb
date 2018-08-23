@@ -13,6 +13,8 @@ class CreateLikes < ActiveRecord::Migration
       t.integer :five
       t.integer :six
 
+      t.float :rating
+
       t.timestamps null: false
     end
   end

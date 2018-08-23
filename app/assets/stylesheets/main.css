@@ -11,6 +11,7 @@
 }
 
 
+
 .cente{
     margin: 0 auto;
 }
@@ -56,32 +57,6 @@
 .bttn:hover{
     background-color:gray;
 }
-
-.bttn_s{
-    display: inline-block;
-    padding: 3px 9px;
-    margin-bottom: 3px;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.42857143;
-    text-align: center;
-    color: #BFBFBF;
-    white-space: nowrap;
-    vertical-align: middle;
-    touch-action: manipulation;
-    cursor: pointer;
-    user-select: none;
-    background-color: #100b29;
-    border: none;
-    border-radius: 5px;
-    margin-top: 3px;
-    
-    }
-    
-.bttn_s:hover{
-    background-color:gray;
-}
-
 .main_button{
     margin-bottom: 0;
 }

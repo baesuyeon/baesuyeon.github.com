@@ -11,7 +11,7 @@ class CreateProjects < ActiveRecord::Migration
       # 이렇게 해도 되고.....
       t.integer :state
       t.integer :aaalll
-      
+      t.float :rating
       t.timestamps null: false
     end
   end
