@@ -175,12 +175,16 @@
 .plus {
     background-color:white; border-radius:40px;
     position:relative;
-    width:80px;
-    height:80px;
+    width:60px;
+    height:60px;
     z-index:3;
     
     margin-top:5%;
     margin-bottom:20%;
+}
+
+.project .all_btn{
+    margin-top: 60px;
 }
 .create{
     background: url(/assets/popup.png);
@@ -221,6 +225,14 @@
     width:120px; height:120px;
     margin: 0 auto;
 }
+
+.create_flow{
+     overflow:auto;
+     white-space:nowrap;
+     height:300px;
+     width:600px;
+}
+
 
 /*.create_child{*/
    

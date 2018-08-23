@@ -132,24 +132,26 @@
     margin-top:15%;
     margin-left:8%;
     width:400px;
-    height:px;
-    background:url(/assets/45show_1.png);
-    background-size:400px px;
+    height:50px;
+    background:url(/assets/show_1.png);
+    background-size:400px 50px;
     background-position:center;
     color:#BFBFBF;
     font-size:18px;
     text-align:center;
+    padding-top: 10px;
     
 }
 .form_deadline {
     margin-top:0;
     margin-left:8%;
     width:400px;
-    height:454px;
+    height:50px;
     background:url(/assets/show_1.png);
-    background-size:4500px px;
+    background-size:400px 50px;
     background-position: center;
     color:#BFBFBF;
+    padding-top:10px;
     font-size:18px;
     text-align:center;
     
@@ -160,7 +162,7 @@
     width:400px;
     height:200px;
     background:url(/assets/show_2.png);
-    background-size:44500px 200px;
+    background-size:400px 200px;
     background-position: center;
     color:#BFBFBF;
     font-size:18px;
@@ -169,13 +171,14 @@
     
 }
 
+
 .text_3{
     margin-top:0;
     margin-left:8%;
     width:400px;
     height:30px;
     background:url(/assets/show_1.png);
-    background-size:420px 30px;
+    background-size:400px 30px;
     background-position: center;
     color:#BFBFBF;
     font-size:18px;
@@ -242,11 +245,6 @@
 
 
 
-.input{
-    
-    
-}
-
 
 
 .text{
@@ -258,16 +256,6 @@
     
 }
 
-.team{
-    
-   
-    
-}
-
-
-.nickname{
-    
-}
 
 .character{
     
@@ -275,7 +263,3 @@
     
 }
 
-
-/*.b-select{*/
-    
-/*}*/

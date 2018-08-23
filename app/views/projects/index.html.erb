@@ -131,7 +131,7 @@
                         </image>
                     </a>
                 </div>
-                <div style="overflow:auto; white-space:nowrap;  height:300px; width:600px; " >
+                <div class="creat_flow">
                     <% @projects.each do |project| %>
                         <% if project.user_id == current_user.id %>
                             <div class="create">
@@ -141,9 +141,8 @@
                                 <h1>
                                     <%= project.name %>
                                 </h1>
-                                <a href="/projects/<%= project.id%>" class="all_btn">
-                                    입장
-                                </a>
+                                <button class="all_btn" onclick="location.href='/projects/<%= project.id%>'">입 장</button>
+                                
                             </div>
                         <%end%>
                     <% end %>
@@ -158,9 +157,8 @@
                                     <%= like.project.name %> 
                                 </h1>
                                 <!--<%= link_to Project.find(like.project_id).name, "/projects/#{like.project_id}"%>-->
-                                 <a href="/projects/<%=like.project_id%>" style="text-decoration:none; color:white; background-color:rgba(138, 8, 75, 0.2); padding:3%;  border-radius:10px;">
-                                    입장
-                                 </a>
+                                 <button class="all_btn" onclick="location.href='/projects/<%=like.project_id%>'">입 장</button>
+                                 
                             </div>
                         <% end %>
                     <% end %>
@@ -172,17 +170,17 @@
                     <h1 >
                         프로젝트 평가하기
                     </h1>
-                    <button class="all_btn">
+                    <div class="create_flow">
                         <% @projects.each do |project| %>
                             <% if (project.user_id == current_user.id) && project.state = 4 %>
-                                <a href="/evaluation/<%= project.id %>">평가하기</a>
+                                <a href="/evaluation/<%= project.id %>" style="text-decoration:none;"> <%= project.name %></a><br>
                             <% end %>
                         <% end %>
-                    </button>
+                    </div>
                 </div>
-                                    <div style="overflow:auto; white-space:nowrap;  height:300px; width:600px; " >
+                <div style="overflow:auto; white-space:nowrap;  height:300px; width:600px; " >
                         <% @projects.each do |project| %>
-                            <% if project.user_id == current_user.id && project.state == 4 %>
+                            <% if project.user_id == current_user.id && project.state == 3 %>
                                 <div class="create">
                                     <h3>
                                         완성된 프로젝트
@@ -190,9 +188,8 @@
                                     <h1>
                                         <%= project.name %>
                                     </h1>
-                                    <a href="/evaluation/<%= project.id%>" style="text-decoration:none; color:white; background-color:rgba(138, 8, 75, 0.2); padding:3%;  border-radius:10px;">
-                                        입장
-                                    </a>
+                                    
+                                    <button class="all_btn" onclick="location.href='/evaluation/<%= project.id%>'">입 장</button>
                                 </div>
                             <%end%>
                         <% end %>
@@ -203,15 +200,6 @@
                     
                     
         
-                <!--모든 프로젝트-->
-                    
-                    <!--<div id="c1">-->
-                    <!--     <%# @projects.each do |project| %>-->
-                    <!--          <tr>-->
-                    <!--               <td><%#= link_to project.name, "/projects/#{project.id}"%><br></td>-->
-                    <!--          </tr>-->
-                    <!--      <%# end %>-->
-                    <!--</div>-->
         </div>  
         
               

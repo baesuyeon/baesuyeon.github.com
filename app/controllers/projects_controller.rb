@@ -424,7 +424,13 @@ class ProjectsController < ApplicationController
     redirect_to "/projects/#{@current_project_id}/#{current_user.id}"
   end
   
-  
+  #만족도 평가 페이지
+
+  def evaluation
+    @project = Project.find_by(id: params[:project_id])
+    @pm = User.find_by(id: @project.user_id)
+    @teams = Like.where(project_id: @project.id)
+  end
   
   private
   def project_params
@@ -432,11 +438,7 @@ class ProjectsController < ApplicationController
   end
   
   
-  #만족도 평가 페이지
 
-  def evaluation
-    @project = Project.find(params[:project_id])
-  end
   
   
   def check

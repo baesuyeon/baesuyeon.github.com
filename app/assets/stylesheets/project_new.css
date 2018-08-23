@@ -1,0 +1,95 @@
+.form-control{
+    width:195px;
+    height:45px;
+    font-size:26px;
+    color:#66472A;
+    background-color:transparent;
+    border:0px;
+}
+
+.form-control {
+    margin-left:30%;
+    margin-top:20%;
+    text-align: center;
+    font-size:33rem;
+    font-weight:bold;
+    width:195px;
+    height:45px;
+    font-size:26px;
+    color:#66472A;
+    background-color:transparent;
+    border:0px;    
+}
+.form-goal{
+    margin-top:15%;
+    /*margin-left:5%;*/
+    width:420px;
+    height:150px;
+    background:url(/assets/3_popup.png);
+    background-size:420px 100px;
+    border:0;
+}
+.form-people_total{
+    margin-top:2%;
+    /*margin-right:50%;*/
+    margin-right:8px;
+    height:40px;
+    width:205px;
+    text-align: center;
+    background:url(/assets/7_hope.png);
+    background-size:cover;
+    background-position: center;
+    border:0;
+
+}
+
+.form-people{
+    /*margin-left:50%;*/
+     width:205px;
+     height:40px;
+     text-align: center;
+     background:url(/assets/7_hope.png);
+     background-size:cover;
+    background-position: center;
+    border:0;
+
+    
+}
+.form-deadline{
+    margin-top:2%;
+    /*margin-right:50%;*/
+    margin-right:10px;
+    height:40px;
+    width:205px;
+    text-align: center;
+    background:url(/assets/7_hope.png);
+    background-size:cover;
+    background-position:center;
+    border:0;
+   
+}
+.form-role{
+    width:205px;
+     height:40px;
+     text-align: center;
+     background:url(/assets/7_hope.png);
+     background-size:cover;
+     background-position:center;
+     border:0;
+    
+}
+.form-role_detail{
+   margin-bottom:5px;
+   margin-right:2px;
+    width:205px;
+     height:30px;
+     text-align: center;
+     background:url(/assets/7_hope.png);
+     background-size:cover;
+     background-position:center;
+     color:#BFBFBF;
+     background-color:transparent;
+     font-size:18px;
+     border:0;
+    
+}

@@ -1,0 +1,59 @@
+#p-container{
+    background: url('/assets/main_logo.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    
+    
+    width: 1000px;
+    height: 1000px;
+
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: wrap;
+
+}
+
+#p-header{
+   
+   height: 100px;
+    width: 1000px;   
+   
+  
+   
+}
+
+
+#p-menu{
+   
+     background-color: yellow;
+    width: 100px;
+    height: 100px;
+
+  
+  text-align: flex-start;
+    
+}
+
+
+#p-content{
+    
+    background-color: blue;
+    width: 100px;
+    height: 100px;
+
+    
+    
+}
+
+#p-footer{
+    
+    background-color: gray;
+    width: 100px;
+    height: 100px;
+
+    
+    
+}

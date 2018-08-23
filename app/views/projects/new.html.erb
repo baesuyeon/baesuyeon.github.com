@@ -36,7 +36,7 @@
     <div class="mold">
             <form action = '/projects' method = "POST" enctype="multipart/form-data">
                 <!--프로젝트 이름-->
-                <input type = 'string' name = 'project_name' class="form-control" placeholder="퀘스트 제목" style="width:195px;height:45px;font-size:26px;color:#66472A;background-color:transparent;border:opx;"></input>
+                <input type = 'string' name = 'project_name' class="form-control" placeholder="퀘스트 제목"></input>
                 <input type = 'hidden', name = 'user_id', value = <%= current_user.id %> > </input>
                 <!--프로젝트 목표-->
                 <input type = 'text' name = 'project_content' class="form-goal" placeholder="프로젝트 목표" style="width:420px;height:100px; font-size:18px;"></input>
