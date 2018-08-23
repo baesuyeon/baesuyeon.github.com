@@ -171,9 +171,13 @@
     
 }
 
-.text_2 .all_btn{
+.text_2 {
     padding-top:0;
     margin-top: 55px;
+}
+.all_btn{
+    padding-top:0;
+    margin-top: auto;
 }
 
 .text_2 h1{
@@ -304,7 +308,7 @@
     background-position: right;
 }
 .text_e2{
-    position:absolute;
+    float:left;
 }
 .team {
     width:415px;
@@ -316,26 +320,30 @@
     float:left;
 }
 .character_e2{
-    background-image: url("/assets/3_popup.png");
+    background-image: url("/assets/popup.png");
     background-size: cover;
     background-position:center;
     margin-right:50%;
-    width:120px;
-    height:170px;
+    width:180px;
+    height:180px;
     float:left;
     
 }
 .mbti_img_e2{
     width:120px;
     height:120px;
+    margin-left: 15%;
 }
 .nickname_e2{
     width:120px;
     height:50px;
     font-size:18px;
+    margin-left: 15%;
 }
 .starRev_individual{
-    margin-left:23%;
+    width:170px;
+    height:32px;
+    margin-left:2%;
     margin-bottom: 25%;
     float:left;
     
@@ -380,7 +388,8 @@
 }
 /*팀빌딩중입니다창*/
 .ongoing_teambuilding_i {
-    margin: 150px 530px;
+    margin: 0 auto;
+    margin-top: 10%;
     width:500px;
     height:500px;
     background-image: url("/assets/ongoing_teambuilding.png");

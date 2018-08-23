@@ -141,6 +141,11 @@
                                 <h2 class="bold_name">
                                     <%= project.name %> 
                                 </h2>
+                                <% if project.image_url.nil? %>
+                                <img src="/warning.png" style="width:100px; height:100px;">
+                                <% else %>
+                                <img src="<%= project.image %>" style="width:100px; height:100px;">
+                                <% end %>
                                 <button class="all_btn" onclick="location.href='/projects/<%= project.id%>'">입 장</button>
                                 
                             </div>
@@ -149,7 +154,7 @@
                 </div>
             </div>
             <div class="myDIV2"> 
-                <!--<div class="slick-items">-->
+                 <div class="create_flow">
                     <% @likes.each do |like| %>
                         <% if like.user_id == current_user.id %>
                             <div class="create">
@@ -169,7 +174,7 @@
                             </div>
                         <% end %>
                     <% end %>
-                <!--</div>-->
+                </div>
             </div>   
             <div class="myDIV3">    
                 <!--완료 프로젝트-->

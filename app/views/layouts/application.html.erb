@@ -22,6 +22,10 @@
 <body>
 
 <%= yield %>
-
+<script>
+  <% flash.each do |key, value| %>
+    alert("<%= value%>")
+  <% end %>
+</script>
 </body>
 </html>

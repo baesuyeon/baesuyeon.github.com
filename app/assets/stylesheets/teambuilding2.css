@@ -19,24 +19,32 @@
     text-align:center;
 }
 .table_1 tr{
-    margin:15px;
-    height:25px;
+   
     border: 4px solid #71480A;
 }
 
 
 .table_1 th{
     border: 4px solid #71480A;
-	
 	width: 120px;
+	
     
 }
 
 .table_1{
     margin: 0 auto;
-    
+    width: 600px;
 	border: 4px solid #71480A; 
 	border-radius: 8px;
+
 	
+}
+.title{
+    font-size:36px;
+    margin-top:17%;
+    padding-top:0;
+}
+.another_team{
+    
 }
 

@@ -75,11 +75,28 @@
                 <div class="evaluation_title">
                팀원 평가하기
                 </div>
+                <div class="board">
+                    
+                </div>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                   <!--스크롤바를 만들기-->
+            <div class="create_flow">
+                  <div class="text_e2"> <!-- 여기 css 고쳐주세요 -->
             <% @itr = 1 %>
             <% if current_user.id != @pm.id %>
                 <% @teams.each do |team| %>
                 <% if team.team == Like.find_by(user_id: current_user.id).team %>
-                <div class="text_e23"> <!-- 여기 css 고쳐주세요 -->
+               
+              
+    
                  <div class ="team">
                      <div class ="character_e2">
                     <!--팀원 mbti 캐릭터☆-->
@@ -125,7 +142,7 @@
                  <!--여기는 캐릭터를 만드는 div-->
                  
                   
-                     <div class="nickname_e2">
+                     <div >
                     <!--팀원 이름과 역할☆-->
                          <%= Job.find_by(id: team.role).content %>의 <%= User.find(team.user_id).name %>
     
@@ -139,13 +156,11 @@
                         <img src="/blankstar.png" class="rating3<%= @itr %>" style="width:30px;height:30px;">
                         <img src="/blankstar.png" class="rating4<%= @itr %>" style="width:30px;height:30px;">
                         <img src="/blankstar.png" class="rating5<%= @itr %>" style="width:30px;height:30px;">
-                 
-                
                     </div>
                     <input type="hidden" name="projectrating<%= @itr %>" class="projectrating<%= @itr %>">
                  
                  </div>
-                 
+                 </div>
                 </div>
                 <% @itr = @itr + 1 %>
                 <% end %>

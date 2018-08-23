@@ -4,6 +4,8 @@ Rails.application.routes.draw do
    post "/like", to: "likes#like_toggle"
   end
 
+  get '/like/warning/:project_id' => 'like#warning'
+
   get '/option/:id' => 'projects#option'
   
   # get 'projects/index' => 'projects#index'

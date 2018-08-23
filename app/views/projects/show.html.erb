@@ -85,19 +85,13 @@
                             <form action = '/projects/<%= @project.id%>/like', method = "POST">
                                     <% for i in 1.. @project.numjob %>
                                         <%= i %> 지망 
-                                        <select style="background-color:#222324;color:white;" name = "value<%=i%>" id = "value<%=i%>"
-                                        onchange="alert($("#value1 option:selected").val())"> 
+                                        <select style="background-color:#222324;color:white;" name = "value<%=i%>" id = "value<%=i%>"> 
                                             <%for j in 1 ..@project.numjob %> 
                                                 <option value= <%=myjob[j-1]%> > <%= @jobs.find(myjob[j-1]).content %> </option> 
                                             <% end %>
                                         </select>><% end %>
                                     <% end %>
-                                    <script>
-                                        // alert($("#value1 option:selected").val())
-                                        
-                                        // var dg = document.getElementById(value1);
-                                        // alert(dg);
-                                    </script>
+                                
                                     <% unless current_user.is_like?(@project) %>
                                     <button class="all_btn",type = 'submit'>참여 </button>
                                     <%end%>
@@ -252,10 +246,14 @@
             <% end %>
             
             <% if current_user.id != @project.user_id%>
+            
+            <div class="notice_table">
+
+                   <h2>:: <%= @project.name %> ::</h2>
                 <!--작성해야함-->
-                <%= User.find(current_user.id).name %> 씨,
-                앞으로 우리팀 입니당 
+                <h3>'<%= User.find(current_user.id).name %>' 님의 팀입니다 </h3>
                 
+
                 <% i = 0 %>
                 <% j = 0 %>
                 <% ttemp = -1 %>
@@ -273,13 +271,57 @@
                 <% end %>
                 
                 <!--출력문-->
-                <% i = 0 %>
-                
+                <% i = 0 %>                
                 <% while @final[ttemp][i] != 0 do %>
-                    <%= User.find(@final[ttemp][i].to_i).name %> 　　　　　
-                    <% i = i + 1 %>
+                <div class="notice_member">
+                    <h3><%= User.find(@final[ttemp][i].to_i).name %>  : </h3>
+                    <h3><%= Job.find(Like.find_by(user: @final[ttemp][i].to_i).role).content %></h3>
+                    <h3><%= User.find(@final[ttemp][i]).mbti %></h3>
+                
+                
+                    <% obj = User.find(@final[ttemp][i].to_i).mbti %>  
+                    <div class="notice_img">
+                       <% case obj  %>
+                           <% when 'INTJ' %>
+                             <img src="/assets/A-1.png"></img>
+                           <% when "INTP" %>
+                              <img src="/assets/A-2.png"></img>
+                           <% when "ENTJ" %>
+                              <img src="/assets/A-3.png"></img>
+                           <% when "ENTP" %>
+                              <img src="/assets/A-4.png"></img>
+                           <% when "INFJ" %>
+                              <img src="/assets/D-1.png"></img>
+                           <% when "INFP" %>
+                              <img src="/assets/D-2.png"></img>
+                           <% when "ENFJ" %>
+                              <img src="/assets/D-3.png"></img>
+                           <% when "ENFP" %>
+                              <img src="/assets/D-4.png"></img>
+                           <% when "ISTP" %>
+                              <img src="/assets/E-1.png"></img>
+                           <% when "ISFP" %>
+                              <img src="/assets/E-2.png"></img>
+                           <% when "ESTP" %>
+                              <img src="/assets/E-3.png"></img>
+                           <% when "ESFP" %>
+                              <img src="/assets/E-4.png"></img>
+                           <% when "ISTJ" %>
+                              <img src="/assets/S-1.png"></img>
+                           <% when "ISFJ" %>
+                              <img src="/assets/S-2.png" ></img>
+                           <% when "ESTJ" %>
+                              <img src="/assets/S-3.png" ></img>
+                           <% when "ESFJ" %>
+                              <img src="/assets/S-4.png" ></img>
+                       <% else %>
+                         <%= '이미지를 찾을 수 없습니다. ㅠ_ㅠ' %>
+                       <% end %>
+                   <% i = i + 1 %>
+                   </div>
+                </div> 
                 <% end %>
-                 
+                </div>
             <!--만약 매니저라면-->
             <% elsif current_user.id == @project.user_id%>
             

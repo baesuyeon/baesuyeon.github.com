@@ -38,3 +38,23 @@
     width: 70%;
     color:#66472A;
 }
+/*.create_flow{*/
+/*     overflow:auto;*/
+/*     white-space:nowrap;*/
+/*     height:300px;*/
+/*     width:600px;*/
+/*}*/
+.text_e2{
+    width:500px;
+    float:left;
+}
+.team{
+    float:left;
+}
+.board{
+    border:1px solid white;
+    width:450px;
+    height:365px;
+    margin-top:55px;
+    margin-left:20px;
+}

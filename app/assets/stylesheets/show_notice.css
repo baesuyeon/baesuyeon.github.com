@@ -1,0 +1,28 @@
+.notice_table{
+    margin:5% auto;
+    margin-bottom:0;
+    color:white;
+    width:800px;
+    height:550px;
+    text-align:center;
+    padding:50px;
+    padding-top:50px;
+    padding-left: 5%;
+    background: url('/assets/8_team_design_background.png') no-repeat;
+    background-size: 800px 550px;
+    text-align:center;
+}
+
+.notice_member{
+    background-color: rgba(0,0,0,0.2);
+    border-radius:5px;
+    width: 120px;
+    height: 200px;
+    float:left;
+    margin:0 auto;
+    margin-right: 1%;
+}
+
+.notice_img{
+    margin: 0 auto;
+}

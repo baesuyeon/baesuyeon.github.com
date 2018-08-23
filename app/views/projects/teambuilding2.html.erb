@@ -35,6 +35,20 @@
 <body class="main_logo">
 <div class="design_table">  
 
+
+                <div class="title">
+                    <%= @project.name %>
+                </div>
+                <div class="another_team">
+                    <a href = '#'>
+                        다른 팀조합 원해요!
+                    </a>
+                </div>
+
+
+
+
+
   <table class="table_1">
       
     <thead>
@@ -51,7 +65,7 @@
           
         <th>
         <% for i in 0..(@numberofgroup)-1 do %>
-        팀 <%= i+1 %>
+        <%= i+1 %> 팀 
         </th>
         
         <% for j in 0..@numberofjob-1 do %>
@@ -85,7 +99,7 @@
             <% end %>
             
         <% end %>
-        
+        <%end%>
         </th>
         
       </tr>
@@ -103,18 +117,8 @@
                             
                         
                             
-                            
-                
-                
-                
-                ]]
-                <br>
-            </tr>
-                <%end%>
-           <a href = '#'>
-                다른 팀조합 원해요!
-            </a>
-            
+     
+           
             <form action = '/projects/<%=@current_project_id%>/completebuilding' method = 'POST'>
                 <input type = 'text', name = 'results' value ="<%=@results %>"></input> <%=@results %>
                 <input type = 'text', name = 'resulttemp' value ="<%=@resulttemp %>"></input> <%=@resulttemp %>
