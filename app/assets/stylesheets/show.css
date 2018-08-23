@@ -312,23 +312,33 @@
     margin-top:17%;
     margin-left:8%;
     font-size:18px;
-    background-image: url("/assets/evaluationpage2.png");
-    background-size: cover;
-    background-position:center;
     color:#BFBFBF;
-    padding-top:10px;
+    float:left;
 }
 .character_e2{
-    margin-right:60%;
-    width:30%;
+    background-image: url("/assets/3_popup.png");
+    background-size: cover;
+    background-position:center;
+    margin-right:50%;
+    width:120px;
+    height:170px;
     float:left;
     
+}
+.mbti_img_e2{
+    width:120px;
+    height:120px;
+}
+.nickname_e2{
+    width:120px;
+    height:50px;
+    font-size:18px;
 }
 .starRev_individual{
     margin-left:23%;
     margin-bottom: 25%;
-    width:70%;
     float:left;
+    
 }
 
 /*별점 기능*/
@@ -389,12 +399,12 @@
 }
 .ongoing_title ,.q_start_title{
     font-size:38px;
-    text-align:left;
+    text-align:center;
     color:#222034;
     text-shadow: -2px 0 #E37C3B, 0 2px #E37C3B, 2px 0 #E37C3B, 0 -2px #E37C3B;
     font-weight:bold;
     padding-top:8%;
-    padding-left: 175px;
+    /*padding-left: 175px;*/
     width: 100%;
     
     

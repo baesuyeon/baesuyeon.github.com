@@ -455,7 +455,13 @@ class ProjectsController < ApplicationController
         @rating.user_id = team.user_id
         @rating.rating = params[:"projectrating#{@itr}"]
         @itr = @itr + 1
-        team.rating = (team.rating + @rating.rating) / 2
+        if team.rating.nil?
+          team.rating = @rating.rating
+          team.save
+        else
+          team.rating = (team.rating + @rating.rating) / 2
+          team.save
+        end
         @rating.save
       end
     end

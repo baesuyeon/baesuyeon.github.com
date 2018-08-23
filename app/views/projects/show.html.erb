@@ -61,7 +61,11 @@
                         <!--만약 멤버라면-->
                        <% if current_user.id != @project.user_id%>
                             <% if current_user.is_like?(@project) %>
-                            <h4><%= link_to "참여 취소", project_like_path(@project), method: "POST"  %></h4>
+                            <%= link_to project_like_path(@project), method: "POST" do %>
+                            <button class="all_btn">
+                                참여 취소
+                            </button>
+                            <% end %>
                             <% else %>
                             
                             <% myjob = [] %>
@@ -81,13 +85,22 @@
                             <form action = '/projects/<%= @project.id%>/like', method = "POST">
                                     <% for i in 1.. @project.numjob %>
                                         <%= i %> 지망 
-                                        <select style="background-color:color:black;"name = "value<%=i%>"> 
+                                        <select style="background-color:#222324;color:white;" name = "value<%=i%>" id = "value<%=i%>"
+                                        onchange="alert($("#value1 option:selected").val())"> 
                                             <%for j in 1 ..@project.numjob %> 
                                                 <option value= <%=myjob[j-1]%> > <%= @jobs.find(myjob[j-1]).content %> </option> 
                                             <% end %>
-                                        </select>><% end %><br>
+                                        </select>><% end %>
                                     <% end %>
+                                    <script>
+                                        // alert($("#value1 option:selected").val())
+                                        
+                                        // var dg = document.getElementById(value1);
+                                        // alert(dg);
+                                    </script>
+                                    <% unless current_user.is_like?(@project) %>
                                     <button class="all_btn",type = 'submit'>참여 </button>
+                                    <%end%>
                             </form>
                         <% end %>
                         <!--만약 멤버라면 끝-->
@@ -98,7 +111,7 @@
                         <% if current_user.id == @project.user_id %>
                              <form action = '/teambuilding2/<%=@project.id%>' class="make_team">
                                 <input type = 'hidden' name = 'total' value = <%= @numberofpeople %>> </input>
-                                <button type = 'submit' value = '이대로 팀짜기' class="all_btn"> </button>
+                                <button type = 'submit'  class="all_btn"> 이대로 팀짜기 </button>
                             </form>
                         <% end %>
                         </div>  
@@ -144,7 +157,7 @@
                        <h1>:: 퀘스트 참여 목록 ::<h1>
                         <% @likes.each do |like| %>
                                 <% if like.project_id == @project.id %>
-                                    <td><h3><%= @users.find(like.user_id).name %></h3></td>
+                                    <td><h6 style="float:left;"><%= @users.find(like.user_id).name %>&nbsp;</h6></td>
                                     <% @numberofpeople = @numberofpeople + 1 %>
                                 <% end %>
                         <% end %>
@@ -184,7 +197,7 @@
                         <% end %>
                         <!--만약 멤버라면 끝-->
                         
-                        <h3>퀘스트 참여 인원 : <%= @numberofpeople %> 명 <h3><br>
+                        <h3 style="color:white;">퀘스트 참여 인원 : <%= @numberofpeople %> 명 <h3><br>
                         
                         <!--팀 짜는 버튼-->
                         <% if current_user.id == @project.user_id %>

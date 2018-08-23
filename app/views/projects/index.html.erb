@@ -158,7 +158,13 @@
                                     <%= like.project.name %> 
                                 </h2>
                                 <% link_to Project.find(like.project_id).name, "/projects/#{like.project_id}"%>
-                                 <br><br><button class="all_btn" onclick="location.href='/projects/<%=like.project_id%>'">입 장</button>
+                                <!-- 프로젝트 생성할 때 첨부한 이미지 불러오는 코드 -->
+                                <% if like.project.image_url.nil? %>
+                                <img src="/warning.png" style="width:100px; height:100px;">
+                                <% else %>
+                                <img src="<%= like.project.image %>" style="width:100px; height:100px;">
+                                <% end %>
+                                 <br><button class="all_btn" onclick="location.href='/projects/<%=like.project_id%>'">입 장</button>
                                  
                             </div>
                         <% end %>

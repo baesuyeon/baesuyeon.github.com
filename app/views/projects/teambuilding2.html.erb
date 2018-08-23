@@ -6,7 +6,18 @@
          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
    <style>
        
-     @font-face 
+  
+        <!-- 합쳐지고 최소화된 최신 CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        
+        <!-- 부가적인 테마 -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+        
+        <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="teambuilding2.css">
+        
+           @font-face 
     {
         font-family: 'MainFont'; /* 폰트 패밀리 이름 주기*/
         src: url('/assets/gsc.ttf'); /*폰트 파일 주소*/
@@ -19,40 +30,35 @@
     }
     
     </style>
-        <!-- 합쳐지고 최소화된 최신 CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-        
-        <!-- 부가적인 테마 -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-        
-        <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="teambuilding2.css">
-        
-
         
     </head>
 <body class="main_logo">
-<div class="table_">  
+<div class="design_table">  
+
   <table class="table_1">
-    <thead >
+      
+    <thead>
+        
       <th>역할</th>
         <% for i in 0 .. (@numberofjob).to_i-1 do %>
-      <th ><%= @Jobs.find(@job[i]).content %></th>　   　　　　　　
+        
+      <th><%= @Jobs.find(@job[i]).content %></th>　   　　　　　　
         <% end %>
     </thead>
+    
     <tbody>
       <tr>
-        <td>
+          
+        <th>
         <% for i in 0..(@numberofgroup)-1 do %>
         팀 <%= i+1 %>
-        </td>
+        </th>
         
         <% for j in 0..@numberofjob-1 do %>
           <% if @results[j][i].present? %>
               <% if @Users.find(@results[j][i]).present? %>
                   <% username = @Users.find(@results[j][i]).name %>
-        <td>  
+        <th>  
                     　<%= username %>
                 　　<% if j != @arrs[@hash[@results[j][i]]][1] - @job[0] %>
                         <% for k in 2..@numberofjob do %>
@@ -65,18 +71,23 @@
                     <% else %>
                         <%= @Jobs.find(@arrs[@hash[@results[j][i]]][1]).content %> 1지망
                     <% end %>
-        </td>
+        </th>
               <% end %>
           <% end %>
         <% end %>
+        
         <% if @resulttemp[i].present? %>
+        
             <% if @Users.find(@resulttemp[i]).present? %>
                 <% username = @Users.find(@resulttemp[i]).name %>
                 <%= username %>
                 <%= @Jobs.find(@arrs[@hash [@resulttemp[i]] ][1]).content %> 1지망|　　
             <% end %>
+            
         <% end %>
-        </td>
+        
+        </th>
+        
       </tr>
     </tbody>
   </table>
@@ -87,7 +98,7 @@
             
                    
                 
-              
+            <!--??              -->
                             
                             
                         
