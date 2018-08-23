@@ -1,3 +1,17 @@
 .board{
-    background: url('/assets/makingBoard.png') no-repeat center center fixed; 
+    background: url('/assets/makingBoard.png') no-repeat;
+    background-size: auto 100%;
+    margin: 4% 25%;
+    color:white;
+    
+   
+}
+.role{
+    margin:10px;
+    color:#2A1B0A;
+    border:4px solid #2A1B0A;
+}
+.nothing{
+    color:red;
+    
 }

@@ -136,16 +136,16 @@
 .project{
     text-align:center;
     /*border:1px solid white;*/
-    margin-top: 30px;
+    margin-top: 20px;
     margin-left:50px;
     font-size: 20px;
     /*margin-top: 3%;*/
     float:left;
-    /*padding: 20px;*/
     color:#BFBFBF;
     width:900px;
-    /*height:400px;*/
-    min-height:400px;
+    height:300px;
+    min-height:300px;
+    padding-left: 10px;
     max-width:900px;
     border-radius: 15px;
     background-color: rgba(255,255,255,0.2);
@@ -184,7 +184,7 @@
 }
 
 .project .all_btn{
-    margin-top: 60px;
+    margin-top: 25px;
 }
 .create{
     background: url(/assets/popup.png);
@@ -194,13 +194,10 @@
     padding-top: 10px;
     text-align: center;
     margin:20px;
+    margin-left: 25px;
     margin-right:10px;
     float:left;
-   
-     
-   
-    
-   
+    margin-bottom:10px;
 }
 
 .profile h3{
@@ -232,12 +229,21 @@
      height:300px;
      width:600px;
 }
+.create_flow_small{
+     overflow:auto;
+     white-space:nowrap;
+     margin:30px;
+     margin-left:50px;
+     height:110px;
+     width:150px;
+     
+}
 
-
-/*.create_child{*/
-   
-/*    overflow-x: scroll;*/
-    
-/*    width:500px; */
-/*    height:300px;*/
-/*}*/
+.a{
+    text-decoration:none;
+    color:white;
+}
+.a:hover{
+    color:gray;
+    text-decoration:none;
+}

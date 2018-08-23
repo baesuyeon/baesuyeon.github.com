@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :configure_permitted_parameters, if: :devise_controller?
-
+  # after_action :allow_iframe, only: :profile
+  after_action :allow_iframe
   # protected
   def welcom
     if user_signed_in?
@@ -232,7 +233,7 @@ class ProjectsController < ApplicationController
     for i in 0..(@numberofjob.to_i)-1 do
         min = 1000
         for j in 0..(@numberofjob.to_i)-1 do
-            if @wants[j][0] < min and @wants[j][0]!=0
+            if @wants[j][0] < min and @wants[j][0]!=-1
               min = @wants[j][0]
               x = j
               y = i
@@ -241,8 +242,8 @@ class ProjectsController < ApplicationController
         
         #임시
         puts "wants"
-        for p in 0..2 do
-          for u in 0..2 do
+        for p in 0..(@numberofjob.to_i)-1 do
+          for u in 0..(@numberofjob.to_i)-1 do
             puts @wants[p][u] 
           end
           
@@ -259,7 +260,7 @@ class ProjectsController < ApplicationController
           end
              
           for j in 0..(@arrs.size-1) do
-            if assign >= min or assign >= @numberofgroup.to_i
+            if assign >= min or assign >=  @numberofgroup.to_i
               break
             end
             
@@ -268,6 +269,11 @@ class ProjectsController < ApplicationController
               assign = assign + 1
               userid[@arrs[j][0]] = 1
               @wants[x][0] = @wants[x][0] - 1
+              
+              if @wants[x][0] == 0
+                @wants[x][0] = -1
+              end
+              
               puts "가로줄은 ", x 
               puts @arrs[j][0] , "들어가뮤"
             end
@@ -315,6 +321,10 @@ class ProjectsController < ApplicationController
                   puts "@arrs[@hash[mytemp[a]]][1]", @arrs[@hash[mytemp[a]]][1]
                   
                   @wants[ @arrs[@hash[mytemp[a]]][1] - @job[0] ] [0] = @wants[ @arrs[@hash[mytemp[a]]][1] - @job[0] ] [0] - 1
+                  
+                  if @wants[x][0] == 0
+                    @wants[x][0] = -1
+                  end
             end
         end
     end
@@ -381,7 +391,7 @@ class ProjectsController < ApplicationController
     @resulttemp = @resulttemp.gsub(' ', '')
     @resulttemp = @resulttemp.split(',')
     
-    resultarray = Array.new(@numberofjob.to_i) { Array.new(500, 3) }
+    resultarray = Array.new(@numberofjob.to_i) { Array.new(500, 0) }
     
     
     index = 0
@@ -402,8 +412,8 @@ class ProjectsController < ApplicationController
     #   end
     # end
     
-    team = 0
     
+    team = 0
     for i in 0..(@numberofgroup.to_i)-1 do 
        team = i+1
        for j in 0..(@numberofjob.to_i)-1 do
@@ -421,7 +431,8 @@ class ProjectsController < ApplicationController
        end
     end
     
-    redirect_to "/projects/#{@current_project_id}/#{current_user.id}"
+    
+    redirect_to "/projects/#{@current_project_id}"
   end
   
   #만족도 평가 페이지
@@ -437,12 +448,18 @@ class ProjectsController < ApplicationController
     params.require(:project).permit(:name, :content, :deadline, :numateam, :numjob, :user_id, :state, :image)
   end
   
-  
-
-  
-  
   def check
   end
   
-
+  def allow_iframe
+    response.headers['X-Frame-Options'] = 'ALLOW-FROM https://www.16personalities.com/'
+  end
+  
+  # def allow_iframe
+  #   response.headers.except! 'X-Frame-Options'
+  # end
+  
+  
+  
+  
 end

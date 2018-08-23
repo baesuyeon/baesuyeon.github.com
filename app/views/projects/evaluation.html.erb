@@ -67,13 +67,13 @@
                 </div>
             
         </div>
-        <% @teams.each do |team| %>
+        
         <div class="questImage_e2">
                 <div class="evaluation_title">
                팀원 평가하기
                 </div>
             
-            
+            <% @teams.each do |team| %>
             <div class="text_e2">
              <div class ="team">
              <div class ="character_e2">
@@ -81,12 +81,12 @@
               <%= image_tag "a-1.png"%>
              <!--여기는 캐릭터를 만드는 div-->
              
-              </div>
+              
              <div class="nickname">
                 <!--팀원 이름과 역할☆-->
              <%= Job.find_by(team.role).content %>의 <%= User.find(team.user_id).name %>
 
-             
+             </div>
              </div>
             
              <div class="starRev">
@@ -95,16 +95,18 @@
                 <img src="/blankstar.png" class="test8">
                 <img src="/blankstar.png" class="test9">
                 <img src="/blankstar.png" class="test10">
-              
+             
+            
             </div>
              <input type="hidden" name="projectrating" class="projectrating">
              
              </div>
              
             </div>
-        
+            <% end %>
+            <input type = 'submit' value = '제출하기' class="connect_btn" style="font-size:18px;margin-top:100%;"></input>
         </div>
-        <% end %>
+        
     
         
     </div>

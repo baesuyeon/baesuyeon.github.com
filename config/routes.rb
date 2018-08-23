@@ -19,8 +19,9 @@ Rails.application.routes.draw do
   
   get '/evaluation/:project_id'=> 'projects#evaluation' #만족도 평가 페이지
   get '/check' => 'projects#check'
-
-
+  
+  # 여기 수정좀
+  get '/profile' => 'project#profile'
   
   devise_for :users
   

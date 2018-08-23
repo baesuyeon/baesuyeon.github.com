@@ -37,7 +37,7 @@
         <% if @project.state == 0 %>
             <div class="center">
                 <div class="questImage">
-                    <div class="title">
+                    <div class="title" >
                          <%= @project.name %>
                     </div>
                     
@@ -94,7 +94,7 @@
                         
                         <!--팀 짜는 버튼-->
                         <% if current_user.id == @project.user_id %>
-                            <form action = '/teambuilding2/<%=@project.id%>'>
+                            <form action = '/teambuilding2/<%=@project.id%>' class="make_team">
                                 <input type = 'hidden' name = 'total' value = <%= @numberofpeople %>> </input>
                                 <input type = 'submit' value = '이대로 팀짜기' class="all_btn"> </input>
                             </form>
@@ -115,14 +115,14 @@
         <% elsif @project.state == 1 %>
             <!--만약 멤버라면-->
             <% if current_user.id != @project.user_id%>
-                <div class="ongoing_teambuilding">
+                <div class="ongoing_teambuilding_i">
                     <div class="ongoing_title">
                      # <%= @project.name %>
                     </div>
                 </div>
             <!--만약 매니저라면-->
             <% else %>
-                <div class="ongoing_teambuilding">
+                <div class="ongoing_teambuilding_m">
                     <div class="ongoing_title">
                      # <%= @project.name %>
                     </div>

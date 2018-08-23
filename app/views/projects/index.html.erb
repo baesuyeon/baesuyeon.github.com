@@ -131,7 +131,7 @@
                         </image>
                     </a>
                 </div>
-                <div class="creat_flow">
+                <div class="create_flow">
                     <% @projects.each do |project| %>
                         <% if project.user_id == current_user.id %>
                             <div class="create">
@@ -139,7 +139,7 @@
                                     내가 만든 프로젝트
                                 </h3>
                                 <h1>
-                                    <%= project.name %>
+                                    <%= project.name %> 
                                 </h1>
                                 <button class="all_btn" onclick="location.href='/projects/<%= project.id%>'">입 장</button>
                                 
@@ -170,15 +170,15 @@
                     <h1 >
                         프로젝트 평가하기
                     </h1>
-                    <div class="create_flow">
+                    <div class="create_flow_small">
                         <% @projects.each do |project| %>
                             <% if (project.user_id == current_user.id) && project.state = 4 %>
-                                <a href="/evaluation/<%= project.id %>" style="text-decoration:none;"> <%= project.name %></a><br>
+                                <a href="/evaluation/<%= project.id %>" class="a"> <%= project.name %></a><br>
                             <% end %>
                         <% end %>
                     </div>
                 </div>
-                <div style="overflow:auto; white-space:nowrap;  height:300px; width:600px; " >
+                <div class="create_flow">
                         <% @projects.each do |project| %>
                             <% if project.user_id == current_user.id && project.state == 3 %>
                                 <div class="create">

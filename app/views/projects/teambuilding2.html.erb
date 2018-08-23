@@ -33,14 +33,16 @@
     </head>
 <body class="main_logo">
     <div class="board">
+        <table class="role" >
+            <thead>
+                <th>
                 역할 :      　
-            <% for i in 0 .. (@numberofjob).to_i-1 do %>
-              　   **<%= @Jobs.find(@job[i]).content %>** 　　　　　　
-            <% end %>
-            <br>
-            
-            
-            <% for i in 0..(@numberofgroup)-1 do %>
+                <% for i in 0 .. (@numberofjob).to_i-1 do %>
+                  　   **<%= @Jobs.find(@job[i]).content %>** 　　　　　　
+                <% end %>
+                </th>
+                <tbody>
+                <% for i in 0..(@numberofgroup)-1 do %>
                 * 팀 <%= i+1 %> *
                 <br>
                 
@@ -85,19 +87,11 @@
                 ]]
                 <br>
             <%end%>
+            </tbody>
+            </thead>
+        </div>    
+            <div class="nothing">
             
-            
-            
-            <a href = '#'>다른 팀조합 원해요!</a>
-            <form action = '/projects/<%=@current_project_id%>/completebuilding' method = 'POST'>
-                <input type = 'text', name = 'results' value ="<%=@results %>"></input> <%=@results %>
-                <input type = 'text', name = 'resulttemp' value ="<%=@resulttemp %>"></input> <%=@resulttemp %>
-                <input type = 'hidden', name = 'numberofgroup' value = "<%=@numberofgroup %>"> <%= @numberofgroup %></input>
-                <input type = 'hidden', name = 'numberofjob' value = "<%=@numberofjob %>"> <%= @numberofjob %></input>
-                <input type = 'hidden', name = 'job' value = "<%=@job %>"> <%= @job %></input>
-            
-                <input type = 'submit' value ="통보하기"></input>
-            </form>
             results : <%= @results %><br>
             resulttemp : <%= @resulttemp %><br>
             total : <%= @total.to_i %><br>
@@ -140,6 +134,20 @@
             <% end %>
             
             <br>
+            </div>
+            <a href = '#'>
+                다른 팀조합 원해요!
+            </a>
+            
+            <form action = '/projects/<%=@current_project_id%>/completebuilding' method = 'POST'>
+                <input type = 'text', name = 'results' value ="<%=@results %>"></input> <%=@results %>
+                <input type = 'text', name = 'resulttemp' value ="<%=@resulttemp %>"></input> <%=@resulttemp %>
+                <input type = 'hidden', name = 'numberofgroup' value = "<%=@numberofgroup %>"> <%= @numberofgroup %></input>
+                <input type = 'hidden', name = 'numberofjob' value = "<%=@numberofjob %>"> <%= @numberofjob %></input>
+                <input type = 'hidden', name = 'job' value = "<%=@job %>"> <%= @job %></input>
+            
+                <input type = 'submit' value ="통보하기"></input>
+            </form>
     </div>
 
 
