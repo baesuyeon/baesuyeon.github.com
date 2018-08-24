@@ -39,27 +39,45 @@
     color:#66472A;
 }
 .create_flow_2{
+    margin-left:8px;
      overflow:auto;
      white-space:nowrap;
      height:330px;
-     width:430px;
+     width:400px;
+}
+
+.show_user{
+    color:white;
+    font-size: 15px;
 }
 
 
 .board{
-   
-    width:450px;
-    height:365px;
+    width:400px;
+    height:350px;
+    margin: 0 auto;
     margin-top:55px;
     margin-left:20px;
     margin-bottom:0;
-    padding:10px;
+    padding:5px;
+    padding-left:10px;
     padding-bottom:0;
 }
 .board_2{
+    margin:0 auto;
     float:left;
+    margin-left:20px;
     margin: 10px;
    
+}
+
+.c{
+    margin: 0 auto;
+    text-align:center;
+}
+
+.c4{
+    font-size: 15px;
 }
 
 .connect_btn{

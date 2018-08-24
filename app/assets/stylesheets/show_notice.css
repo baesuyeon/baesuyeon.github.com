@@ -1,41 +1,60 @@
-.table_background{
-    background: url('/assets/8_team_design_background.png') no-repeat;
-    background-size: 800px 550px;
-    
-}
 .notice_table{
-    margin:5% auto;
+    margin-top:-25px;
+    margin-left:250px;
     margin-bottom:0;
     color:white;
     width:800px;
     height:550px;
     text-align:center;
-    
-    padding-top:50px;
-    padding-left: 5%;
-    
+    padding:50px;
+    padding-top:50px;     
+    background: url('/assets/8_team_design_background.png') no-repeat;
+    background-size: 800px 550px;
     text-align:center;
-    border: 4px solid #71480A;
+    font-size: 20px;
+    position: none;
+}
+
+.table_div_t{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.b{
+    margin-top: 5px;
+}
+
+.notice_table h1{
+    color:#71480A;
+    text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+}
+
+.table_he{
+    font-size:25px;
+    color:#71480A;
+    text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
 }
 
 .notice_table tr{
    
-    border: 4px solid #71480A;
+    border: 2px solid #71480A;
+    padding: 3px;
 }
 
 
 .notice_table th{
-    border: 4px solid #71480A;
-	width: 120px;
+    border: 2px solid #71480A;
+	width: 150px;
 	
+    padding: 3px;
     
 }
 
 .notice_member{
     background-color: rgba(0,0,0,0.2);
     border-radius:5px;
-    width: 120px;
-    height: 200px;
+    width: 110px;
+    height: 170px;
     float:left;
     margin:0 auto;
     margin-right: 10px;
@@ -44,18 +63,36 @@
 
 .notice_img{
     margin: 0 auto;
-    width: 120px; height: 120px;
+    width: 100px; height: 100px;
 }
 
-.notice_div .flow{
-     overflow:auto;
-     white-space:nowrap;
-     height:700px;
-     width:400px;
-}
+/*.n_table_background .flow{*/
+/*     overflow:auto;*/
+/*     white-space:nowrap;*/
+/*     height:800px;*/
+/*     width:550px;*/
+/*}*/
 
 .notice_div{
     margin: 0 auto;
     width: 650px;
-    height: 500px;
+    height: 380px;
+    margin-left: 15px;
+}
+
+
+.n_table_background{
+    margin:5% auto;
+    margin-bottom:0;
+    color:white;
+    width:800px;
+    height:550px;
+    text-align:center;
+    /*padding:50px;*/
+    /*padding-top:50px;*/
+    /*padding-left: 5%;*/
+    background: url('/assets/8_team_design_background.png') no-repeat;
+    background-size: 800px 550px;
+    text-align:center;
+    border: 4px solid #71480A;
 }

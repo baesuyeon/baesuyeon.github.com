@@ -36,8 +36,8 @@
     </style>
     </head>
 
-<form action="/evaluate/<%= @project.id %>" method="post">
 <body class="main_logo">
+<form action="/evaluate/<%= @project.id %>" method="post">
     <div class="center">
         <div class="questImage_e1">
             <div class="evaluation_title">
@@ -55,6 +55,7 @@
              설계자 : <%= @pm.name %>
             </div>
               
+              <% if @project.state == 3 && current_user.id != @project.user_id%>
             <!--여기는 평점 클릭 -->
             <div class="starRev">
                 <img src="/blankstar.png" class="rating1">
@@ -68,11 +69,13 @@
             <!--여기는 서술 입력창-->
             <div class ="input">
                     <input type = 'text' name = 'detail-evaluation' class="detail_e1" placeholder="이번 프로젝트에 대해서 느낀 점을 아무거나 말해주세요."></input>
+                <%end%>    
                 </div>
                 
+                    
                 
                 </div>
-            
+        
         
         
         
@@ -128,9 +131,9 @@
                    <% end %>
                  
                  <!--여기는 캐릭터를 만드는 div-->
-                     <div >
+                     <div class="show_user">
                     <!--팀원 이름과 역할☆-->
-                         <%= Job.find_by(id: team.role).content %>의 <%= User.find(team.user_id).name %>
+                         <%= Job.find_by(id: team.role).content %>의 '<%= User.find(team.user_id).name %>'
     
                      </div>
                      </div>
@@ -156,7 +159,7 @@
           </div>        
         </div>
         
-                <input type = 'submit' value = '제출하기' class="connect_btn">
+                <button type = 'submit' class="connect_btn">제출하기</button>
                 
             
                 
@@ -177,8 +180,8 @@
     
        
     </div>
-</body>
 </form>     
 
+</body>
 
 </html>

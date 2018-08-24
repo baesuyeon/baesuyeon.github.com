@@ -134,6 +134,7 @@
                 <div class="create_flow">
                     <% @projects.each do |project| %>
                         <% if project.user_id == current_user.id %>
+                            <% if project.state != 3 %>
                             <div class="create">
                                 <h4>
                                     내가 관리하는 퀘스트
@@ -149,6 +150,7 @@
                                 <br><button style="margin-top:10px;" class="all_btn" onclick="location.href='/projects/<%= project.id%>'">입 장</button>
                                 
                             </div>
+                            <% end %>
                         <%end%>
                     <% end %>
                 </div>
@@ -157,10 +159,13 @@
                  <div class="create_flow_3">
                     <% @likes.each do |like| %>
                         <% if like.user_id == current_user.id %>
+                            <% project = Project.find(like.project) %>
+                            <% if Project.find(like.project).state != 3 %>
+                                 
                             <div class="create">
                                 <h4>참여한 퀘스트</h4>
                                 <h2 class="bold_name">
-                                    <%= like.project.name %> 
+                                  <%= like.project.name %> 
                                 </h2>
                                 <% link_to Project.find(like.project_id).name, "/projects/#{like.project_id}"%>
                                 <!-- 프로젝트 생성할 때 첨부한 이미지 불러오는 코드 -->
@@ -172,6 +177,7 @@
                                  <br><button style="margin-top:10px;" class="all_btn" onclick="location.href='/projects/<%=like.project_id%>'">입 장</button>
                                  
                             </div>
+                            <% end %>
                         <% end %>
                     <% end %>
                 </div>
@@ -180,9 +186,9 @@
                 <!--완료 프로젝트-->
                 <div class="create">
                     <h2 style="color:#bfbfbf">
-                        완료한 퀘스트 평가하기
+                        내가 만든 퀘스트 평가보기
                     </h2>
-                    <div class="create_flow_small">
+                    <div class="create_flow_small"> 
                         <% @projects.each do |project| %>
                             <% if (project.user_id == current_user.id) && project.state = 4 %>
                                 <a href="/evaluation/<%= project.id %>" class="a"> <%= project.name %></a><br>
@@ -191,29 +197,22 @@
                     </div>
                 </div>
                 <div class="create_flow">
-                        <% @projects.each do |project| %>
-                            <% if project.user_id == current_user.id && project.state == 3 %>
-                                <div class="create">
-
-     
-                                    <h3>
-                                        완료한 퀘스트
-                                    </h3>
-                                    <h2 class="bold_name">
-                                        <%= project.name %>
-                                    </h2>
-                                    
-                                    <button class="all_btn" onclick="location.href='/evaluation/<%= project.id%>'">입 장</button>
-                                </div>
-                            <%end%>
+                    <% @likes.each do |like| %>
+                        <% if like.user_id == current_user.id %>
+                    <div class="create"> 
+                        <h4>완료된 퀘스트</h4>
+                        <% project = Project.find(like.project) %>
+                        <% if Project.find(like.project).state == 3 %>
+                         <h2 class="bold_name"><%= project.name %></h2>
+                        <button style="margin-top:10px;" class="all_btn" onclick="location.href='/evaluation/<%= project.id %>'" >입 장</button>
+                    </div>              
                         <% end %>
-                    </div>
-                
+                    <% end %>
+                <% end %>
+                </div>
             </div>
             
-                    
-                    
-        
+
         </div>  
         
               

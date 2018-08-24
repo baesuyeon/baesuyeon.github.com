@@ -42,6 +42,8 @@
                          <%= @project.name %>
                     </div>
                     
+                    
+                    
                     <div>
                         <h1 class="form_goal">@@ <%= @project.content %> @@</h1><br>
                         <h2 class="form_deadline"><%= @project.deadline %> 까지</h2>
@@ -194,6 +196,7 @@
                         <% end %>
                         <!--만약 멤버라면 끝-->
                         
+                        
                         <h3 style="color:white;">퀘스트 참여 인원 : <%= @numberofpeople %> 명 <h3><br>
                         
                         <!--팀 짜는 버튼-->
@@ -202,6 +205,8 @@
                                 <input type = 'hidden' name = 'total' value = <%= @numberofpeople %>> </input>
                                 <input type = 'submit' value = '이대로 팀짜기' class="connect_btn"> </input>
                             </form>
+                            
+                           
                         <% end %>
                         </div>  
                     <br><br>
@@ -263,9 +268,9 @@
             
             <div class="notice_table">
 
-                   <h2>:: <%= @project.name %> ::</h2>
+                   <h1>:: <%= @project.name %> ::</h1>
                 <!--작성해야함-->
-                <h3>'<%= User.find(current_user.id).name %>' 님의 팀입니다 </h3>
+                <h2>'<%= User.find(current_user.id).name %>' 님의 팀입니다 </h2>
                 
 
                 <% i = 0 %>
@@ -286,7 +291,7 @@
                 <!--출력문-->
                 
                 <% i = 0 %>                
-                <div class="notice_div flow">
+                <div class="notice_div">
                 <% while @final[ttemp][i] != 0 do %>
                 <div class="notice_member">
                     <h3><%= User.find(@final[ttemp][i].to_i).name %>  : </h3>
@@ -344,16 +349,18 @@
                 <!--<div class="completeteam_m">
                 팀빌딩 완료!
                 </div>-->
-    <div class="table_background">
-        <table class="notice_table">
-         <!--여기를 테이블로 만들기-->       
-            <thead style="color:white;">
+        <div class="notice_table">
+         <div class="table_div">
+             <h1>:: <%= @project.name %> ::</h1>
+        <table class="table_div_t">
+         <!--여기를 테이블로 만들기-->
+            <thead class="table_he">
                   <th>역할</th>     　
                     <% for i in 0 .. (@project.numjob).to_i-1 do %>
                      <th><%= @jobs.find(@job[i]).content %></th> 　　　　　　
                     <% end %> 
             </thead>
-            <tbody style="color:black;">                    
+            <tbody style="color:black;font-size:20px;">                    
                 <!--출력문-->
                 <% i = 0 %>
                 <% j = 0 %>
@@ -398,18 +405,19 @@
             <% end %>    </tbody>
             
         </table> 
-    </div>
+   </div>
+   <br>
         <% if current_user.id == @project.user_id%>
-             <form style="align:center; "action = '/projects/<%= @project.id %>/ending' method = "POST">
+             <form action = '/projects/<%= @project.id %>/ending' method = "POST">
                 <!--<input type = 'text' name = 'input_title'></input>-->
-                <button class="all_btn" type = 'submit'>끝내기</button>
+                <button class="all_btn b" type = 'submit'>끝내기</button>
             </form>
         <% end %>
             
             
             <!--테이블 끝-->
             <!--while 끝-->
-            <%# if j != @arrs[@hash[@results[j][i]]][1] - @job[0] %>-->
+            <%# if j != @arrs[@hash[@results[j][i]]][1] - @job[0] %>
   <!--                      <%# for k in 2..@numberofjob do %>-->
   <!--                          <%# if j == @arrs[@hash[@results[j][i]]][k] - @job[0]%>-->
   <!--                              <%# break %>-->
@@ -426,7 +434,7 @@
         
         
                 
-                <a href="/projects"><image src="/assets/go_back_white.png" class="go_back"></a>
+                
            
            
             
@@ -436,10 +444,26 @@
            
            
         <% elsif @project.state == 3 %>
+        <div style="width:100%;height:100%;marign:0 auto;">
+            <h1 style="text-align:center; margin: 0 auto;margin-top:20%; color:white; font-size:60px; ">완료된 프로젝트 입니다. </h1>
+        </div>
+        <br>        <% end %> 
         
-            <h2 style="color:white;">끝난 프로젝트 입니다. </h2>
-        <% end %> 
         <!--state 끝-->
+        
+        <% if @project.state == 3 && current_user.id != @project.user_id%>
+        <div class="c">
+            
+            <form style="align:center; "action = '/evaluation/<%= @project.id %>' method = 'GET'>
+                <!--<input type = 'text' name = 'input_title'></input>-->
+                <button class="all_btn c4" type = 'submit'>평가하러가기</button>
+            </form><br><br>
+            <a href="/projects"><image src="/assets/go_back_white.png" class="go_back" style="float:left; margin-left:10px;"></a>
+        
+          <% end %> 
+        </div>
+        
+        
         </body>
 </html>    
 <!--코드의 무덤-->

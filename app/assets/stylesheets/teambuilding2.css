@@ -2,6 +2,7 @@
 
 .nothing{
     color:red;
+    display:none;
     
 }
 .design_table{
@@ -44,7 +45,13 @@
     margin-top:17%;
     padding-top:0;
 }
-.another_team{
+.another_team, .another_team:hover{
+    text-decoration: none;
+    color:black;
+    font-size:22px;
+    
+    margin:30px;
+    margin-left:500px;
     
 }
 
