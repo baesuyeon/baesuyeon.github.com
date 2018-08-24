@@ -201,6 +201,7 @@
 }
 
 .bold_name{
+    margin: 0;
     font-weight: bold;
     color:black;
     text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
@@ -234,6 +235,12 @@
      white-space:nowrap;
      height:300px;
      width:600px;
+}
+.create_flow_3{
+     overflow:auto;
+     white-space:nowrap;
+     height:300px;
+     width:900px;
 }
 .create_flow_small{
      overflow:auto;

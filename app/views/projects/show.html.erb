@@ -271,6 +271,7 @@
                 <% end %>
                 
                 <!--출력문-->
+                
                 <% i = 0 %>                
                 <% while @final[ttemp][i] != 0 do %>
                 <div class="notice_member">
@@ -278,77 +279,80 @@
                     <h3><%= Job.find(Like.find_by(user: @final[ttemp][i].to_i).role).content %></h3>
                     <h3><%= User.find(@final[ttemp][i]).mbti %></h3>
                 
-                
+
                     <% obj = User.find(@final[ttemp][i].to_i).mbti %>  
-                    <div class="notice_img">
-                       <% case obj  %>
-                           <% when 'INTJ' %>
-                             <img src="/assets/A-1.png"></img>
-                           <% when "INTP" %>
-                              <img src="/assets/A-2.png"></img>
-                           <% when "ENTJ" %>
-                              <img src="/assets/A-3.png"></img>
-                           <% when "ENTP" %>
-                              <img src="/assets/A-4.png"></img>
-                           <% when "INFJ" %>
-                              <img src="/assets/D-1.png"></img>
-                           <% when "INFP" %>
-                              <img src="/assets/D-2.png"></img>
-                           <% when "ENFJ" %>
-                              <img src="/assets/D-3.png"></img>
-                           <% when "ENFP" %>
-                              <img src="/assets/D-4.png"></img>
-                           <% when "ISTP" %>
-                              <img src="/assets/E-1.png"></img>
-                           <% when "ISFP" %>
-                              <img src="/assets/E-2.png"></img>
-                           <% when "ESTP" %>
-                              <img src="/assets/E-3.png"></img>
-                           <% when "ESFP" %>
-                              <img src="/assets/E-4.png"></img>
-                           <% when "ISTJ" %>
-                              <img src="/assets/S-1.png"></img>
-                           <% when "ISFJ" %>
-                              <img src="/assets/S-2.png" ></img>
-                           <% when "ESTJ" %>
-                              <img src="/assets/S-3.png" ></img>
-                           <% when "ESFJ" %>
-                              <img src="/assets/S-4.png" ></img>
-                       <% else %>
-                         <%= '이미지를 찾을 수 없습니다. ㅠ_ㅠ' %>
-                       <% end %>
-                   <% i = i + 1 %>
-                   </div>
+
+                        <div class="notice_img">
+                           <% case obj  %>
+                               <% when 'INTJ' %>
+                                 <img src="/assets/A-1.png"></img>
+                               <% when "INTP" %>
+                                  <img src="/assets/A-2.png"></img>
+                               <% when "ENTJ" %>
+                                  <img src="/assets/A-3.png"></img>
+                               <% when "ENTP" %>
+                                  <img src="/assets/A-4.png"></img>
+                               <% when "INFJ" %>
+                                  <img src="/assets/D-1.png"></img>
+                               <% when "INFP" %>
+                                  <img src="/assets/D-2.png"></img>
+                               <% when "ENFJ" %>
+                                  <img src="/assets/D-3.png"></img>
+                               <% when "ENFP" %>
+                                  <img src="/assets/D-4.png"></img>
+                               <% when "ISTP" %>
+                                  <img src="/assets/E-1.png"></img>
+                               <% when "ISFP" %>
+                                  <img src="/assets/E-2.png"></img>
+                               <% when "ESTP" %>
+                                  <img src="/assets/E-3.png"></img>
+                               <% when "ESFP" %>
+                                  <img src="/assets/E-4.png"></img>
+                               <% when "ISTJ" %>
+                                  <img src="/assets/S-1.png"></img>
+                               <% when "ISFJ" %>
+                                  <img src="/assets/S-2.png" ></img>
+                               <% when "ESTJ" %>
+                                  <img src="/assets/S-3.png" ></img>
+                               <% when "ESFJ" %>
+                                  <img src="/assets/S-4.png" ></img>
+                           <% else %>
+                             <%= '이미지를 찾을 수 없습니다. ㅠ_ㅠ' %>
+                           <% end %>
+                       <% i = i + 1 %>
+                       </div>
+
                 </div> 
                 <% end %>
                 </div>
             <!--만약 매니저라면-->
             <% elsif current_user.id == @project.user_id%>
             
-            
+                <div class="completeteam_m">
                 팀빌딩 완료!
-                <br>
-                  역할 :      　
-                    <% for i in 0 .. (@project.numjob).to_i-1 do %>
-                        <%= @jobs.find(@job[i]).content %>** 　　　　　　
-                    <% end %> 
-                <br> 
+                </div>
+                <!--<br>-->
+                <!--  역할 :      　-->
+                <!--    <%# for i in 0 .. (@project.numjob).to_i-1 do %>-->
+                <!--        <%#= @jobs.find(@job[i]).content %>** 　　　　　　-->
+                <!--    <%# end %> -->
+                <!--<br> -->
                                 
                 <!--출력문-->
-                <% i = 0 %>
-                <% j = 0 %>
+                <!--<%# i = 0 %>-->
+                <!--<%# j = 0 %>-->
                
-                <% while @final[i][j] != 0 do %>
-                팀 <%= i + 1 %> : 
-                    <% while @final[i][j] !=0 do %>
+                <!--<%# while @final[i][j] != 0 do %>-->
+                <!--팀 <%#= i + 1 %> : -->
+                <!--    <%# while @final[i][j] !=0 do %>-->
                           <%#= @final[i][j] %> 
-                    　　　<%= User.find(@final[i][j].to_i).name %> 　　　　　
-                          <% j = j + 1 %>
-                    <% end %>
-                    <% i = i + 1 %>
-                    <% j = 0 %>
-                    <br>
-                <% end %>
+                <!--    　　　<%#= User.find(@final[i][j].to_i).name %> 　　　　　-->
+                <!--          <%# j = j + 1 %>-->
+                <!--    <%# end %>-->
+                <!--    <%# i = i + 1 %>-->
+                <!--    <%# j = 0 %>-->
+                <!--    <br>-->
+                <!--<%# end %>-->
                 
             <% else %>    
                  Who are you?
@@ -357,7 +361,7 @@
         
         <% elsif @project.state == 3 %>
     
-    
+            
         <% end %> 
         <!--state 끝-->
         </body>
@@ -386,4 +390,4 @@ function copy_trackback(address) {
         <!--    <div class="q_start_title">-->
         <!--     # <%#= @project.name %>-->
         <!--    </div>-->
-        <!--</div>-->
+        <!--</div>--> <!--</div>-->

@@ -172,8 +172,8 @@
 }
 
 .text_2 {
-    padding-top:0;
-    margin-top: 55px;
+    /*padding-top:0;*/
+    /*margin-top: 55px;*/
 }
 .all_btn{
     padding-top:0;
@@ -323,10 +323,10 @@
     background-image: url("/assets/popup.png");
     background-size: cover;
     background-position:center;
-    margin-right:50%;
+   
     width:180px;
-    height:180px;
-    float:left;
+    height:130px;
+   
     
 }
 .mbti_img_e2{
@@ -343,9 +343,9 @@
 .starRev_individual{
     width:170px;
     height:32px;
-    margin-left:2%;
-    margin-bottom: 25%;
-    float:left;
+    /*margin-left:2%;*/
+    /*margin-bottom: 25%;*/
+    
     
 }
 
@@ -406,7 +406,7 @@
     background-position:center;
     
 }
-.ongoing_title ,.q_start_title{
+.ongoing_title ,.q_start_title, .completeteam_m{
     font-size:38px;
     text-align:center;
     color:#222034;
@@ -428,4 +428,15 @@
     /*padding-left:30%;*/
     /*width: 70%;*/
     
+}
+
+/*팀빌딩완료창*/
+.completeteam_m{
+    margin: 0 auto;
+    margin-top: 10%;
+    width:500px;
+    height:500px;
+    background-image: url("/assets/complete.png");
+    background-size: cover;
+    background-position:center;
 }

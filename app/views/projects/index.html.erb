@@ -146,7 +146,7 @@
                                 <% else %>
                                 <img src="<%= project.image %>" style="width:100px; height:100px;">
                                 <% end %>
-                                <button class="all_btn" onclick="location.href='/projects/<%= project.id%>'">입 장</button>
+                                <br><button style="margin-top:10px;" class="all_btn" onclick="location.href='/projects/<%= project.id%>'">입 장</button>
                                 
                             </div>
                         <%end%>
@@ -154,7 +154,7 @@
                 </div>
             </div>
             <div class="myDIV2"> 
-                 <div class="create_flow">
+                 <div class="create_flow_3">
                     <% @likes.each do |like| %>
                         <% if like.user_id == current_user.id %>
                             <div class="create">
@@ -169,7 +169,7 @@
                                 <% else %>
                                 <img src="<%= like.project.image %>" style="width:100px; height:100px;">
                                 <% end %>
-                                 <br><button class="all_btn" onclick="location.href='/projects/<%=like.project_id%>'">입 장</button>
+                                 <br><button style="margin-top:10px;" class="all_btn" onclick="location.href='/projects/<%=like.project_id%>'">입 장</button>
                                  
                             </div>
                         <% end %>

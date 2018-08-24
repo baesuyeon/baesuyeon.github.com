@@ -11,6 +11,8 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <script src="/assets/javascripts/evaluation.js"></script>
         <link rel="stylesheet" type="text/css" href="new.css">
+        <link rel="stylesheet" type="text/css" href="show.css">
+        <link rel="stylesheet" type="text/css" href="evaluation.css">
          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <style>
        @font-face 
@@ -44,11 +46,10 @@
             <div class="text_e1">
                 프로젝트 : <%= @project.name %>
                 <div class ="character_e1">
-                    <!--설계자 mbti 캐릭터☆-->
+                 <!--설계자 mbti 캐릭터☆-->
                     <%= image_tag "a-1.png" %>
-             <!--여기는 캐릭터를 만드는 div-->
-             
-            </div>
+                 <!--여기는 캐릭터를 만드는 div-->
+                </div>
             <!--매니저이름☆-->
             <div class="nickname">
              설계자 : <%= @pm.name %>
@@ -65,42 +66,25 @@
             </div>
             </div>
             <!--여기는 서술 입력창-->
-                <div class ="input">
+            <div class ="input">
                     <input type = 'text' name = 'detail-evaluation' class="detail_e1" placeholder="이번 프로젝트에 대해서 느낀 점을 아무거나 말해주세요."></input>
                 </div>
             
         </div>
         
-        <div class="questImage_e2">
-                <div class="evaluation_title">
-               팀원 평가하기
-                </div>
-                <div class="board">
-                    
-                </div>
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                   <!--스크롤바를 만들기-->
-            <div class="create_flow">
-                  <div class="text_e2"> <!-- 여기 css 고쳐주세요 -->
+    <div class="questImage_e2">
+        <div class="evaluation_title">
+           팀원 평가하기
+        </div>
+        <div class="board">
+          <div class="create_flow_2">
             <% @itr = 1 %>
             <% if current_user.id != @pm.id %>
                 <% @teams.each do |team| %>
                 <% if team.team == Like.find_by(user_id: current_user.id).team %>
-               
-              
-    
-                 <div class ="team">
-                     <div class ="character_e2">
+             <div class="board_2">
+                 <div class ="character_e2">
                     <!--팀원 mbti 캐릭터☆-->
-                     <div class="mbti_img_e2">
                    <% obj = User.find_by(id: team.user_id).mbti %>
                    <% case obj  %>
                    <% when 'INTJ' %>
@@ -138,10 +122,8 @@
                    <% else %>
                      <%= '이미지를 찾을 수 없습니다. ㅠ_ㅠ' %>
                    <% end %>
-                </div>  
-                 <!--여기는 캐릭터를 만드는 div-->
                  
-                  
+                 <!--여기는 캐릭터를 만드는 div-->
                      <div >
                     <!--팀원 이름과 역할☆-->
                          <%= Job.find_by(id: team.role).content %>의 <%= User.find(team.user_id).name %>
@@ -150,22 +132,24 @@
                      </div>
                  <!-- 어디가서 평점 코드 이렇게 짜면 욕 오지게 먹습니다 -->
                  <!-- 마음이 급해서 real hard coding 했습니다 -->
-                     <div class="starRev_individual">
+                 <div class="starRev_individual">
                         <img src="/blankstar.png" class="rating1<%= @itr %>" style="width:30px;height:30px;">
                         <img src="/blankstar.png" class="rating2<%= @itr %>" style="width:30px;height:30px;">
                         <img src="/blankstar.png" class="rating3<%= @itr %>" style="width:30px;height:30px;">
                         <img src="/blankstar.png" class="rating4<%= @itr %>" style="width:30px;height:30px;">
                         <img src="/blankstar.png" class="rating5<%= @itr %>" style="width:30px;height:30px;">
                     </div>
-                    <input type="hidden" name="projectrating<%= @itr %>" class="projectrating<%= @itr %>">
-                 
-                 </div>
-                 </div>
-                </div>
-                <% @itr = @itr + 1 %>
+                    
+                <input type="hidden" name="projectrating<%= @itr %>" class="projectrating<%= @itr %>">
+            </div> 
+          
+               <% @itr = @itr + 1 %>
                 <% end %>
                 <% end %>
-                <input type = 'submit' value = '제출하기' class="connect_btn" style="font-size:18px;margin-top:100%;">
+          </div>        
+        </div>
+        
+                <input type = 'submit' value = '제출하기' class="connect_btn">
             <% else %> <!-- PM은 현재 매겨진 평점 확인하도록 함 -->
                 <% @teams.each do |team| %>
                     <div class="text_e23">
@@ -173,13 +157,18 @@
                     </div>
                 <% end %>
             <% end %>
-        </div>
+           
+        
+ 
+         
+               
+    </div>
         
     
-</form>        
+       
     </div>
-    </body>
-    
+</body>
+</form>     
 
 
 </html>
