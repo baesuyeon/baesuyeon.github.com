@@ -54,7 +54,7 @@
             <div class="nickname">
              설계자 : <%= @pm.name %>
             </div>
-                
+              
             <!--여기는 평점 클릭 -->
             <div class="starRev">
                 <img src="/blankstar.png" class="rating1">
@@ -69,8 +69,12 @@
             <div class ="input">
                     <input type = 'text' name = 'detail-evaluation' class="detail_e1" placeholder="이번 프로젝트에 대해서 느낀 점을 아무거나 말해주세요."></input>
                 </div>
+                
+                
+                </div>
             
-        </div>
+        
+        
         
     <div class="questImage_e2">
         <div class="evaluation_title">
@@ -132,6 +136,9 @@
                      </div>
                  <!-- 어디가서 평점 코드 이렇게 짜면 욕 오지게 먹습니다 -->
                  <!-- 마음이 급해서 real hard coding 했습니다 -->
+                 
+                 
+                 
                  <div class="starRev_individual">
                         <img src="/blankstar.png" class="rating1<%= @itr %>" style="width:30px;height:30px;">
                         <img src="/blankstar.png" class="rating2<%= @itr %>" style="width:30px;height:30px;">
@@ -150,6 +157,9 @@
         </div>
         
                 <input type = 'submit' value = '제출하기' class="connect_btn">
+                
+            
+                
             <% else %> <!-- PM은 현재 매겨진 평점 확인하도록 함 -->
                 <% @teams.each do |team| %>
                     <div class="text_e23">

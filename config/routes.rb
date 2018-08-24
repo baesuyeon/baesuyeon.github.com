@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   # delete '/projects/:id' => 'projects#destroy'
   post '/projects/:id/completebuilding' => 'projects#completebuilding'
   # get '/projects/:id/completebuilding' => 'projects#completebuilding'
+  post '/projects/:id/ending' => 'projects#ending'
   
   get '/evaluation/:project_id'=> 'projects#evaluation' #만족도 평가 페이지
   post '/evaluate/:project_id'=> 'projects#evaluate'

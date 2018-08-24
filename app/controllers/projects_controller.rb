@@ -110,6 +110,14 @@ class ProjectsController < ApplicationController
   def destroy
   end
   
+  def ending
+    @p = Project.find(params[:id])
+    @p.state = 3
+    @p.save
+    
+    redirect_to "/projects"
+  end
+  
   def teambuilding2
     @likes = Like.all
     @Users = User.all

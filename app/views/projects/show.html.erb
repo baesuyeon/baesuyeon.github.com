@@ -281,13 +281,12 @@
                     <% end %>
                     <% i = i + 1 %>
                     <% j = 0 %>
-                    <br>
                 <% end %>
                 
                 <!--출력문-->
                 
                 <% i = 0 %>                
-                
+                <div class="notice_div flow">
                 <% while @final[ttemp][i] != 0 do %>
                 <div class="notice_member">
                     <h3><%= User.find(@final[ttemp][i].to_i).name %>  : </h3>
@@ -299,61 +298,62 @@
                         <div class="notice_img">
                            <% case obj  %>
                                <% when 'INTJ' %>
-                                 <img src="/assets/A-1.png"></img>
+                                 <img src="/assets/A-1.png" class="notice_img"></img>
                                <% when "INTP" %>
-                                  <img src="/assets/A-2.png"></img>
+                                  <img src="/assets/A-2.png" class="notice_img"></img>
                                <% when "ENTJ" %>
-                                  <img src="/assets/A-3.png"></img>
+                                  <img src="/assets/A-3.png" class="notice_img"></img>
                                <% when "ENTP" %>
-                                  <img src="/assets/A-4.png"></img>
+                                  <img src="/assets/A-4.png" class="notice_img"></img>
                                <% when "INFJ" %>
-                                  <img src="/assets/D-1.png"></img>
+                                  <img src="/assets/D-1.png" class="notice_img"></img>
                                <% when "INFP" %>
-                                  <img src="/assets/D-2.png"></img>
+                                  <img src="/assets/D-2.png" class="notice_img"></img>
                                <% when "ENFJ" %>
-                                  <img src="/assets/D-3.png"></img>
+                                  <img src="/assets/D-3.png" class="notice_img"></img>
                                <% when "ENFP" %>
-                                  <img src="/assets/D-4.png"></img>
+                                  <img src="/assets/D-4.png" class="notice_img"></img>
                                <% when "ISTP" %>
-                                  <img src="/assets/E-1.png"></img>
+                                  <img src="/assets/E-1.png" class="notice_img"></img>
                                <% when "ISFP" %>
-                                  <img src="/assets/E-2.png"></img>
+                                  <img src="/assets/E-2.png" class="notice_img"></img>
                                <% when "ESTP" %>
-                                  <img src="/assets/E-3.png"></img>
+                                  <img src="/assets/E-3.png" class="notice_img"></img>
                                <% when "ESFP" %>
-                                  <img src="/assets/E-4.png"></img>
+                                  <img src="/assets/E-4.png" class="notice_img"></img>
                                <% when "ISTJ" %>
-                                  <img src="/assets/S-1.png"></img>
+                                  <img src="/assets/S-1.png" class="notice_img"></img>
                                <% when "ISFJ" %>
-                                  <img src="/assets/S-2.png" ></img>
+                                  <img src="/assets/S-2.png" class="notice_img"></img>
                                <% when "ESTJ" %>
-                                  <img src="/assets/S-3.png" ></img>
+                                  <img src="/assets/S-3.png" class="notice_img" ></img>
                                <% when "ESFJ" %>
-                                  <img src="/assets/S-4.png" ></img>
+                                  <img src="/assets/S-4.png" class="notice_img"></img>
                            <% else %>
                              <%= '이미지를 찾을 수 없습니다. ㅠ_ㅠ' %>
                            <% end %>
                        </div>
                 </div> 
                 <% end %>
-                <a href="/projects"><image src="/assets/go_back.png" class="go_back"></a>
+                </div>
+                <!--<a href="/projects"><image src="/assets/go_back.png" class="go_back"></a>-->
                 </div>
             <!--만약 매니저라면-->
             <% elsif current_user.id == @project.user_id%>
             
-                <div class="completeteam_m">
+                <!--<div class="completeteam_m">
                 팀빌딩 완료!
-                </div>
-
+                </div>-->
+    <div class="table_background">
         <table class="notice_table">
          <!--여기를 테이블로 만들기-->       
-            <thead>
+            <thead style="color:white;">
                   <th>역할</th>     　
                     <% for i in 0 .. (@project.numjob).to_i-1 do %>
                      <th><%= @jobs.find(@job[i]).content %></th> 　　　　　　
                     <% end %> 
             </thead>
-            <tbody>                    
+            <tbody style="color:black;">                    
                 <!--출력문-->
                 <% i = 0 %>
                 <% j = 0 %>
@@ -366,10 +366,24 @@
                         <%#= @final[i][j] %> 
                 <th> 　 <%= User.find(@final[i][j].to_i).name %> :
                              <% if @likes.find_by(user: @final[i][j].to_i, project: @project.id).role.to_i !=  @likes.find_by(user: @final[i][j].to_i, project: @project.id).one.to_i %>
-                                 지망과 다름
+                                 
+                                     <% if @likes.find_by(user: @final[i][j].to_i, project: @project.id).role.to_i == @likes.find_by(user: @final[i][j].to_i, project: @project.id).two.to_i  %>
+                                         <%#= Job.find(@likes.find_by(user: @final[i][j].to_i, project: @project.id).two).content %>2지망
+                                     <% elsif  @likes.find_by(user: @final[i][j].to_i, project: @project.id).role.to_i == @likes.find_by(user: @final[i][j].to_i, project: @project.id).three.to_i  %>
+                                         <%#= Job.find(@likes.find_by(user: @final[i][j].to_i, project: @project.id).three).content %>3지망
+                                     <% elsif @likes.find_by(user: @final[i][j].to_i, project: @project.id).role.to_i == @likes.find_by(user: @final[i][j].to_i, project: @project.id).four.to_i  %>
+                                         <%#= Job.find(@likes.find_by(user: @final[i][j].to_i, project: @project.id).four).content %>4지망
+                                     <% elsif @likes.find_by(user: @final[i][j].to_i, project: @project.id).role.to_i == @likes.find_by(user: @final[i][j].to_i, project: @project.id).five.to_i  %>    
+                                         <%#= Job.find(@likes.find_by(user: @final[i][j].to_i, project: @project.id).five).content %>5지망
+                                     <% elsif @likes.find_by(user: @final[i][j].to_i, project: @project.id).role.to_i == @likes.find_by(user: @final[i][j].to_i, project: @project.id).six.to_i  %> 
+                                         <%#= Job.find(@likes.find_by(user: @final[i][j].to_i, project: @project.id).six).content %>6지망
+                                     <% end %>
+                                 
+                                 
                                  
                              <% else %>
-                                 <%= @likes.find_by(user: @final[i][j].to_i, project: @project.id).role %>
+                                 <%#= Job.find(@likes.find_by(user: @final[i][j].to_i, project: @project.id).role).content %>
+                                 1지망
                              <% end %>
                 
                         <% j = j + 1 %>
@@ -382,7 +396,15 @@
      
             </tr>    
             <% end %>    </tbody>
+            
         </table> 
+    </div>
+        <% if current_user.id == @project.user_id%>
+             <form style="align:center; "action = '/projects/<%= @project.id %>/ending' method = "POST">
+                <!--<input type = 'text' name = 'input_title'></input>-->
+                <button class="all_btn" type = 'submit'>끝내기</button>
+            </form>
+        <% end %>
             
             
             <!--테이블 끝-->
@@ -404,18 +426,18 @@
         
         
                 
-                <a href="/projects"><image src="/assets/go_back.png" class="go_back"></a>
-        <button class="all_btn" onclick="state();"> 끝내기</button>
-        <script>
-            function state() {
-                <% @project.state = 3 %>
-                <% @project.save %>
-                window.location.href = '/projects';
-            }
-        </script>
-        <% elsif @project.state == 3 %>
-    
+                <a href="/projects"><image src="/assets/go_back_white.png" class="go_back"></a>
+           
+           
             
+           
+           
+           
+           
+           
+        <% elsif @project.state == 3 %>
+        
+            <h2 style="color:white;">끝난 프로젝트 입니다. </h2>
         <% end %> 
         <!--state 끝-->
         </body>
