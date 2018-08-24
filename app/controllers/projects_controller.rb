@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :authenticate_user!, only: [:show]
   # after_action :allow_iframe, only: :profile
   after_action :allow_iframe
   # protected
@@ -261,6 +262,7 @@ class ProjectsController < ApplicationController
              
           for j in 0..(@arrs.size-1) do
             if assign >= min or assign >=  @numberofgroup.to_i
+               @wants[x][0] = -1
               break
             end
             

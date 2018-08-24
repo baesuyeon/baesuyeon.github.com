@@ -153,7 +153,7 @@
             <% else %> <!-- PM은 현재 매겨진 평점 확인하도록 함 -->
                 <% @teams.each do |team| %>
                     <div class="text_e23">
-                    <%= Job.find_by(id: team.role).content %>의 <%= User.find(team.user_id).name %> 평점 : <%= team.rating %><br>
+                    <%= Job.find_by(id: team.role).content %>로서의 <%= User.find(team.user_id).name %> 평점 : <%= team.rating %><br>
                     </div>
                 <% end %>
             <% end %>

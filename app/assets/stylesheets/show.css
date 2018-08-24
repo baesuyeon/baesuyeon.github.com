@@ -176,7 +176,7 @@
     /*margin-top: 55px;*/
 }
 .all_btn{
-    padding-top:0;
+    padding-top:5px;
     margin-top: auto;
 }
 
@@ -184,7 +184,11 @@
     
     color:black;
     text-shadow: -2px 0 #bfbfbf, 0 2px #bfbfbf, 2px 0 #bfbfbf, 0 -2px #bfbfbf;
+    margin-bottom: 5px;
+}
 
+.text_2 td{
+    margin-top: 5px;
 }
 
 .text_3{
@@ -277,7 +281,7 @@
     height:115px;
     font-size:18px;
     text-align:center;
-    background-image: url("/assets/evaluationpage.png");
+    background-image: url("/assets/show_2.png");
     background-size: cover;
     background-position:center;
     color:#BFBFBF;
@@ -288,6 +292,8 @@
 
 .go_back{
     margin-top:5px;
+    margin:10px;
+    margin-bottom:0px;
     width:40px;
     height: 50px;
 }
@@ -295,6 +301,7 @@
 /*팀원평가*/
 .questImage_e2{
     margin: 600px;
+    margin-bottom: 50px;
     position: relative;
     width:556px;
     height:720px;
@@ -409,6 +416,7 @@
 .ongoing_title ,.q_start_title, .completeteam_m{
     font-size:38px;
     text-align:center;
+    /*padding-left: 50px;*/
     color:#222034;
     text-shadow: -2px 0 #E37C3B, 0 2px #E37C3B, 2px 0 #E37C3B, 0 -2px #E37C3B;
     font-weight:bold;
@@ -439,4 +447,27 @@
     background-image: url("/assets/complete.png");
     background-size: cover;
     background-position:center;
+    padding-top:3%;
+}
+
+.notice_table tr{
+   
+    border: 4px solid #71480A;
+}
+
+
+.notice_table th{
+    border: 4px solid #71480A;
+	width: 120px;
+	
+    
+}
+
+.notice_table{
+    margin: 0 auto;
+    width: 600px;
+	border: 4px solid #71480A; 
+	border-radius: 8px;
+
+	
 }

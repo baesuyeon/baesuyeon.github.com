@@ -7,13 +7,13 @@
 }
 .center{
     margin: 0 auto;
-    margin-top:50px;
-    margin-left: 10px;
+    
+   
     /*border:1px solid white;*/
     width:1250px;
     height:500px;
-    padding:20px;
-    padding-top:30px;
+    padding:50px;
+   
     text-align: center;
     
 }
@@ -73,4 +73,7 @@
     color: white;
     font-size:18px;
     margin-top: 5px;
+}
+.text_e23{
+    font-size:28px;
 }

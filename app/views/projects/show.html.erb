@@ -47,11 +47,13 @@
                         <h2 class="form_deadline"><%= @project.deadline %> 까지</h2>
                     </div>
                     
-                    <div class="text_2">
+                    <div class="text_2 ">
+                        
                        <h1>:: 퀘스트 참여 목록 ::<h1>
+                           
                         <% @likes.each do |like| %>
                                 <% if like.project_id == @project.id %>
-                                    <td><h6 style="float:left;"><%= @users.find(like.user_id).name %>&nbsp;</h6></td>
+                                    <td><h5 style="float:left;"><%= @users.find(like.user_id).name %>&nbsp;&nbsp;</h5></td>
                                     <% @numberofpeople = @numberofpeople + 1 %>
                                 <% end %>
                         <% end %>
@@ -84,16 +86,16 @@
                             
                             <form action = '/projects/<%= @project.id%>/like', method = "POST">
                                     <% for i in 1.. @project.numjob %>
-                                        <%= i %> 지망 
+                                        <h5 style="float:left; margin-left:10px;"><%= i %> 지망 &nbsp;( 
                                         <select style="background-color:#222324;color:white;" name = "value<%=i%>" id = "value<%=i%>"> 
                                             <%for j in 1 ..@project.numjob %> 
                                                 <option value= <%=myjob[j-1]%> > <%= @jobs.find(myjob[j-1]).content %> </option> 
                                             <% end %>
-                                        </select>><% end %>
+                                        </select>)&nbsp;</h5><% end %>
                                     <% end %>
                                 
                                     <% unless current_user.is_like?(@project) %>
-                                    <button class="all_btn",type = 'submit'>참여 </button>
+                                    <br><button class="all_btn",type = 'submit'>참여 </button>
                                     <%end%>
                             </form>
                         <% end %>
@@ -149,9 +151,10 @@
                     
                     <div class="text_2">
                        <h1>:: 퀘스트 참여 목록 ::<h1>
+                           
                         <% @likes.each do |like| %>
                                 <% if like.project_id == @project.id %>
-                                    <td><h6 style="float:left;"><%= @users.find(like.user_id).name %>&nbsp;</h6></td>
+                                    <td><h5 style="float:left;"><%= @users.find(like.user_id).name %>&nbsp;</h4></td>
                                     <% @numberofpeople = @numberofpeople + 1 %>
                                 <% end %>
                         <% end %>
@@ -179,14 +182,14 @@
                             
                             <form action = '/projects/<%= @project.id%>/like', method = "POST">
                                     <% for i in 1.. @project.numjob %>
-                                        <%= i %> 지망 <br>
+                                        <h5><%= i %> 지망 </h5>
                                         <select name = "value<%=i%>"> 
                                             <%for j in 1 ..@project.numjob %>
                                                 <option value= <%=myjob[j-1]%> > <%= @jobs.find(myjob[j-1]).content %> </option> 
                                             <% end %>
-                                        </select>><% end %><br>
+                                        </select><% end %>
                                     <% end %>
-                                    <input type = 'submit', value = '참여'>  </input>
+                                   <br><br> <input type = 'submit', value = '참여'>  </input>
                             </form>
                         <% end %>
                         <!--만약 멤버라면 끝-->
@@ -197,7 +200,7 @@
                         <% if current_user.id == @project.user_id %>
                              <form action = '/teambuilding2/<%=@project.id%>' class="make_team">
                                 <input type = 'hidden' name = 'total' value = <%= @numberofpeople %>> </input>
-                                <input type = 'submit' value = '이대로 팀짜기' class="all_btn"> </input>
+                                <input type = 'submit' value = '이대로 팀짜기' class="connect_btn"> </input>
                             </form>
                         <% end %>
                         </div>  
@@ -220,18 +223,27 @@
         <% elsif @project.state == 2 %>
             <% @like = Like.find_by(project: @project.id) %>
             <% @job = [1000, 1000, 1000, 1000, 1000, 1000] %>
-                    
+            
             <% @job[0] = @like.one.to_i%>
             <% @job[1] = @like.two.to_i%>
             <% @job[2] = @like.three.to_i%>
             <% @job[3] = @like.four.to_i%>
             <% @job[4] = @like.five.to_i%>
             <% @job[5] = @like.six.to_i%>
-            <% @job.sort %>
+            
+            
+            <% for q in 0.. 5 do %>
+                <% if @job[q] == nil or @job[q] == 0 %>
+                    <% @job[q] = 1000 %>
+                <% end %>
+            <% end %>
+            
+            <% @job = @job.sort %>
             
             <%# @like = Like.find_by(project: @project.id) %>
             <%#= @like.user_id %>
-                            
+             
+
             <% @likes.each do |like| %>
                         <% if like.project_id == @project.id %>
                                 <% @member = Like.find_by(user: like.user_id) %>
@@ -245,6 +257,8 @@
                         <%end%>
             <% end %>
             
+            
+            <!--멤버인경우-->
             <% if current_user.id != @project.user_id%>
             
             <div class="notice_table">
@@ -273,15 +287,15 @@
                 <!--출력문-->
                 
                 <% i = 0 %>                
+                
                 <% while @final[ttemp][i] != 0 do %>
                 <div class="notice_member">
                     <h3><%= User.find(@final[ttemp][i].to_i).name %>  : </h3>
-                    <h3><%= Job.find(Like.find_by(user: @final[ttemp][i].to_i).role).content %></h3>
+                    <h3><%= Job.find(Like.find_by(user: @final[ttemp][i].to_i, project: @project.id).role).content %> </h3>
                     <h3><%= User.find(@final[ttemp][i]).mbti %></h3>
-                
 
                     <% obj = User.find(@final[ttemp][i].to_i).mbti %>  
-
+                    <% i = i + 1 %> 
                         <div class="notice_img">
                            <% case obj  %>
                                <% when 'INTJ' %>
@@ -319,11 +333,10 @@
                            <% else %>
                              <%= '이미지를 찾을 수 없습니다. ㅠ_ㅠ' %>
                            <% end %>
-                       <% i = i + 1 %>
                        </div>
-
                 </div> 
                 <% end %>
+                <a href="/projects"><image src="/assets/go_back.png" class="go_back"></a>
                 </div>
             <!--만약 매니저라면-->
             <% elsif current_user.id == @project.user_id%>
@@ -331,34 +344,75 @@
                 <div class="completeteam_m">
                 팀빌딩 완료!
                 </div>
-                <!--<br>-->
-                <!--  역할 :      　-->
-                <!--    <%# for i in 0 .. (@project.numjob).to_i-1 do %>-->
-                <!--        <%#= @jobs.find(@job[i]).content %>** 　　　　　　-->
-                <!--    <%# end %> -->
-                <!--<br> -->
-                                
-                <!--출력문-->
-                <!--<%# i = 0 %>-->
-                <!--<%# j = 0 %>-->
-               
-                <!--<%# while @final[i][j] != 0 do %>-->
-                <!--팀 <%#= i + 1 %> : -->
-                <!--    <%# while @final[i][j] !=0 do %>-->
-                          <%#= @final[i][j] %> 
-                <!--    　　　<%#= User.find(@final[i][j].to_i).name %> 　　　　　-->
-                <!--          <%# j = j + 1 %>-->
-                <!--    <%# end %>-->
-                <!--    <%# i = i + 1 %>-->
-                <!--    <%# j = 0 %>-->
-                <!--    <br>-->
-                <!--<%# end %>-->
-                
-            <% else %>    
-                 Who are you?
 
-            <% end %> 
+        <table class="notice_table">
+         <!--여기를 테이블로 만들기-->       
+            <thead>
+                  <th>역할</th>     　
+                    <% for i in 0 .. (@project.numjob).to_i-1 do %>
+                     <th><%= @jobs.find(@job[i]).content %></th> 　　　　　　
+                    <% end %> 
+            </thead>
+            <tbody>                    
+                <!--출력문-->
+                <% i = 0 %>
+                <% j = 0 %>
+                <% k = 0 %>
+               
+                <% while @final[i][j] != 0 do %>
+                <tr>
+                <th>팀 <%= i + 1 %></th>
+                    <% while @final[i][j] !=0 do %>
+                        <%#= @final[i][j] %> 
+                <th> 　 <%= User.find(@final[i][j].to_i).name %> :
+                             <% if @likes.find_by(user: @final[i][j].to_i, project: @project.id).role.to_i !=  @likes.find_by(user: @final[i][j].to_i, project: @project.id).one.to_i %>
+                                 지망과 다름
+                                 
+                             <% else %>
+                                 <%= @likes.find_by(user: @final[i][j].to_i, project: @project.id).role %>
+                             <% end %>
+                
+                        <% j = j + 1 %>
+                    <% end %>
+                </th>    
+                    <% i = i + 1 %>
+                    <% j = 0 %>
+                    <br>
+                <% end %>
+     
+            </tr>    
+            <% end %>    </tbody>
+        </table> 
+            
+            
+            <!--테이블 끝-->
+            <!--while 끝-->
+            <%# if j != @arrs[@hash[@results[j][i]]][1] - @job[0] %>-->
+  <!--                      <%# for k in 2..@numberofjob do %>-->
+  <!--                          <%# if j == @arrs[@hash[@results[j][i]]][k] - @job[0]%>-->
+  <!--                              <%# break %>-->
+  <!--                          <%# end %>-->
+  <!--                      <%# end %>-->
+  <!--                      <%#= @Jobs.find(@arrs[@hash[@results[j][i]]][k]).content %> <%#=k%>지망-->
+                    
+  <!--                  <%# else %>-->
+  <!--                      <%#= @Jobs.find(@arrs[@hash[@results[j][i]]][1]).content %> 1지망-->
+  <!--                  <%# end %>-->
+        </div>
         
+        <br>
+        
+        
+                
+                <a href="/projects"><image src="/assets/go_back.png" class="go_back"></a>
+        <button class="all_btn" onclick="state();"> 끝내기</button>
+        <script>
+            function state() {
+                <% @project.state = 3 %>
+                <% @project.save %>
+                window.location.href = '/projects';
+            }
+        </script>
         <% elsif @project.state == 3 %>
     
             
@@ -366,21 +420,77 @@
         <!--state 끝-->
         </body>
 </html>    
-
+<!--코드의 무덤-->
+  <!--              <table class="table_1">-->
+      
+  <!--              <thead>-->
+        
+  <!--             <th>역할</th>-->
+  <!--             <%# for i in 0 .. (@project.numjob).to_i-1 do %>-->
+  <!--                    <th><%#= @Jobs.find(@job[i]).content %></th>　   　　　　　　-->
+  <!--              <%# end %>-->
+  <!--              </thead>-->
+    
+  <!--              <tbody>-->
+     
+  <!--              <%# for i in 0..(@numberofgroup)-1 do %>-->
+  <!--              <tr>-->
+  <!--              <th>-->
+  <!--                  <%#= i+1 %> 팀 -->
+  <!--              </th>-->
+        
+  <!--      <%# for j in 0..@numberofjob-1 do %>-->
+  <!--        <%# if @results[j][i].present? %>-->
+  <!--            <%# if @Users.find(@results[j][i]).present? %>-->
+  <!--                <%# username = @Users.find(@results[j][i]).name %>-->
+  <!--      <th>  -->
+  <!--                  　<%#= username %>-->
+  <!--              　　<%# if j != @arrs[@hash[@results[j][i]]][1] - @job[0] %>-->
+  <!--                      <%# for k in 2..@numberofjob do %>-->
+  <!--                          <%# if j == @arrs[@hash[@results[j][i]]][k] - @job[0]%>-->
+  <!--                              <%# break %>-->
+  <!--                          <%# end %>-->
+  <!--                      <%# end %>-->
+  <!--                      <%#= @Jobs.find(@arrs[@hash[@results[j][i]]][k]).content %> <%#=k%>지망-->
+                    
+  <!--                  <%# else %>-->
+  <!--                      <%#= @Jobs.find(@arrs[@hash[@results[j][i]]][1]).content %> 1지망-->
+  <!--                  <%# end %>-->
+  <!--      </th>-->
+  <!--            <%# end %>-->
+  <!--        <%# end %>-->
+  <!--      <%# end %>-->
+        
+  <!--      <%#if @resulttemp[i].present? %>-->
+        
+  <!--          <%#if @Users.find(@resulttemp[i]).present? %>-->
+  <!--              <%# username = @Users.find(@resulttemp[i]).name %>-->
+  <!--              <%#= username %>-->
+  <!--              <%#= @Jobs.find(@arrs[@hash [@resulttemp[i]] ][1]).content %> 1지망|　　-->
+  <!--          <%# end %>-->
+  <!--         </th>-->
+        
+  <!--    </tr>  -->
+  <!--      <%# end %>-->
+  <!--      <%#end%>-->
+       
+  <!--  </tbody>-->
+  <!--</table>-->
+                
 
 
 
 <script>
 function copy_trackback(address) {
-	var IE=(document.all)?true:false;
-	var link = document.location.href;
+   var IE=(document.all)?true:false;
+   var link = document.location.href;
 
-	if (IE) {
-		if(confirm("이 글의 주소를 클립보드에 복사하시겠습니까?"))
-			window.clipboardData.setData("Text", link);
-	} else {
-		temp = prompt("이 글의 주소입니다. Ctrl+C를 눌러 클립보드로 복사하세요", link);
-	}
+   if (IE) {
+      if(confirm("이 글의 주소를 클립보드에 복사하시겠습니까?"))
+         window.clipboardData.setData("Text", link);
+   } else {
+      temp = prompt("이 글의 주소입니다. Ctrl+C를 눌러 클립보드로 복사하세요", link);
+   }
 }
 </script>
 

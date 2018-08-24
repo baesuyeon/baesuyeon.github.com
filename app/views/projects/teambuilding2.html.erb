@@ -61,10 +61,11 @@
     </thead>
     
     <tbody>
-      <tr>
+     
+        <% for i in 0..(@numberofgroup)-1 do %>
+        <tr>
           
         <th>
-        <% for i in 0..(@numberofgroup)-1 do %>
         <%= i+1 %> 팀 
         </th>
         
@@ -97,37 +98,37 @@
                 <%= username %>
                 <%= @Jobs.find(@arrs[@hash [@resulttemp[i]] ][1]).content %> 1지망|　　
             <% end %>
-            
+           </th>
+        
+          </tr>  
         <% end %>
         <%end%>
-        </th>
-        
-      </tr>
+       
     </tbody>
   </table>
+  <form action = '/projects/<%=@current_project_id%>/completebuilding' method = 'POST'>
+                <input type = 'hidden', name = 'results' value ="<%=@results %>"></input> <%@results %>
+                <input type = 'hidden', name = 'resulttemp' value ="<%=@resulttemp %>"></input> <%@resulttemp %>
+                <input type = 'hidden', name = 'numberofgroup' value = "<%=@numberofgroup %>"> <%@numberofgroup %></input>
+                <input type = 'hidden', name = 'numberofjob' value = "<%=@numberofjob %>"> <% @numberofjob %></input>
+                <input type = 'hidden', name = 'job' value = "<%=@job %>"> <% @job %></input>
+            
+                <button type = 'submit', class="all_btn">통보하기</button>
+            </form>
 </div> 
+            
+            <div class ="back">
+              <a href="/projects"><image src="/assets/go_back.png" class="go_back"></a>
+            </div>
+
 
     
         <div class="role" >
             
-                   
-                
-            <!--??              -->
-                            
-                            
-                        
-                            
-     
            
-            <form action = '/projects/<%=@current_project_id%>/completebuilding' method = 'POST'>
-                <input type = 'text', name = 'results' value ="<%=@results %>"></input> <%=@results %>
-                <input type = 'text', name = 'resulttemp' value ="<%=@resulttemp %>"></input> <%=@resulttemp %>
-                <input type = 'hidden', name = 'numberofgroup' value = "<%=@numberofgroup %>"> <%= @numberofgroup %></input>
-                <input type = 'hidden', name = 'numberofjob' value = "<%=@numberofjob %>"> <%= @numberofjob %></input>
-                <input type = 'hidden', name = 'job' value = "<%=@job %>"> <%= @job %></input>
+           
             
-                <input type = 'submit' value ="통보하기"></input>
-            </form>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         </div>    
             <div class="nothing">
             
